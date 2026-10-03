@@ -10,6 +10,7 @@
 #
 #   build/harmonyos/release/<Mode>/
 #     openttd-<ver>.<git>.hap            the dual-ABI (unsigned-staged) HAP
+#     openttd-<ver>.<git>-signed.hap     signed HAP, if local signing is configured
 #     symbols/                           unstripped per-ABI .so + buildid-map.json
 #     source/openttd-<ver>-<git>.tar.gz  git source archive of the port branch
 #     sbom/                              SPDX + CycloneDX SBOMs + dep manifest
@@ -187,6 +188,10 @@ mkdir -p "$RELEASE_DIR/symbols" "$RELEASE_DIR/source" "$RELEASE_DIR/sbom"
 
 # 5a. the HAP
 cp "$HAP_OUT" "${RELEASE_DIR}/${RELEASE_NAME}.hap"
+SIGNED_HAP="${REPO_ROOT}/harmonyos/entry/build/default/outputs/default/entry-default-signed.hap"
+if [ -f "$SIGNED_HAP" ] && [ "$SIGNED_HAP" -nt "$HAP_OUT" ]; then
+  cp "$SIGNED_HAP" "${RELEASE_DIR}/${RELEASE_NAME}-signed.hap"
+fi
 
 # 5b. prove native optimization and matching unstripped per-ABI Build IDs.
 OBJ_ROOT="${REPO_ROOT}/harmonyos/entry/build/default/intermediates/cmake/default/obj"
@@ -227,21 +232,24 @@ details.
 The complete, corresponding source code for this binary distribution is
 available free of charge at:
 
-  https://github.com/OpenTTD/OpenTTD  (upstream repository)
+  https://github.com/TennousuAthena/OH-OpenTTD
+  (HarmonyOS port repository, git revision ${SHORT_SHA})
+
+Upstream source: https://github.com/OpenTTD/OpenTTD
 
 This port's complete source code is also shipped alongside this release as a
 source archive and is browsable at the project's HarmonyOS port repository:
 ${RELEASE_NAME}-src.tar.gz
 (git revision ${SHORT_SHA} of the harmonyos-port branch).
 
-You may also request a copy by writing to the OpenTTD team (see COPYING.md and
-CREDITS.md in the source for current contact details).
+Download the accompanying source archive from the same release page as this
+HAP. See COPYING.md in the source archive for the full license text.
 EOF
 
 # 5f. checksums (SHA256SUMS references every artifact, self-checkable by path)
 (
   cd "$RELEASE_DIR"
-  shasum -a 256 "${RELEASE_NAME}.hap" \
+  shasum -a 256 ./*.hap \
     symbols/arm64-v8a/*.so symbols/x86_64/*.so \
     symbols/buildid-map.json \
     native-build-manifest.json \
@@ -276,6 +284,22 @@ cat > "${RELEASE_DIR}/release-manifest.json" <<JSON
   }
 }
 JSON
+
+if [ -f "${RELEASE_DIR}/${RELEASE_NAME}-signed.hap" ]; then
+  python3 - "$RELEASE_DIR" "${RELEASE_NAME}-signed.hap" <<'PY'
+import hashlib
+import json
+from pathlib import Path
+import sys
+root, name = Path(sys.argv[1]), sys.argv[2]
+manifest = root / 'release-manifest.json'
+data = json.loads(manifest.read_text())
+data['artifacts']['signedHap'] = name
+with (root / name).open('rb') as stream:
+    data['artifacts']['signedHapSha256'] = hashlib.file_digest(stream, 'sha256').hexdigest()
+manifest.write_text(json.dumps(data, indent=2) + '\n')
+PY
+fi
 
 # ---------------------------------------------------------------------------
 # 6. Clean staged rawfile, report

@@ -1,0 +1,20 @@
+# Mouse wheel axis events have no pinch scale (0), not a pinch inward.
+axis -1 0 0
+axis 1 0 0
+axis -3 0 0
+axis 3 0 0
+# Horizontal scrolling must retain its direction without a pinch scale.
+axis 0 2 0
+axis 0 -2 0
+# Empty/end events must not synthesize a zoom tick.
+axis 0 0 0
+axis 0 0 1
+# Invalid pinch scales must not override signed scrolling or synthesize zoom.
+axis -1 0 -1
+axis 1 0 nan
+axis -1 0 inf
+axis 0 0 -1
+axis 0 0 nan
+axis 0 0 inf
+# Small positive scales still represent a real inward pinch.
+axis 0 0 0.1

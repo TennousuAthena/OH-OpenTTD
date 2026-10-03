@@ -11,6 +11,7 @@
 
 #include <algorithm>
 #include <chrono>
+#include <cmath>
 #include <iterator>
 #include <utility>
 
@@ -520,10 +521,15 @@ void HarmonyOSHandleAxisEvent(float dy, float dx, float scale)
 	HarmonyOSInputEvent ev;
 	ev.type = HarmonyOSInputEventType::Wheel;
 	int zoom = 0;
-	if (scale >= PINCH_NOTCH_RATIO) {
-		zoom = -1;                       // spread = zoom in
-	} else if (scale <= 1.0f / PINCH_NOTCH_RATIO) {
-		zoom = 1;                        // pinch = zoom out
+	/* Ordinary mouse-wheel events have no pinch scale (0). Treating that
+	 * as an inward pinch discards both scroll axes and forces every event
+	 * to the same direction, including empty/end events. */
+	if (std::isfinite(scale) && scale > 0.0f) {
+		if (scale >= PINCH_NOTCH_RATIO) {
+			zoom = -1;                   // spread = zoom in
+		} else if (scale <= 1.0f / PINCH_NOTCH_RATIO) {
+			zoom = 1;                    // pinch = zoom out
+		}
 	}
 	if (zoom != 0) {
 		ev.v_axis = zoom;
@@ -803,6 +809,7 @@ static void OnAxisEvent(OH_NativeXComponent *component, ArkUI_UIInputEvent *even
 	const double dy = OH_ArkUI_AxisEvent_GetVerticalAxisValue(event);
 	const double dx = OH_ArkUI_AxisEvent_GetHorizontalAxisValue(event);
 	const double scale = OH_ArkUI_AxisEvent_GetPinchAxisScaleValue(event);
+	Debug(driver, 2, "harmonyos input: axis vertical {} horizontal {} pinch {}", dy, dx, scale);
 	HarmonyOSHandleAxisEvent(static_cast<float>(dy), static_cast<float>(dx), static_cast<float>(scale));
 }
 

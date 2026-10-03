@@ -3,9 +3,7 @@
 # artifact (a dual-ABI HAP produced by scripts/harmonyos/package.sh).
 #
 # Checks, and FAILS with a precise message on any violation:
-#   R1. bundle name   == org.openttd.openttd
-#   R2. versionName   == 15.3
-#   R3. versionCode   == 15000300
+#   R1-R3. bundle name / versionName / versionCode match product.json5
 #   R4. deviceTypes   contains tablet AND 2in1
 #   R5. permission    ohos.permission.INTERNET declared
 #   R6. both ABIs present in libs/ (arm64-v8a AND x86_64)
@@ -99,15 +97,22 @@ MODULE_JSON="$(unzip -p "$HAP" module.json 2>/dev/null)" || MODULE_JSON=""
 [ -n "$MODULE_JSON" ] || err "module.json missing from HAP"
 
 if [ -n "$MODULE_JSON" ]; then
-  printf '%s' "$MODULE_JSON" | grep -q '"bundleName":"org.openttd.openttd"' \
-    || printf '%s' "$MODULE_JSON" | grep -q '"bundleName": "org.openttd.openttd"' \
-    || err "R1: bundleName is not org.openttd.openttd"
-
-  printf '%s' "$MODULE_JSON" | grep -qE '"versionName"[[:space:]]*:[[:space:]]*"15\.3"' \
-    || err "R2: versionName is not 15.3"
-
-  printf '%s' "$MODULE_JSON" | grep -qE '"versionCode"[[:space:]]*:[[:space:]]*15000300' \
-    || err "R3: versionCode is not 15000300"
+  if ! MODULE_JSON="$MODULE_JSON" python3 - "$REPO_ROOT/harmonyos/product.json5" <<'PY'
+import json, os, re, sys
+from pathlib import Path
+product = Path(sys.argv[1]).read_text()
+app = json.loads(os.environ['MODULE_JSON'])['app']
+for key in ('bundleName', 'versionName', 'versionCode'):
+    match = re.search(r'^\s*' + key + r":\s*('([^']*)'|(\d+))\s*,", product, re.M)
+    if match is None:
+        raise SystemExit('Product identity is missing ' + key)
+    expected = match[2] if match[2] is not None else int(match[3])
+    if app.get(key) != expected:
+        raise SystemExit(f'{key}: {app.get(key)!r} does not match product {expected!r}')
+PY
+  then
+    err "R1-R3: packaged product identity mismatch"
+  fi
 
   printf '%s' "$MODULE_JSON" | grep -q '"tablet"' || err "R4: deviceTypes missing tablet"
   printf '%s' "$MODULE_JSON" | grep -q '"2in1"'   || err "R4: deviceTypes missing 2in1"

@@ -3,24 +3,23 @@
 How to build, validate and publish the OpenTTD HarmonyOS port as a
 dual-ABI (arm64-v8a + x86_64) AppGallery release.
 
-All release tooling is scripted and CI-gated:
+Local release tooling is scripted:
 
 | Tool | Purpose |
 |---|---|
 | `scripts/harmonyos/package.sh <Debug\|Release>` | assemble the dual-ABI HAP + symbols, source archive, SBOM/notices, source offer, checksums, manifest |
 | `scripts/harmonyos/inspect-release.sh <dir-or-hap> [--self-test]` | validate bundle/version/deviceTypes/permissions/ABIs/rawfile/SBOM/secrets |
-| `.github/workflows/harmonyos-build.yml` | CI: build both ABIs → package → inspect → license/SBOM → secret scan → device gates |
 
 ## 1. Prerequisites
 
-- macOS with DevEco Studio (API 23, SDK 6.1.0.105) — the exact SDK contract is
+- macOS with DevEco Studio 26 (API 26, SDK 26.0.0.105) — the exact SDK contract is
   validated by `scripts/harmonyos/bootstrap.sh`.
 - `scripts/harmonyos/build-host-tools.sh` has been run at least once (package.sh
   builds it automatically if `build/host-tools/strgen` is absent).
 - Both ABI sysroots present (`arm64-v8a` + `x86_64`); the SDK validates them.
 - Product identity is fixed in `harmonyos/product.json5`:
-  `bundleName: 'org.openttd.openttd'`, `versionName: '15.3'`,
-  `versionCode: 15000300` (MAJOR*1e6 + MINOR*1e4 + PATCH*100), and
+  `bundleName: 'moe.kiwi.openttd'`, `versionName: '15.3-harmonyos.2'`,
+  `versionCode: 15000302` (base version code 15000300 + port revision 2), and
   `deviceTypes: ['tablet', '2in1']`.
 
 ## 2. Build the release
@@ -48,10 +47,11 @@ What it does:
 
    | Artifact | Description |
    |---|---|
-   | `openttd-15.3-<git>.hap` | dual-ABI HAP (arm64-v8a + x86_64) |
+   | `openttd-15.3-harmonyos.2-<git>.hap` | unsigned dual-ABI HAP (arm64-v8a + x86_64) |
+   | `openttd-15.3-harmonyos.2-<git>-signed.hap` | signed HAP, when local signing is configured |
    | `symbols/arm64-v8a/*.so`, `symbols/x86_64/*.so` | unstripped native libraries |
    | `symbols/buildid-map.json` | ELF BuildID → library map (crash symbolication) |
-   | `source/openttd-15.3-<git>-src.tar.gz` | `git archive` of the port branch |
+   | `source/openttd-15.3-harmonyos.2-<git>-src.tar.gz` | `git archive` of the port branch |
    | `sbom/sbom.spdx.json`, `sbom/sbom.cyclonedx.json` | SBOMs (SPDX 2.3 / CycloneDX) |
    | `sbom/manifest.json`, `sbom/NOTICES.md`, `NOTICES.md` | dependency manifest + third-party notices |
    | `SOURCE_OFFER.txt` | GPLv2 source offer (see §6) |
@@ -66,8 +66,8 @@ bash scripts/harmonyos/inspect-release.sh build/harmonyos/release/Release
 
 The inspector **fails** with a precise message on any of:
 
-- bundle name is not `org.openttd.openttd`
-- versionName is not `15.3`, versionCode is not `15000300`
+- bundle name is not `moe.kiwi.openttd`
+- versionName/versionCode do not match `harmonyos/product.json5`
 - deviceTypes missing `tablet` or `2in1`
 - `ohos.permission.INTERNET` not declared
 - either ABI (`arm64-v8a` / `x86_64`) missing from `libs/`
@@ -94,13 +94,25 @@ Debug signing (ephemeral local key + AGC debug profile) is documented in
    commit it) and reference it from the product.
 
 **Release signing requires the AGC manual flow** (release certificate + release
-profile issued for the exact `org.openttd.openttd` bundle and the release key
+profile issued for the exact `moe.kiwi.openttd` bundle and the release key
 fingerprint). There is no self-serve release profile. The signed artifact is
 `entry-default-signed.hap` (contains the `EBBG` signature block); only the
 signed HAP may be uploaded to AppGallery.
 
-`package.sh` deliberately produces the **unsigned** staged HAP so the build is
-green in CI without any credentials; signing happens in a gated, manual step.
+`package.sh` always collects the **unsigned** HAP and also collects the signed
+HAP when DevEco produces one. A Release build can still carry a **debug**
+Profile: that signed HAP can only be installed on devices registered in the
+Profile. For `15.3-harmonyos.2`, the current local Profile is a debug Profile for
+`moe.kiwi.openttd`. Users of other devices must sign the unsigned HAP using
+their own matching certificate and Profile. AppGallery distribution requires
+a release certificate and release Profile.
+
+## 4.1. GitHub release
+
+Use tag and release title `15.3-harmonyos.2` in
+`TennousuAthena/OH-OpenTTD`. Publish the signed and unsigned HAPs together with
+the corresponding source archive, notices, source offer, SBOM and checksums.
+The release notes must identify the Profile type and installation scope.
 
 ## 5. Privacy & data declaration
 
@@ -145,10 +157,10 @@ Screenshots:  <upload 2× landscape 1080×1920+ and 1× portrait; tablet + 2-in-
 Icon:         <512×512 PNG from harmonyos/AppScope/resources/base/media/app_icon.png>
 Promotional text: <optional>
 
-Version:      15.3 (versionCode 15000300)
-Supported devices: tablets and 2-in-1 computers (HarmonyOS NEXT, API 23)
+Version:      15.3-harmonyos.2 (versionCode 15000302)
+Supported devices: tablets and 2-in-1 computers (HarmonyOS, minimum API 20 / target API 26)
 ABIs:         arm64-v8a, x86_64
-Bundle:       org.openttd.openttd
+Bundle:       moe.kiwi.openttd
 ```
 
 ## 8. Install on a device (local)
@@ -158,7 +170,7 @@ After signing with the AGC debug profile (§4), install via `hdc`:
 ```bash
 hdc list targets                              # find the device serial
 hdc install -r <signed>.hap                   # install (replace existing)
-hdc shell aa start -a EntryAbility -b org.openttd.openttd
+hdc shell aa start -a EntryAbility -b moe.kiwi.openttd
 ```
 
 For a quick unsigned sanity check on an emulator, the debug HAP produced by

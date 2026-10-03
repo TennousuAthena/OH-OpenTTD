@@ -1,5 +1,17 @@
 # OpenTTD
 
+## HarmonyOS port
+
+This fork provides **OpenTTD 15.3-harmonyos.2** for HarmonyOS tablets and 2-in-1
+devices, with the application bundle name `moe.kiwi.openttd`. The HAP includes
+both `arm64-v8a` and `x86_64`; multiplayer compatibility remains OpenTTD **15.3**.
+
+Downloads and signing requirements are on the
+[release page](https://github.com/TennousuAthena/OH-OpenTTD/releases/tag/15.3-harmonyos.2).
+See the [port guide](docs/harmonyos/port-guide.md),
+[release guide](docs/harmonyos/release-guide.md) and
+[port notes](docs/harmonyos/port-notes.md) for build instructions and device results.
+
 ## Table of contents
 
 - 1.0) [About](#10-about)

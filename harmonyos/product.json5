@@ -4,9 +4,9 @@
 //   e.g. 15.3.0 -> 15*1000000 + 3*10000 + 0*100 = 15000300
 //   (the trailing *100 reserves two digits for a build/patch counter).
 {
-  bundleName: 'org.openttd.openttd',
-  versionName: '15.3',
-  versionCode: 15000300,
+  bundleName: 'moe.kiwi.openttd',
+  versionName: '15.3-harmonyos.2',
+  versionCode: 15000302,
   deviceTypes: ['tablet', '2in1'],
   targetAPIVersion: 26,
   compatibleAPIVersion: 20,

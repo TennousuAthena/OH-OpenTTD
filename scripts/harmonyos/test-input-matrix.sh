@@ -602,8 +602,10 @@ int main()
             int dx = std::atoi(t[2].c_str());
             double scale = std::atof(t[3].c_str());
             int zoom = 0;
-            if (scale >= PINCH_NOTCH_RATIO) zoom = -1;          // spread = zoom in
-            else if (scale <= 1.0 / PINCH_NOTCH_RATIO) zoom = 1; // pinch = zoom out
+            if (std::isfinite(scale) && scale > 0.0) {
+                if (scale >= PINCH_NOTCH_RATIO) zoom = -1;          // spread = zoom in
+                else if (scale <= 1.0 / PINCH_NOTCH_RATIO) zoom = 1; // pinch = zoom out
+            }
             if (zoom != 0) m.emit_wheel(zoom, 0);
             else if (dy != 0 || dx != 0) m.emit_wheel(-dy, dx);
         } else if (op == "resize") {

@@ -279,8 +279,8 @@ Key contract points (W4.T20):
 - hvigor **strips** native libs in the HAP (`DoNativeStrip`), but the shipped
   libs keep the **same BuildID** as the unstripped intermediates — that is the
   debugger correlation contract.
-- `inspect-release.sh` checks (R1–R9): bundle `org.openttd.openttd`, version
-  `15.3` / code `15000300`, `deviceTypes` contains `tablet` + `2in1`,
+- `inspect-release.sh` checks (R1–R9): bundle `moe.kiwi.openttd`, version
+  `15.3-harmonyos.2` / code `15000302`, `deviceTypes` contains `tablet` + `2in1`,
   `ohos.permission.INTERNET` only, both ABIs present in `libs/`, required
   rawfile resources, SBOM/license files, and no secrets (`[/]Users/`, `.p1[2]`,
   `PRIVATE KEY`).
@@ -364,7 +364,7 @@ Manual device access (useful once hardware is attached) requires the DevEco
 HDC=/Applications/DevEco-Studio.app/Contents/sdk/default/toolchains/hdc
 "$HDC" list targets                          # list attached device serials
 "$HDC" install -r <signed>.hap               # install a signed HAP
-"$HDC" shell aa start -a EntryAbility -b org.openttd.openttd
+"$HDC" shell aa start -a EntryAbility -b moe.kiwi.openttd
 ```
 
 ---
@@ -387,7 +387,7 @@ Summary (W1/§4 of the release guide):
 
 `package.sh` deliberately produces the **unsigned** staged HAP so the build is
 green in CI without credentials. Release signing requires the AGC manual flow
-(release certificate + release profile for the exact `org.openttd.openttd`
+(release certificate + release profile for the exact `moe.kiwi.openttd`
 bundle); there is no self-serve release profile, and only the signed HAP may be
 uploaded to AppGallery.
 
@@ -547,11 +547,18 @@ Verified during the current debug session:
   touchscreen input: mouse clicks queue one press/release pair, touchscreen
   taps open/load the save dialog, and a single tap places a road tile. Tool-type
   filtering is used only when the event source is unknown.
-- The final signed HAP (`deveco-api26-mixed-input-build.log`) compiled in
+- The mixed-input signed HAP (`deveco-api26-mixed-input-build.log`) compiled in
   16 s 35 ms, installed and passed the checks above. All 142 packaged resource
   hashes match the staged manifest. Its normal exit again returned 0 and
   destroyed the game window; releasing an already-destroyed visibility
   listener does not prevent native shutdown.
+- On 2026-10-04, the `15.3-harmonyos.1` wheel fix signed HAP compiled for both
+  ABIs in 13 s 804 ms. Ordinary mouse axis events on the MateBook report pinch
+  scale 0; rejecting that value as a pinch preserves the signed scroll axes.
+  Native `uinput` mouse events verified both viewport zoom directions and
+  both AI-list scroll directions. The paused baseline and original view were
+  restored afterward. See [the fix record](port-notes.md) and the local evidence
+  under `build/harmonyos/wheel-fix/`. Both ABIs retain effective `-O2 -g`.
 - Trackpad/IME input, complete transport operation and stability checks
   remain pending.
 

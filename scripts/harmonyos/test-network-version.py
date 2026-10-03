@@ -30,7 +30,7 @@ def main():
         assert result.returncode == 0, result.stdout + result.stderr
         port = (work / "port/rev.cpp").read_text()
         assert 'const std::string _openttd_revision = "15.3";' in port
-        assert 'const std::string _openttd_revision_display = "15.3-harmonyos.1";' in port
+        assert 'const std::string _openttd_revision_display = "15.3-harmonyos.2";' in port
         assert "const uint8_t _openttd_revision_tagged = 1;" in port
         source_hash = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip()
         assert f'_openttd_revision_hash = "{source_hash}";' in port
@@ -40,7 +40,7 @@ def main():
         desktop = (work / "desktop/rev.cpp").read_text()
         version = re.search(r'_openttd_revision = "([^"]+)";', desktop)[1]
         assert f'_openttd_revision_display = "{version}";' in desktop
-        assert "harmonyos.1" not in version
+        assert "harmonyos." not in version
         mismatch = generate(work / "mismatch", True, major=16)
         assert mismatch.returncode != 0 and "baseline does not match" in mismatch.stderr
 
@@ -75,7 +75,7 @@ int main() {
     assert(IsNetworkCompatibleVersion(expected));
     assert(!IsNetworkCompatibleVersion("15.2"));
     assert(!IsNetworkCompatibleVersion("16.0"));
-    assert(!IsNetworkCompatibleVersion("15.3-harmonyos.1"));
+    assert(!IsNetworkCompatibleVersion("15.3-harmonyos.2"));
     assert(!IsNetworkCompatibleVersion("20260820-harmonyos-port-m8e457981b6"));
     assert(_openttd_newgrf_version == 0x1f386d64);
 #ifdef ENABLE_NETWORK_SYNC_EVERY_FRAME
@@ -97,8 +97,8 @@ int main() {
             print(f"PASS: {name} compatibility, version mismatch rejection, NewGRF release bit")
 
         app = json.loads((REPO / "harmonyos/AppScope/app.json5").read_text())["app"]
-        assert app["versionName"] == "15.3-harmonyos.1"
-        assert app["versionCode"] == 15000301
+        assert app["versionName"] == "15.3-harmonyos.2"
+        assert app["versionCode"] == 15000302
         print("PASS: native display, app release, desktop behavior, baseline guard and source provenance")
 
 

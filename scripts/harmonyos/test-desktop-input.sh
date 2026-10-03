@@ -13,9 +13,8 @@
 # Batched replay also exercises motion bursts, event barriers, held drags,
 # fixed-cursor movement and callback arrivals during a production queue drain.
 #
-# Because the bridge core is the same translation unit the device build uses,
-# a PASS here proves the real device glue produces the exact OpenTTD event
-# sequence the input matrix specifies.
+# These fixtures exercise the production mapping and queue. Native SDK
+# callbacks still require separate device verification.
 #
 # Usage: scripts/harmonyos/test-desktop-input.sh
 # Exit:  0 = all fixtures pass, 1 = any fixture fails.
@@ -383,7 +382,7 @@ fi
 rc=0
 count=0
 
-for name in keyboard-canonical keyboard-frame-scan mouse-canonical touchpad-axis; do
+for name in keyboard-canonical keyboard-frame-scan mouse-canonical touchpad-axis mouse-wheel-axis; do
   infile="${FIXTURE_DIR}/${name}-in"
   expected="${FIXTURE_DIR}/${name}-expected"
   if [ -f "${FIXTURE_DIR}/${name}-desktop-expected" ]; then

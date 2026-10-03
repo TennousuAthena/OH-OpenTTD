@@ -252,6 +252,14 @@ left down. This is asserted by the negative test fixture `cancel-mid-drag`.
 
 Native XComponent axis events carry scroll deltas and pinch scale:
 
+Mouse-wheel events report a pinch scale of **0** when there is no pinch
+([ArkUI axis event defaults](https://github.com/openharmony/arkui_ace_engine/blob/master/frameworks/core/event/axis_event.h)).
+Only a finite, strictly positive scale may enter the pinch mapping; otherwise
+preserve the signed vertical/horizontal scroll deltas. An event with zero
+scroll deltas and no valid pinch must not emit a wheel tick. The production
+bridge regression fixture `mouse-wheel-axis` covers both wheel directions,
+horizontal scrolling, empty/end events and invalid pinch values.
+
 | Axis value | Meaning | OpenTTD effect |
 |---|---|---|
 | vertical scroll delta (`< 0` = up) | touchpad two-finger swipe up | `_cursor.wheel--` once per accumulated notch; `v_wheel` update |
