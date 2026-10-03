@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "OpenTTD HarmonyOS port"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "OpenTTD game host"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "OpenTTD"
+    }
+  ]
+}

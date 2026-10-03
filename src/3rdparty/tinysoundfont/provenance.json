@@ -1,0 +1,9 @@
+{
+  "project": "TinySoundFont",
+  "commit": "853a0a171759f1ddba0de1442133a75912bbeffa",
+  "url": "https://github.com/schellingb/TinySoundFont",
+  "files": {
+    "tsf.h": "70d55963c98f60ebb81518eaa1f25d46888d5180eb5f5289fd6b74ffc177d197",
+    "LICENSE": "ef10cb839de73fb6d5d32ea7151979e87809a6df70dc7e7ee8457ae1c9e7aa7e"
+  }
+}

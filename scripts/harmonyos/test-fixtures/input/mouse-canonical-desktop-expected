@@ -1,0 +1,15 @@
+focus 1
+mouse x=100 y=100
+mouse x=100 y=100
+btndown left
+mouse x=120 y=120
+mouse x=120 y=120
+btnup left
+mouse x=120 y=120
+btndown right
+rightclick
+mouse x=120 y=120
+btnup right
+wheel v=-1 h=0
+wheel v=0 h=2
+focus 0

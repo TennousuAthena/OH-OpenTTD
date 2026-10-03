@@ -36,7 +36,7 @@ void StringFilter::SetFilterTerm(std::string_view str)
 	std::string word;
 	StringBuilder builder(word);
 	auto add_word = [this, &word]() {
-		if (!word.empty()) this->word_index.emplace_back(std::move(word), false);
+		if (!word.empty()) this->word_index.emplace_back(WordState{std::move(word), false});
 		word.clear();
 	};
 

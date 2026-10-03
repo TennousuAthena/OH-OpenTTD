@@ -1,0 +1,75 @@
+# stale-gen.txt — surface-generation rejection scenarios.
+#
+# Each block:
+#   surface <w> <h> <generation>   current surface generation (0 = none)
+#   cached  <gen>                  generation the presenter last flushed
+#   present <w> <h> <gen>          frame being presented (gen must be current)
+#   expect  OK                     frame presented/flushed
+#   expect  STALE_GENERATION       rejected WITHOUT flush
+#   expect  INVALID_SURFACE        rejected WITHOUT flush (zero-sized)
+# '#' starts a comment; blocks separated by blank lines.
+
+surface 640 480 3
+cached 3
+present 640 480 3
+expect OK
+
+surface 640 480 3
+cached 2
+present 640 480 3
+expect OK
+
+surface 640 480 0
+cached 0
+present 640 480 0
+expect STALE_GENERATION
+
+surface 640 480 4
+cached 3
+present 640 480 3
+expect STALE_GENERATION
+
+surface 640 480 4
+cached 4
+present 640 480 2
+expect STALE_GENERATION
+
+surface 0 480 3
+cached 3
+present 0 480 3
+expect INVALID_SURFACE
+
+surface 640 0 3
+cached 3
+present 640 0 3
+expect INVALID_SURFACE
+
+surface -640 480 3
+cached 3
+present 640 480 3
+expect INVALID_SURFACE
+
+surface 640 480 5
+cached 5
+present 640 480 5
+expect OK
+
+surface 640 480 3
+cached 3
+present 0 0 3
+expect INVALID_SURFACE
+
+surface 640 480 2
+cached 3
+present 640 480 3
+expect STALE_GENERATION
+
+surface 640 480 7
+cached 7
+present 640 480 8
+expect STALE_GENERATION
+
+surface 640 480 9
+cached 9
+present 640 480 9
+expect OK

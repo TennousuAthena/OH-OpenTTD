@@ -37,6 +37,9 @@ bool IsReleasedVersion()
  */
 const std::string _openttd_revision = "${REV_VERSION}";
 
+/** Version shown to the user, including platform release information. */
+const std::string _openttd_revision_display = "${REV_DISPLAY_VERSION}";
+
 /**
  * The text version of OpenTTD's build date.
  * Updating the build date in this file is the safest as it generally gets

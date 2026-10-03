@@ -1,0 +1,9 @@
+# Negative: cancel multi-touch mid-drag; all held state must reset (no LEAK).
+touch 0 down 100 100 finger
+touch 0 move 130 120 finger
+touch 1 down 200 100 finger
+touch 0 move 130 112 finger
+touch 1 move 200 112 finger
+touch 0 cancel 130 112 finger
+touch 1 up 200 112 finger
+leakcheck

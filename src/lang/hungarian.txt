@@ -1126,7 +1126,7 @@ STR_GAME_OPTIONS_LANGUAGE_TOOLTIP                               :Válaszd ki a f
 STR_GAME_OPTIONS_LANGUAGE_PERCENTAGE                            :{STRING} ({NUM}% lefordítva)
 
 STR_GAME_OPTIONS_FULLSCREEN                                     :Teljes képernyő
-STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :Jelöld be, hogy teljes képernyős módban játssz az OpenTTD-vel
+STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :Kapcsold be, hogy teljes képernyős módban játssz az OpenTTD-vel
 
 STR_GAME_OPTIONS_RESOLUTION                                     :Képernyőfelbontás
 STR_GAME_OPTIONS_RESOLUTION_TOOLTIP                             :Használandó képernyőfelbontás kiválasztása
@@ -1134,11 +1134,11 @@ STR_GAME_OPTIONS_RESOLUTION_OTHER                               :egyéb
 STR_GAME_OPTIONS_RESOLUTION_ITEM                                :{NUM}x{NUM}
 
 STR_GAME_OPTIONS_VIDEO_ACCELERATION                             :Hardveres gyorsítás
-STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :Jelöld be, hogy az OpenTTD próbáljon meg hardveres gyorsítást használni. A beállítás csak a játék újraindítása után lép érvénybe.
+STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :Kapcsold be, hogy az OpenTTD próbáljon meg hardveres gyorsítást használni. A beállítás csak a játék újraindítása után lép érvénybe.
 STR_GAME_OPTIONS_VIDEO_ACCELERATION_RESTART                     :{WHITE}Ez a beállítás csak a játék újraindítása után lép érvénybe
 
 STR_GAME_OPTIONS_VIDEO_VSYNC                                    :Függőleges szinkronizáció (VSync)
-STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :Jelöld be a függőleges szinkronizációhoz (VSync). A változtatás csak a játék újraindítása után lép érvénybe. Kizárólag hardveres gyorsítással működik!
+STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :Kapcsold be a függőleges szinkronizációhoz (VSync). A változtatás csak a játék újraindítása után lép érvénybe. Kizárólag hardveres gyorsítással működik!
 
 STR_GAME_OPTIONS_VIDEO_DRIVER_INFO                              :Jelenlegi illesztőprogram: {STRING}
 
@@ -1147,15 +1147,15 @@ STR_GAME_OPTIONS_INTERFACE                                      :Felület
 STR_GAME_OPTIONS_GUI_SCALE_FRAME                                :Felület mérete
 STR_GAME_OPTIONS_GUI_SCALE_TOOLTIP                              :Használd a csúszkát a felület méretének beállításához. Ctrl+húzás a finom állításhoz.
 STR_GAME_OPTIONS_GUI_SCALE_AUTO                                 :Méret automatikus felismerése
-STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :Jelöld be a felület méretének automatikus felismeréséhez
+STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :Kapcsold be a felület méretének automatikus felismeréséhez
 
 STR_GAME_OPTIONS_GUI_SCALE_BEVELS                               :Szegélyek méretezése
-STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :Jelöld be a szegélyek a felület méretéhez való igazításához
+STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :Kapcsold be a szegélyek a felület méretéhez való igazításához
 
 STR_GAME_OPTIONS_GUI_FONT_SPRITE                                :Hagyományos sprite betűk használata
-STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Jelöld be, ha a hagyományos sprite betűket akarod használni.
+STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Kapcsold be, ha a hagyományos fix méretű sprite betűket akarod használni.
 STR_GAME_OPTIONS_GUI_FONT_AA                                    :Betűk élsimítása
-STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Jelöld be a betűk élsimításához
+STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Kapcsold be a betűk élsimításához
 
 STR_GAME_OPTIONS_GUI_SCALE_MARK                                 :{DECIMAL}x
 
@@ -1179,7 +1179,7 @@ STR_GAME_OPTIONS_BASE_GRF_TOOLTIP                               :A játékhoz ha
 STR_GAME_OPTIONS_BASE_GRF_DESCRIPTION_TOOLTIP                   :További információk a grafikus alapcsomagról
 
 STR_GAME_OPTIONS_BASE_SFX                                       :Hang alapcsomag
-STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Használandó hang alapcsomag kiválasztása (nem módosítható a játékban, csak a főmenüben)
+STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Használandó hang alapcsomag kiválasztása
 STR_GAME_OPTIONS_BASE_SFX_DESCRIPTION_TOOLTIP                   :További információk a hang alapcsomagról
 
 STR_GAME_OPTIONS_BASE_MUSIC                                     :Zenei alapcsomag
@@ -1312,7 +1312,7 @@ STR_CONFIG_SETTING_EXPAND_ALL                                   :Összes kibont�
 STR_CONFIG_SETTING_COLLAPSE_ALL                                 :Összes összecsukása
 STR_CONFIG_SETTING_RESET_ALL                                    :Összes érték visszaállítása
 STR_CONFIG_SETTING_NO_EXPLANATION_AVAILABLE_HELPTEXT            :(leírás nem elérhető)
-STR_CONFIG_SETTING_VALUE                                        :{PUSH_COLOUR}{ORANGE}{STRING}{POP_COLOUR}
+STR_CONFIG_SETTING_VALUE                                        :{ORANGE}{STRING}
 STR_CONFIG_SETTING_DEFAULT_VALUE                                :{LTBLUE}Alapértelmezett érték: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE                                         :{LTBLUE}Beállítás típusa: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE_CLIENT                                  :Kliens beállítás (mentésben nem tárolva; minden játékot befolyásol)
@@ -2268,7 +2268,7 @@ STR_CONFIG_ERROR                                                :{WHITE}Hiba a k
 STR_CONFIG_ERROR_ARRAY                                          :{WHITE}... hiba a(z) '{STRING}' tömbben
 STR_CONFIG_ERROR_INVALID_VALUE                                  :{WHITE}... a(z) '{1:STRING}' beállítás értéke érvénytelen: '{0:STRING}'
 STR_CONFIG_ERROR_TRAILING_CHARACTERS                            :{WHITE}... felesleges karakterek a(z) '{STRING}' beállítás végén
-STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... érvénytelen NewGRF nem került betöltésre - '{STRING}': ütköző GRF ID egy másik NewGRF-fel: '{STRING}'
+STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... érvénytelen NewGRF nem került betöltésre - '{STRING}': ütköző NewGRF ID egy másik NewGRF-fel: '{STRING}'
 STR_CONFIG_ERROR_INVALID_GRF                                    :{WHITE}... érvénytelen NewGRF nem került betöltésre - '{STRING}': {STRING}
 STR_CONFIG_ERROR_INVALID_GRF_NOT_FOUND                          :nem található
 STR_CONFIG_ERROR_INVALID_GRF_UNSAFE                             :nem biztonságos állandó használatra
@@ -2933,7 +2933,7 @@ STR_HOUSE_PICKER_YEARS_ANY                                      :{BLACK}Év: {GO
 STR_HOUSE_PICKER_YEARS_FROM                                     :{BLACK}Év: {GOLD}{NUM} óta
 STR_HOUSE_PICKER_YEARS_UNTIL                                    :{BLACK}Év: {GOLD}{NUM}-ig
 STR_HOUSE_PICKER_SIZE                                           :{BLACK}Méret: {GOLD}{NUM}x{NUM} négyzet
-STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Rakomány elfogadva: {GOLD}
+STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Rakomány elfogadva: {GOLD}{STRING}
 STR_HOUSE_PICKER_CARGO_PRODUCED                                 :{BLACK}Előállított rakomány: {GOLD}{CARGO_LIST}
 
 STR_HOUSE_PICKER_CLASS_ZONE1                                    :Szél
@@ -2942,10 +2942,11 @@ STR_HOUSE_PICKER_CLASS_ZONE3                                    :Külső kertvá
 STR_HOUSE_PICKER_CLASS_ZONE4                                    :Belső kertváros
 STR_HOUSE_PICKER_CLASS_ZONE5                                    :Városközpont
 
-STR_HOUSE_PICKER_PROTECT_TITLE                                  :Frissítések megelőzése
+STR_HOUSE_PICKER_PROTECT                                        :Növekedés megakadályozása
 STR_HOUSE_PICKER_PROTECT_TOOLTIP                                :Válaszd ki, hogy a város növekedésével ez a ház védve legyen-e a cserétől
-STR_HOUSE_PICKER_PROTECT_OFF                                    :Ki
-STR_HOUSE_PICKER_PROTECT_ON                                     :Be
+
+STR_HOUSE_PICKER_REPLACE                                        :Meglévő kicserélése
+STR_HOUSE_PICKER_REPLACE_TOOLTIP                                :Válaszd ki, hogy automatikusan eltávolítsa-e a meglévő házat arról a mezőről, ahova ez a ház lerakásra kerül
 
 STR_STATION_CLASS_DFLT                                          :Alapértelmezett
 STR_STATION_CLASS_DFLT_STATION                                  :Alapértelmezett állomás
@@ -3220,7 +3221,7 @@ STR_LAND_AREA_INFORMATION_AIRPORT_CLASS                         :{BLACK}Repülő
 STR_LAND_AREA_INFORMATION_AIRPORT_NAME                          :{BLACK}Repülőtér név: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_AIRPORTTILE_NAME                      :{BLACK}Repülőtér mező név: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_NEWGRF_NAME                           :{BLACK}NewGRF: {LTBLUE}{STRING}
-STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Elfogad: {LTBLUE}
+STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Elfogad: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_CARGO_EIGHTS                          :({COMMA}/8 {STRING})
 STR_LANG_AREA_INFORMATION_RAIL_TYPE                             :{BLACK}Vasút típusa: {LTBLUE}{STRING}
 STR_LANG_AREA_INFORMATION_ROAD_TYPE                             :{BLACK}Út típusa: {LTBLUE}{STRING}
@@ -3683,7 +3684,7 @@ STR_NEWGRF_ERROR_INVALID_PARAMETER                              :Hibás paramét
 STR_NEWGRF_ERROR_LOAD_BEFORE                                    :{1:STRING} muszáj, hogy betöltődjön ezelőtt: {2:STRING}
 STR_NEWGRF_ERROR_LOAD_AFTER                                     :{1:STRING} muszáj, hogy ezután töltődjön be: {2:STRING}
 STR_NEWGRF_ERROR_OTTD_VERSION_NUMBER                            :{1:STRING} csak a {2:STRING} vagy újabb verziójú OpenTTD-vel működik
-STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :az adott GRF fájl célja egy másik lefordítása
+STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :az adott NewGRF fájl célja egy másik lefordítása
 STR_NEWGRF_ERROR_TOO_MANY_NEWGRFS_LOADED                        :Túl sok NewGRF van betöltve
 STR_NEWGRF_ERROR_STATIC_GRF_CAUSES_DESYNC                       :{1:STRING} betöltése mint statikus NewGRF {2:STRING} mellett ütközést okozhat
 STR_NEWGRF_ERROR_UNEXPECTED_SPRITE                              :Váratlan sprite (sprite {3:NUM})
@@ -3692,7 +3693,7 @@ STR_NEWGRF_ERROR_INVALID_ID                                     :Érvénytelen I
 STR_NEWGRF_ERROR_CORRUPT_SPRITE                                 :{YELLOW}{STRING} hibás sprite-ot tartalmaz. Minden hibás sprite piros kérdőjellel (?) kerül jelölésre
 STR_NEWGRF_ERROR_MULTIPLE_ACTION_8                              :Több Action 8 bejegyzést tartalmaz (sprite {3:NUM})
 STR_NEWGRF_ERROR_READ_BOUNDS                                    :Ál-sprite távoli végének olvasása (sprite {3:NUM})
-STR_NEWGRF_ERROR_GRM_FAILED                                     :Kért GRF források nem elérhetőek (sprite {3:NUM})
+STR_NEWGRF_ERROR_GRM_FAILED                                     :Kért NewGRF erforrások nem elérhetőek (sprite {3:NUM})
 STR_NEWGRF_ERROR_FORCEFULLY_DISABLED                            :{1:STRING} kikapcsolva {STRING} által
 STR_NEWGRF_ERROR_INVALID_SPRITE_LAYOUT                          :Érvénytelen/ismeretlen sprite szerkezet formátum (sprite {3:NUM})
 STR_NEWGRF_ERROR_LIST_PROPERTY_TOO_LONG                         :Túl sok érték a tulajdonságlistában (sprite {3:NUM}, property {4:HEX})
@@ -3702,13 +3703,13 @@ STR_NEWGRF_ERROR_INDPROD_CALLBACK                               :Érvénytelen t
 STR_NEWGRF_POPUP_CAUTION_CAPTION                                :{WHITE}Figyelem!
 STR_NEWGRF_CONFIRMATION_TEXT                                    :{YELLOW}Te éppen egy jelenleg futó játékon akarsz változtatni; ettől elszállhat az OpenTTD. Ezekről ne tegyél hibajelentést.{}Teljesen biztos vagy ebben?
 
-STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}Nem lehetséges a fájl hozzáadása: duplikált GRF azonosító
-STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}Pontosan megegyező fájlt nem találtam (kompatibilis GRF-fel helyettesítve)
+STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}Nem lehetséges a fájl hozzáadása: duplikált NewGRF azonosító
+STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE} Egyező fájlt nem található (kompatibilis NewGRF-fel helyettesítve)
 STR_NEWGRF_TOO_MANY_NEWGRFS                                     :{WHITE}Nem adhatod hozzá: Elérted a NewGRF fájlok maximális számát
 
-STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}Kompatibilis GRFek betöltve a hiányzó fájlok helyett
-STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}Hiányzó GRF fájlokat kikapcsoltam
-STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Hiányzó GRF fájlok
+STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}Kompatibilis NewGRF(-ek) betöltve a hiányzó fájlok helyett
+STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}Hiányzó NewGRF fájlok kikapcsolva
+STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Hiányzó NewGRF fájl(ok)
 STR_NEWGRF_UNPAUSE_WARNING                                      :{WHITE}A játék folytatásától az OpenTTD lefagyhat.{}Ne jelentsd be az ismétlődő lefagyásokat egyesével.{}Biztosan folytatni akarod?
 
 # NewGRF status
@@ -3719,17 +3720,17 @@ STR_NEWGRF_LIST_COMPATIBLE                                      :{YELLOW}Talált
 STR_NEWGRF_LIST_MISSING                                         :{RED}Hiányzó fájlok
 
 # NewGRF 'it's broken' warnings
-STR_NEWGRF_BROKEN                                               :{WHITE}A NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' viselkedése valószínűleg deszinkronizációt és/vagy összeomlást okoz
+STR_NEWGRF_BROKEN                                               :{WHITE}A NewGRF '{0:STRING}' viselkedése valószínűleg deszinkronizációt és/vagy összeomlást okoz
 STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}Megváltoztattad '{1:ENGINE}' motorkocsi állapotát mikor nem volt bent a járműtelepen
 STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}Megváltoztattad '{1:ENGINE}' jármű hosszát mikor nem volt a járműtelepen
-STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}Megváltoztattad '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' jármű kapacitását, amikor az nem a garázsban vagy átalakítás alatt áll
+STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}Megváltoztattad '{1:ENGINE}' jármű kapacitását, amikor az nem a garázsban vagy átalakítás alatt áll
 STR_BROKEN_VEHICLE_LENGTH                                       :{WHITE}A(z) „{1:COMPANY}” vállalat „{0:VEHICLE}” jelű vonatának hossza érvénytelen. Ezt valószínűleg NewGRF-ek okozhatják. A játék elszállhat vagy összeomolhat.
 
-STR_NEWGRF_BUGGY                                                :{WHITE}A NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' helytelen információt biztosít
-STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}A(z) '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' rakomány/átalakítás információja a gyártás után különbözik a vételi listán találhatótól. Ez hibát okozhat az automatikus felújítás/lecserélés során az átalakításban
+STR_NEWGRF_BUGGY                                                :{WHITE}A NewGRF {0:STRING}' helytelen információt biztosít
+STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}A(z) '{1:ENGINE}}' rakomány/átalakítás információja a gyártás után különbözik a vételi listán találhatótól. Ez hibát okozhat az automatikus felújítás/lecserélés során az átalakításban
 STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' végtelen ciklust okozott a termelés folyamatnál
 STR_NEWGRF_BUGGY_UNKNOWN_CALLBACK_RESULT                        :{WHITE}{1:HEX} visszatérő érték ismeretlen/érvénytelen {2:HEX} értékkel tért vissza
-STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' érvénytelen rakománytípussal tért vissza a termelési callback-ben: {2:HEX}
+STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}' {1:STRING} ' érvénytelen rakománytípussal tért vissza a termelési callback-ben: {2:HEX}
 
 # 'User removed essential NewGRFs'-placeholders for stuff without specs
 STR_NEWGRF_INVALID_CARGO                                        :<érvénytelen rakomány>
@@ -4103,12 +4104,12 @@ STR_COMPANY_INFRASTRUCTURE_VIEW_TOTAL_PERIOD                    :{WHITE}{CURRENC
 # Industry directory
 STR_INDUSTRY_DIRECTORY_CAPTION                                  :{WHITE}Gazdasági épületek ({COMMA}, {COMMA})
 STR_INDUSTRY_DIRECTORY_NONE                                     :{ORANGE}- Nincs -
-STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% elszállítva){BLACK}
+STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% elszállítva)
 STR_INDUSTRY_DIRECTORY_ITEM_NOPROD                              :{ORANGE}{INDUSTRY}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING} és {NUM} további...
+STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING} és {NUM} további...
 STR_INDUSTRY_DIRECTORY_LIST_TOOLTIP                             :{BLACK}Gazdasági épületek neve - a névre kattintva a fő nézetet a választott objektumra irányíthatod. Ctrl+kattintással új nézet nyílik a gazdasági épület helyzeténél
 STR_INDUSTRY_DIRECTORY_ACCEPTED_CARGO_FILTER                    :{BLACK}Elfogad: {SILVER}{STRING}
 STR_INDUSTRY_DIRECTORY_PRODUCED_CARGO_FILTER                    :{BLACK}Termel: {SILVER}{STRING}
@@ -4126,9 +4127,9 @@ STR_INDUSTRY_VIEW_CARGO_GRAPH_TOOLTIP                           :{BLACK}Megmutat
 STR_INDUSTRY_VIEW_PRODUCTION_LEVEL                              :{BLACK}Termelési szint: {YELLOW}{COMMA}%
 STR_INDUSTRY_VIEW_INDUSTRY_ANNOUNCED_CLOSURE                    :{YELLOW}A gyár bejelentette a közelgő bezárását!
 
-STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Elfogad: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Termel: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :, {STRING}{STRING}
+STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Elfogad: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Termel: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :{STRING}{STRING}
 
 STR_INDUSTRY_VIEW_REQUIRES                                      :{BLACK}Elfogad:
 STR_INDUSTRY_VIEW_ACCEPT_CARGO_SUFFIX                           :{YELLOW}{0:STRING}{BLACK}{3:STRING}
@@ -4654,7 +4655,7 @@ STR_VEHICLE_DETAILS_TRAIN_CAPACITIES_TOOLTIP                    :{BLACK}Az egyes
 STR_VEHICLE_DETAIL_TAB_TOTAL_CARGO                              :{BLACK}Teljes rakomány
 STR_VEHICLE_DETAILS_TRAIN_TOTAL_CARGO_TOOLTIP                   :{BLACK}Megmutatja a vonat teljes kapacitását, rakománytípusokra lebontva
 
-STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Kapacitás: {LTBLUE}
+STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Kapacitás: {LTBLUE}{STRING}
 
 # Vehicle refit
 STR_REFIT_CAPTION                                               :{WHITE}{VEHICLE} átalakítása

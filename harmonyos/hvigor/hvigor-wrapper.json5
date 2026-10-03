@@ -1,0 +1,13 @@
+{
+  // Project-local hvigor wrapper configuration.
+  //
+  // hvigor-wrapper.js delegates to the DevEco Studio bundled CLI (hvigorw.js),
+  // so there is no separate hvigorVersion to download. This file documents the
+  // toolchain contract verified by scripts/harmonyos/bootstrap.sh.
+  "modelVersion": "5.0.0",
+  "toolchain": {
+    "hvigorVersion": "6.23.6",
+    "apiVersion": "23",
+    "sdkVersion": "6.1.0.105"
+  }
+}

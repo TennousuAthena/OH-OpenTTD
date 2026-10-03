@@ -1,0 +1,10 @@
+# Per-frame InputLoop held-state scan: shift+UP, then ctrl pressed, then release.
+key 2047 down 0
+key 2012 down 0
+frame 0 1 0 0
+key 2072 down 0
+frame 0 1 0 0
+key 2072 up 0
+key 2012 up 0
+key 2047 up 0
+frame 0 0 0 0

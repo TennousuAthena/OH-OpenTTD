@@ -114,7 +114,7 @@ public:
 	{
 		if (water_region_patch.label == INVALID_WATER_REGION_PATCH) return;
 		if (!HasOrigin(water_region_patch)) {
-			this->origin_keys.emplace_back(water_region_patch);
+			this->origin_keys.push_back({water_region_patch});
 			Node &node = Yapf().CreateNewNode();
 			node.Set(nullptr, water_region_patch);
 			Yapf().AddStartupNode(node);

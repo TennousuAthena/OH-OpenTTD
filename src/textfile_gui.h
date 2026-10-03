@@ -19,7 +19,7 @@
 std::optional<std::string> GetTextfile(TextfileType type, Subdirectory dir, std::string_view filename);
 
 /** Window for displaying a textfile */
-struct TextfileWindow : public Window, BaseStringMissingGlyphSearcher {
+struct TextfileWindow : public Window, MissingGlyphSearcher {
 	TextfileType file_type{}; ///< Type of textfile to view.
 	Scrollbar *vscroll = nullptr; ///< Vertical scrollbar.
 	Scrollbar *hscroll = nullptr; ///< Horizontal scrollbar.
@@ -37,7 +37,11 @@ struct TextfileWindow : public Window, BaseStringMissingGlyphSearcher {
 
 	void Reset() override;
 	FontSize DefaultSize() override;
+	/** Font used for document layout, drawing and glyph coverage checks. */
+	virtual FontSize ContentFontSize() const;
 	std::optional<std::string_view> NextString() override;
+	bool Monospace() override;
+	void SetFontNames(FontCacheSettings *settings, std::string_view font_name, const void *os_data) override;
 	void ScrollToLine(size_t line);
 	bool IsTextWrapped() const;
 

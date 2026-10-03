@@ -87,10 +87,10 @@ inline std::string ComposeName(E value, std::span<const std::string_view> names,
 		out = "<none>";
 	} else {
 		for (size_t i = 0; i < std::size(names); ++i) {
-			if (!value.Test(static_cast<E::EnumType>(i))) continue;
+			if (!value.Test(static_cast<typename E::EnumType>(i))) continue;
 			out += (!out.empty() ? "+" : "");
 			out += names[i];
-			value.Reset(static_cast<E::EnumType>(i));
+			value.Reset(static_cast<typename E::EnumType>(i));
 		}
 		if (value.base() != 0) {
 			out += (!out.empty() ? "+" : "");

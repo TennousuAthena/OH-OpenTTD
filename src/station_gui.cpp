@@ -361,7 +361,7 @@ protected:
 		int diff = 0;
 
 		for (CargoType cargo : SetCargoBitIterator(cargo_filter)) {
-			diff += (a->goods[cargo].HasData() ? a->goods[cargo].GetData().cargo.TotalCount() : 0) - (b->goods[cargo].HasData() ? b->goods[cargo].GetData().cargo.TotalCount() : 0);
+			diff += a->goods[cargo].TotalCount() - b->goods[cargo].TotalCount();
 		}
 
 		return diff < 0;
@@ -373,7 +373,7 @@ protected:
 		int diff = 0;
 
 		for (CargoType cargo : SetCargoBitIterator(cargo_filter)) {
-			diff += (a->goods[cargo].HasData() ? a->goods[cargo].GetData().cargo.AvailableCount() : 0) - (b->goods[cargo].HasData() ? b->goods[cargo].GetData().cargo.AvailableCount() : 0);
+			diff += a->goods[cargo].AvailableCount() - b->goods[cargo].AvailableCount();
 		}
 
 		return diff < 0;
@@ -533,7 +533,7 @@ public:
 								x -= rating_width + rating_spacing;
 								if (x < tr.left) break;
 							}
-							StationsWndShowStationRating(x, x + rating_width, tr.top, cargo_type, st->goods[cargo_type].HasData() ? st->goods[cargo_type].GetData().cargo.TotalCount() : 0, st->goods[cargo_type].rating);
+							StationsWndShowStationRating(x, x + rating_width, tr.top, cargo_type, st->goods[cargo_type].TotalCount(), st->goods[cargo_type].rating);
 							if (!rtl) {
 								x += rating_width + rating_spacing;
 								if (x > tr.right) break;
@@ -1323,7 +1323,7 @@ struct StationViewWindow : public Window {
 	StationViewWindow(WindowDesc &desc, WindowNumber window_number) : Window(desc)
 	{
 		this->CreateNestedTree();
-		this->GetWidget<NWidgetStacked>(WID_SV_CLOSE_AIRPORT_SEL)->SetDisplayedPlane(Station::Get(this->window_number)->facilities.Test(StationFacility::Airport) ? 0 : SZSP_NONE);
+		this->GetWidget<NWidgetStacked>(WID_SV_CLOSE_AIRPORT_SEL)->SetDisplayedPlane(Station::Get(window_number)->facilities.Test(StationFacility::Airport) ? 0 : SZSP_NONE);
 		this->vscroll = this->GetScrollbar(WID_SV_SCROLLBAR);
 		/* Nested widget tree creation is done in two steps to ensure that this->GetWidget<NWidgetCore>(WID_SV_ACCEPTS_RATINGS) exists in UpdateWidgetSize(). */
 		this->FinishInitNested(window_number);
@@ -1820,7 +1820,7 @@ struct StationViewWindow : public Window {
 				int y = r.top - pos * this->line_height;
 				if (this->groupings[column] == GR_CARGO) {
 					str = STR_STATION_VIEW_WAITING_CARGO;
-					this->DrawCargoIcons(cd.GetCargo(), cd.GetCount(), Rect(r.left + this->expand_shrink_width, y, r.right - this->expand_shrink_width, y + this->line_height - 1));
+					this->DrawCargoIcons(cd.GetCargo(), cd.GetCount(), Rect{static_cast<int>(r.left + this->expand_shrink_width), y, static_cast<int>(r.right - this->expand_shrink_width), y + this->line_height - 1});
 				} else {
 					if (!auto_distributed) grouping = GR_SOURCE;
 					station = cd.GetStation();
@@ -2244,7 +2244,7 @@ static void FindStationsNearby(TileArea ta, bool distant_join)
 		if (T::IsValidBaseStation(st) && !st->IsInUse() && st->owner == _local_company) {
 			/* Include only within station spread (yes, it is strictly less than) */
 			if (std::max(DistanceMax(ta.tile, st->xy), DistanceMax(TileAddXY(ta.tile, ta.w - 1, ta.h - 1), st->xy)) < _settings_game.station.station_spread) {
-				_deleted_stations_nearby.emplace_back(st->xy, st->index);
+				_deleted_stations_nearby.emplace_back(TileAndStation{st->xy, st->index});
 
 				/* Add the station when it's within where we're going to build */
 				if (IsInsideBS(TileX(st->xy), TileX(ctx.tile), ctx.w) &&

@@ -59,8 +59,8 @@ typedef unsigned long in_addr_t;
 #endif /* !(__MINGW32__ && __CYGWIN__) */
 #endif /* _WIN32 */
 
-/* UNIX stuff */
-#if defined(UNIX)
+/* POSIX networking, also provided by HarmonyOS. */
+#if defined(UNIX) || defined(HARMONYOS)
 #	if defined(OPENBSD) || defined(__NetBSD__)
 #		define AI_ADDRCONFIG 0
 #	endif
@@ -107,7 +107,7 @@ typedef unsigned long in_addr_t;
 #		define FD_SETSIZE 512
 #   endif
 
-#endif /* UNIX */
+#endif /* UNIX || HARMONYOS */
 
 #ifdef __EMSCRIPTEN__
 /**

@@ -92,7 +92,7 @@ if(OPTION_INSTALL_FHS)
             COMPONENT manual)
 endif()
 
-if(UNIX AND NOT APPLE AND NOT EMSCRIPTEN)
+if(UNIX AND NOT APPLE AND NOT EMSCRIPTEN AND NOT HARMONYOS)
     install(DIRECTORY
                     ${CMAKE_BINARY_DIR}/media/icons
                     ${CMAKE_BINARY_DIR}/media/pixmaps
@@ -179,7 +179,14 @@ elseif(WIN32)
         COMMAND "${CMAKE_SOURCE_DIR}/os/windows/sign.bat" "${BINARY_DESTINATION_DIR}"
       )
     endif()
-elseif(UNIX)
+elseif(HARMONYOS)
+    # HarmonyOS bundles are assembled by the HarmonyOS toolchain (hap/app);
+    # upstream CPack generators (deb/rpm/txz) have no meaning here. Keep a
+    # benign TXZ fallback so "unknown OS" never aborts the build.
+    set(CPACK_GENERATOR "TXZ")
+    set(PLATFORM "harmonyos")
+    set(CPACK_PACKAGE_FILE_NAME "openttd-#CPACK_PACKAGE_VERSION#-harmonyos-${CPACK_SYSTEM_NAME}")
+elseif(UNIX AND NOT HARMONYOS)
     # With FHS, we can create deb/rpm/... Without it, they would be horribly broken
     # and not work. The other way around is also true; with FHS they are not
     # usable, and only flat formats work.

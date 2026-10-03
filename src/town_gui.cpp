@@ -1591,16 +1591,16 @@ public:
 				const HouseSpec *hs = HouseSpec::Get(item.local_id);
 				if (hs == nullptr) continue;
 				int class_index = GetClassIdFromHouseZone(hs->building_availability);
-				dst.emplace(item.grfid, item.local_id, class_index, item.local_id);
+				dst.emplace(PickerItem{item.grfid, item.local_id, class_index, item.local_id});
 			} else {
 				/* Search for spec by grfid and local index. */
 				auto it = std::ranges::find_if(specs, [&item](const HouseSpec &spec) { return spec.grf_prop.grfid == item.grfid && spec.grf_prop.local_id == item.local_id; });
 				if (it == specs.end()) {
 					/* Not preset, hide from UI. */
-					dst.emplace(item.grfid, item.local_id, -1, -1);
+					dst.emplace(PickerItem{item.grfid, item.local_id, -1, -1});
 				} else {
 					int class_index = GetClassIdFromHouseZone(it->building_availability);
-					dst.emplace(item.grfid, item.local_id, class_index, it->Index());
+					dst.emplace(PickerItem{item.grfid, item.local_id, class_index, it->Index()});
 				}
 			}
 		}
@@ -1782,7 +1782,7 @@ struct BuildHouseWindow : public PickerWindow {
 		PickerInvalidations pi(data);
 		if (pi.Test(PickerInvalidation::Position)) {
 			UpdateSelectSize(spec);
-			this->house_info = GetHouseInformation(spec);
+			this->house_info = spec->enabled ? GetHouseInformation(spec) : "";
 		}
 
 		/* If house spec already has the protected flag, handle it automatically and disable the buttons. */

@@ -244,6 +244,9 @@ void Train::ConsistChanged(ConsistChangeFlags allowed_changes)
 		InvalidateWindowData(WC_VEHICLE_REFIT, this->index, VIWD_CONSIST_CHANGED);
 		InvalidateWindowData(WC_VEHICLE_ORDERS, this->index, VIWD_CONSIST_CHANGED);
 		InvalidateNewGRFInspectWindow(GSF_TRAINS, this->index);
+
+		/* If the consist is changed while in a depot, the vehicle view window must be invalidated to update the availability of refitting. */
+		InvalidateWindowData(WC_VEHICLE_VIEW, this->index, VIWD_CONSIST_CHANGED);
 	}
 }
 
@@ -3230,8 +3233,10 @@ static uint CheckTrainCollision(Vehicle *v, Train *t)
 	/* Happens when there is a train under bridge next to bridge head */
 	if (abs(v->z_pos - t->z_pos) > 5) return 0;
 
-	/* crash both trains */
-	return TrainCrashed(t) + TrainCrashed(coll);
+	/* Crash both trains. Two statements required to guarantee execution
+	 * order because RandomRange() is involved. */
+	uint num_victims = TrainCrashed(t);
+	return num_victims + TrainCrashed(coll);
 }
 
 /**

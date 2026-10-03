@@ -1,0 +1,14 @@
+../evil.grf
+../
+/abs/escape.grf
+save/../../escape.dat
+a/../../
+C:/windows/system32/save
+../..\\..\\escape
+tilde~name.grf
+.leading-dot.grf
+..hidden
+sub\\dir\\name.grf
+trailing-slash/
+a:b:colon.grf
+name with space.grf

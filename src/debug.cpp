@@ -107,6 +107,10 @@ void DumpDebugFacilityNames(std::back_insert_iterator<std::string> &output_itera
  * @param level Debug category.
  * @param message The message to output.
  */
+#ifdef HARMONYOS
+extern void HarmonyOSDebugPrint(std::string_view category, int level, std::string &&message);
+#endif
+
 void DebugPrint(std::string_view category, int level, std::string &&message)
 {
 	if (category == "desync" && level != 0) {
@@ -124,12 +128,15 @@ void DebugPrint(std::string_view category, int level, std::string &&message)
 		fflush(*f);
 #endif
 	} else {
+#ifdef HARMONYOS
+		HarmonyOSDebugPrint(category, level, std::move(message));
+#endif
 		fmt::print(stderr, "{}dbg: [{}:{}] {}\n", GetLogPrefix(true), category, level, message);
 
 		if (_debug_remote_console.load()) {
 			/* Only add to the queue when there is at least one consumer of the data. */
 			std::lock_guard<std::mutex> lock(_debug_remote_console_mutex);
-			_debug_remote_console_queue.emplace_back(category, std::move(message));
+			_debug_remote_console_queue.emplace_back(QueuedDebugItem{category, std::move(message)});
 		}
 	}
 }

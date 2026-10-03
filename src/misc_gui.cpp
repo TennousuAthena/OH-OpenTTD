@@ -12,6 +12,7 @@
 #include "landscape.h"
 #include "error.h"
 #include "gui.h"
+#include "openttd.h"
 #include "gfx_layout.h"
 #include "tilehighlight_func.h"
 #include "command_func.h"
@@ -336,6 +337,10 @@ static constexpr std::initializer_list<NWidgetPart> _nested_about_widgets = {
 			NWidget(WWT_EMPTY, INVALID_COLOUR, WID_A_SCROLLING_TEXT),
 		EndContainer(),
 		NWidget(WWT_LABEL, INVALID_COLOUR, WID_A_WEBSITE),
+#ifdef HARMONYOS
+		NWidget(WWT_LABEL, INVALID_COLOUR, WID_A_PORT_AUTHOR),
+		NWidget(WWT_PUSHTXTBTN, COLOUR_GREY, WID_A_PORT_REPOSITORY), SetStringTip(STR_JUST_RAW_STRING),
+#endif
 		NWidget(WWT_LABEL, INVALID_COLOUR, WID_A_COPYRIGHT),
 	EndContainer(),
 };
@@ -348,6 +353,12 @@ static WindowDesc _about_desc(
 );
 
 static const std::initializer_list<const std::string_view> _credits = {
+#ifdef HARMONYOS
+	"HarmonyOS port by TennousuAthena",
+	"https://github.com/TennousuAthena/OH-OpenTTD",
+	"Based on OpenTTD - https://github.com/OpenTTD/OpenTTD",
+	"",
+#endif
 	"Original design by Chris Sawyer",
 	"Original graphics by Simon Foster",
 	"",
@@ -430,9 +441,22 @@ struct AboutWindow : public Window {
 	std::string GetWidgetString(WidgetID widget, StringID stringid) const override
 	{
 		if (widget == WID_A_WEBSITE) return "Website: https://www.openttd.org";
+#ifdef HARMONYOS
+		if (widget == WID_A_PORT_AUTHOR) return "HarmonyOS port: TennousuAthena";
+		if (widget == WID_A_PORT_REPOSITORY) return "Source: github.com/TennousuAthena/OH-OpenTTD";
+#endif
 		if (widget == WID_A_COPYRIGHT) return GetString(STR_ABOUT_COPYRIGHT_OPENTTD, _openttd_revision_year);
 		return this->Window::GetWidgetString(widget, stringid);
 	}
+
+#ifdef HARMONYOS
+	void OnClick([[maybe_unused]] Point pt, WidgetID widget, [[maybe_unused]] int click_count) override
+	{
+		if (widget == WID_A_PORT_REPOSITORY) {
+			OpenBrowser("https://github.com/TennousuAthena/OH-OpenTTD");
+		}
+	}
+#endif
 
 	void UpdateWidgetSize(WidgetID widget, Dimension &size, [[maybe_unused]] const Dimension &padding, [[maybe_unused]] Dimension &fill, [[maybe_unused]] Dimension &resize) override
 	{
@@ -1010,13 +1034,15 @@ struct QueryStringWindow : public Window
 
 	void Close([[maybe_unused]] int data = 0) override
 	{
-		if (this->parent->window_class == WC_STATION_VIEW) SetViewportStationRect(Station::Get(this->parent->window_number), false);
-		if (this->parent->window_class == WC_WAYPOINT_VIEW) SetViewportWaypointRect(Waypoint::Get(this->parent->window_number), false);
+		if (this->parent != nullptr) {
+			if (this->parent->window_class == WC_STATION_VIEW) SetViewportStationRect(Station::Get(this->parent->window_number), false);
+			if (this->parent->window_class == WC_WAYPOINT_VIEW) SetViewportWaypointRect(Waypoint::Get(this->parent->window_number), false);
 
-		if (!this->editbox.handled && this->parent != nullptr) {
-			Window *parent = this->parent;
-			this->parent = nullptr; // so parent doesn't try to close us again
-			parent->OnQueryTextFinished(std::nullopt);
+			if (!this->editbox.handled) {
+				Window *parent = this->parent;
+				this->parent = nullptr; // so parent doesn't try to close us again
+				parent->OnQueryTextFinished(std::nullopt);
+			}
 		}
 
 		this->Window::Close();

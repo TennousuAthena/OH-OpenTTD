@@ -28,6 +28,11 @@ if(NOT OPTION_DEDICATED)
         xaudio2_s.h
         CONDITION WIN32 AND XAUDIO2_FOUND
     )
+
+    add_files(
+        harmonyos_s.cpp
+        CONDITION HARMONYOS
+    )
 endif()
 
 add_files(
@@ -35,3 +40,11 @@ add_files(
     null_s.cpp
     null_s.h
 )
+
+if(HARMONYOS)
+    # The HarmonyOS sound driver needs the OHAudio C API. Guard it with its
+    # own define (mirroring WITH_SDL2/WITH_COCOA) so the .cpp can be
+    # preprocessed standalone, and link libohaudio.so from the OHOS sysroot.
+    target_compile_definitions(openttd_lib PRIVATE WITH_HARMONYOS)
+    target_link_libraries(openttd_lib ohaudio)
+endif()

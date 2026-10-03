@@ -1,0 +1,6 @@
+# Focus loss mid-touch-drag: all held buttons released, gesture state cleared.
+touch 0 down 100 100 finger
+touch 0 move 130 120 finger
+leave
+touch 0 down 50 50 finger
+touch 0 up 50 50 finger

@@ -1,0 +1,157 @@
+=== F2 policy fixes: evidence log ===
+date: 2026-08-18T13:24:21Z
+git_head: b2375077150d5c700c43f29cf627868e85f608e5
+
+--- test-render-contract.sh ---
+[test] building host driver without oracle flag
+[test] building host driver WITH -DOPENTTD_HARMONYOS_RENDER_ORACLE=ON
+
+== scenario: oracle flag gating ==
+PASS: no-flag build reports ORACLE_ABSENT (diagnostic path gated)
+
+== scenario: unions (dirty rect merge) ==
+  union#1 (10 20 110 100) OK
+  union#2 (10 20 240 100) OK
+  union#3 (10 20 640 480) OK
+  union#4 empty OK
+  union#5 empty OK
+  union#6 (95 95 115 115) OK
+  union#7 (0 0 640 480) OK
+  union#8 (799 599 800 600) OK
+  union#9 (799 599 801 601) OK
+  union#10 (-50 -30 50 50) OK
+  union#11 (299 199 351 251) OK
+unions: 11/11 blocks passed
+
+== scenario: clips (dirty rect clipping) ==
+clips: 13/13 cases passed
+
+== scenario: formats (RGBA/BGRA conversion) ==
+  fmt(255 0 0 255) bgra=0000ffff rgba=ff0000ff OK
+  fmt(0 255 0 255) bgra=00ff00ff rgba=00ff00ff OK
+  fmt(0 0 255 255) bgra=ff0000ff rgba=0000ffff OK
+  fmt(0 0 0 255) bgra=000000ff rgba=000000ff OK
+  fmt(255 255 255 255) bgra=ffffffff rgba=ffffffff OK
+  fmt(10 20 30 40) bgra=1e140a28 rgba=0a141e28 OK
+  fmt(200 100 50 25) bgra=3264c819 rgba=c8643219 OK
+  fmt(1 2 3 4) bgra=03020104 rgba=01020304 OK
+  fmt(128 128 128 255) bgra=808080ff rgba=808080ff OK
+  fmt(250 100 5 128) bgra=0564fa80 rgba=fa640580 OK
+formats: 10/10 vectors passed
+
+== scenario: stride ==
+PASS: stride 640 480 2560 bgra -> stride: 2560 (pad 0) handled, guards intact, hash=ecc66d6729c14690e9eba499ee693ef050381c0eab201f367c4996301162dbb9
+PASS: stride 640 480 2600 bgra -> stride: 2600 (pad 40) handled, guards intact, hash=ecc66d6729c14690e9eba499ee693ef050381c0eab201f367c4996301162dbb9
+PASS: stride 640 480 2600 rgba -> stride: 2600 (pad 40) handled, guards intact, hash=e6c6c797afa4991a3460529a1183c06eb418f80029d0a149ed3b1d6f27e04890
+PASS: stride 32 32 256 bgra -> stride: 256 (pad 128) handled, guards intact, hash=86614f6dc9c569920dca1d33a9505387f72b20f6b080d39dee310e37acdecf79
+PASS: odd (2561/2559), undersized (1280) and zero strides all REJECTED
+
+== scenario: stale (surface-generation guard) ==
+  stale#1 (s=640x480 gen3 cached3 -> p=640x480 gen3) OK OK
+  stale#2 (s=640x480 gen3 cached2 -> p=640x480 gen3) OK OK
+  stale#3 (s=640x480 gen0 cached0 -> p=640x480 gen0) STALE_GENERATION OK
+  stale#4 (s=640x480 gen4 cached3 -> p=640x480 gen3) STALE_GENERATION OK
+  stale#5 (s=640x480 gen4 cached4 -> p=640x480 gen2) STALE_GENERATION OK
+  stale#6 (s=0x480 gen3 cached3 -> p=0x480 gen3) INVALID_SURFACE OK
+  stale#7 (s=640x0 gen3 cached3 -> p=640x0 gen3) INVALID_SURFACE OK
+  stale#8 (s=-640x480 gen3 cached3 -> p=640x480 gen3) INVALID_SURFACE OK
+  stale#9 (s=640x480 gen5 cached5 -> p=640x480 gen5) OK OK
+  stale#10 (s=640x480 gen3 cached3 -> p=0x0 gen3) INVALID_SURFACE OK
+  stale#11 (s=640x480 gen2 cached3 -> p=640x480 gen3) STALE_GENERATION OK
+  stale#12 (s=640x480 gen7 cached7 -> p=640x480 gen8) STALE_GENERATION OK
+  stale#13 (s=640x480 gen9 cached9 -> p=640x480 gen9) OK OK
+stale: 13/13 cases passed
+
+== scenario: oob (guard canary / no OOB writes) ==
+PASS: oob: dirty(600 450 700 550) clip(600 450 640 480) guards intact OK
+PASS: oob: dirty(-100 -100 -50 -50) clip(0 0 -50 -50) guards intact OK
+PASS: oob: dirty(40 40 60 60) clip(40 40 32 32) guards intact OK
+PASS: oob: dirty(0 0 640 480) clip(0 0 640 480) guards intact OK
+PASS: oob: dirty(700 100 1000 600) clip(700 100 800 600) guards intact OK
+PASS: oob: dirty(320 240 720 540) clip(320 240 640 480) guards intact OK
+
+== scenario: fence (request/flush pairing) ==
+PASS: fence: request=3 flush=3 close=3 balanced OK
+
+== scenario: oracle (golden screenshot hashes) ==
+PASS: colorbars-bgra-640x480 hash matches golden
+PASS: colorbars-rgba-640x480 hash matches golden
+PASS: colorbars-bgra-640x480-oddstride hash matches golden
+PASS: checker-bgra-640x480 hash matches golden
+PASS: checker-rgba-640x480 hash matches golden
+PASS: bgra != rgba screenshots (R/B swap is applied)
+
+[test] render contract: ALL PASS
+EXIT=0
+
+--- test-diagnostics-policy.sh ---
+[21:24:24] [INFO] === (a) HiLog privacy markers ===
+[21:24:24] [INFO] PASS: a: HiLog used in 2 native file(s)
+[21:24:24] [INFO] PASS: a: all HiLog format args carry %{public}/%{private}
+[21:24:24] [INFO] === (b) forbidden native APIs (fork/exec/system/popen/backtrace/execinfo) ===
+[21:24:24] [INFO] PASS: b: no fork/exec/system/popen/backtrace/execinfo in native sources
+[21:24:31] [INFO] PASS: b: only allowlisted dlopen("libopenttd.so") present
+[21:24:31] [INFO] === (c) URL allowlist ===
+[21:24:31] [INFO] PASS: c: no non-http(s) URL schemes in native sources
+[21:24:31] [INFO] === (d) permission allowlist ===
+[21:24:31] [INFO] PASS: d: module.json5 declares only ohos.permission.INTERNET
+[21:24:31] [INFO] === (e) secrets scan ===
+[21:24:31] [INFO] PASS: e: no secret material in tracked port files
+[21:24:31] [INFO] === (f) dependency allowlist ===
+[21:24:31] [INFO] PASS: f: manifest dependency ids == pinned allowlist
+[21:24:31] [INFO] PASS: f: exclusions intact (allegro breakpad fluidsynth fontconfig sdl)
+[21:24:31] [INFO] === (g) source-delta allowlist vs upstream 14ec60f248547d4d062a1160f0fc26d742319888 ===
+[21:24:31] [INFO] PASS: g: all git-diff paths within source-delta allowlist
+[21:24:31] [INFO] === (h) NAPI error envelope round-trip ===
+[21:24:32] [INFO] PASS: h: NAPI error envelope round-trips code/domain/message
+[21:24:32] [INFO] === (i) release symbols/BuildIDs indexed outside the HAP ===
+[21:24:32] [INFO] PASS: i: unstripped arm64-v8a libopenttd.so has BuildID 6b9d42f596054a350a421feacbb3590b4ecf65c5
+[21:24:32] [INFO] PASS: i: symbol index generated from build intermediate (not HAP)
+[21:24:32] [INFO] PASS: i: stripped lib keeps BuildID 6b9d42f596054a350a421feacbb3590b4ecf65c5 (correlatable)
+[21:24:32] [INFO] PASS: i: shipped lib has NO .symtab (symbols stay out of HAP)
+[21:24:32] [INFO] === (j) negative fixtures ===
+[21:24:32] [INFO] PASS: j1: execvp fixture rejected (policy exits nonzero)
+[21:24:32] [ERROR]   permissions exceed allowlist: ohos.permission.INTERNET ohos.permission.LOCATION
+[21:24:32] [INFO] PASS: j2: unrelated permission fixture rejected (policy exits nonzero)
+[21:24:32] [INFO] PASS: j3: secret-leak fixture detected (policy exits nonzero)
+[21:24:32] [INFO] PASS: j4: non-http URL fixture rejected (policy exits nonzero)
+[21:24:32] [ERROR]   arbitrary dlopen in /var/folders/v2/qc68x6q934z2pk0gw4ckl2nw0000gn/T//openttd-ohos-diagnostics-policy/dlopen_fixture.c: void *h = dlopen(user_supplied_path, RTLD_NOW);
+[21:24:32] [INFO] PASS: j5: arbitrary dlopen fixture rejected (policy exits nonzero)
+[21:24:32] [ERROR]   bare format specifier %s in /var/folders/v2/qc68x6q934z2pk0gw4ckl2nw0000gn/T//openttd-ohos-diagnostics-policy/bare_log_fixture.cpp: void leak(void) { OH_LOG_INFO(LOG_APP, "player %s joined", name); }
+[21:24:32] [INFO] PASS: j6: bare %s HiLog fixture rejected (policy exits nonzero)
+[21:24:32] [INFO] PASS: j7: out-of-allowlist source path rejected
+[21:24:32] [INFO] === summary: 22 passed, 0 failed ===
+[21:24:32] [INFO] test-diagnostics-policy.sh: ALL TESTS PASSED
+EXIT=0
+
+--- ci-local.sh ---
+OpenTTD HarmonyOS — local CI
+============================
+
+Lane 1: bash -n syntax check over scripts/harmonyos/*.sh
+  [PASS] bash -n all scripts
+
+Lane 2: bootstrap --check-only
+  [PASS] bootstrap --check-only
+
+Lane 3: secret scan over tracked HarmonyOS files
+  [PASS] secret scan
+
+Lane 4: workflow structural policy check
+  [PASS] ci-policy-check.sh
+
+Lane 5: workflow YAML parse
+  [PASS] yaml.safe_load harmonyos-build.yml
+
+PENDING lanes (scripts land in later plan todos — NOT run today):
+  [PASS] build-host-tools.sh (exists — run it manually)
+  [PASS] build-target.sh (exists — run it manually)
+  [PASS] package.sh (exists — run it manually)
+  [PASS] inspect-release.sh (exists — run it manually)
+  [PASS] check-licenses.sh (exists — run it manually)
+  [PENDING] test-device.sh — script does not exist yet
+
+============================
+SUMMARY: 10 PASS, 0 FAIL, 1 PENDING
+LOCAL CI GREEN (PENDING lanes are informational only)
+EXIT=0

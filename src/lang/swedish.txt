@@ -1062,7 +1062,7 @@ STR_GAME_OPTIONS_LANGUAGE_TOOLTIP                               :Välj vilket sp
 STR_GAME_OPTIONS_LANGUAGE_PERCENTAGE                            :{STRING} ({NUM}% färdigt)
 
 STR_GAME_OPTIONS_FULLSCREEN                                     :Helskärm
-STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :Kryssa i den här rutan för att spela OpenTTD i helskärmsläge
+STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :Aktivera för att spela OpenTTD i helskärmsläge
 
 STR_GAME_OPTIONS_RESOLUTION                                     :Skärmupplösning
 STR_GAME_OPTIONS_RESOLUTION_TOOLTIP                             :Välj vilken skärmupplösning som ska användas
@@ -1070,11 +1070,11 @@ STR_GAME_OPTIONS_RESOLUTION_OTHER                               :annan
 STR_GAME_OPTIONS_RESOLUTION_ITEM                                :{NUM}x{NUM}
 
 STR_GAME_OPTIONS_VIDEO_ACCELERATION                             :Hårdvaruacceleration
-STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :Markera denna rutan för att tillåta OpenTTD att försöka använda hårdvaruacceleration. Ändrad inställning kommer bara att gälla efter omstart.
+STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :Aktivera för att tillåta OpenTTD att försöka använda hårdvaruacceleration. Ändrad inställning kommer bara att gälla efter omstart.
 STR_GAME_OPTIONS_VIDEO_ACCELERATION_RESTART                     :{WHITE}Inställningen kommer bara att gälla efter omstart av spelet
 
 STR_GAME_OPTIONS_VIDEO_VSYNC                                    :VSync
-STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :Markera den här rutan för att v-synka skärmen. Ändringar i den här inställningen kommer bara att tillämpas vid omstart av spelet. Fungerar bara med hårdvaruacceleration aktiverad.
+STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :Aktivera för att v-synka skärmen. Ändringar i den här inställningen kommer bara att tillämpas vid omstart av spelet. Fungerar bara med hårdvaruacceleration aktiverad.
 
 STR_GAME_OPTIONS_VIDEO_DRIVER_INFO                              :Nuvarande drivrutin: {STRING}
 
@@ -1083,15 +1083,15 @@ STR_GAME_OPTIONS_INTERFACE                                      :Gränssnitt
 STR_GAME_OPTIONS_GUI_SCALE_FRAME                                :Gränssnittets storlek
 STR_GAME_OPTIONS_GUI_SCALE_TOOLTIP                              :Dra i reglaget för att ställa in gränssnittets storlek. Ctrl+Drag för steglös justering
 STR_GAME_OPTIONS_GUI_SCALE_AUTO                                 :Känn av storleken automatiskt
-STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :Kryssa i den här rutan för automatisk inställning av gränssnittets storlek
+STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :Aktivera för automatisk inställning av gränssnittets storlek
 
 STR_GAME_OPTIONS_GUI_SCALE_BEVELS                               :Skala bården
-STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :Kryssa i den här rutan för att skala bården efter gränssnittets storlek
+STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :Aktivera för att skala bården efter gränssnittets storlek
 
 STR_GAME_OPTIONS_GUI_FONT_SPRITE                                :Använd traditionellt sprite-typsnitt
-STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Kryssa i den här rutan om du föredrar att använda det traditionella sprite-typsnittet med fast storlek
+STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Aktivera om du föredrar att använda det traditionella sprite-typsnittet med fast storlek
 STR_GAME_OPTIONS_GUI_FONT_AA                                    :Anti-alias-typsnitt
-STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Kryssa i den här rutan för anti-aliasing av typsnitt med justerbar storlek
+STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Akrivera anti-aliasing av typsnitt med justerbar storlek
 
 STR_GAME_OPTIONS_GUI_SCALE_MARK                                 :{DECIMAL}x
 
@@ -1115,7 +1115,7 @@ STR_GAME_OPTIONS_BASE_GRF_TOOLTIP                               :Välj vilket gr
 STR_GAME_OPTIONS_BASE_GRF_DESCRIPTION_TOOLTIP                   :Ytterligare information om grafikpaketet
 
 STR_GAME_OPTIONS_BASE_SFX                                       :Grundljudpaket
-STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Välj vilket ljudpaket som ska användas (kan inte ändras under spel, utan endast från huvudmenyn)
+STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Välj vilket ljudpaket som ska användas
 STR_GAME_OPTIONS_BASE_SFX_DESCRIPTION_TOOLTIP                   :Ytterligare information om ljudpaketet
 
 STR_GAME_OPTIONS_BASE_MUSIC                                     :Grundmusikpaket
@@ -1248,7 +1248,7 @@ STR_CONFIG_SETTING_EXPAND_ALL                                   :Utöka alla
 STR_CONFIG_SETTING_COLLAPSE_ALL                                 :Stäng alla
 STR_CONFIG_SETTING_RESET_ALL                                    :Återställ alla värden
 STR_CONFIG_SETTING_NO_EXPLANATION_AVAILABLE_HELPTEXT            :(ingen förklaring tillgänglig)
-STR_CONFIG_SETTING_VALUE                                        :{PUSH_COLOUR}{ORANGE}{STRING}{POP_COLOUR}
+STR_CONFIG_SETTING_VALUE                                        :{ORANGE}{STRING}
 STR_CONFIG_SETTING_DEFAULT_VALUE                                :{LTBLUE}Standardvärde: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE                                         :{LTBLUE}Typ av inställning: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE_CLIENT                                  :Klientinställning (sparas ej i spel-filer och påverkar alla spel)
@@ -2068,7 +2068,7 @@ STR_CONFIG_SETTING_ZOOM_LVL_OUT_4X                              :4x
 STR_CONFIG_SETTING_ZOOM_LVL_OUT_8X                              :8x
 
 STR_CONFIG_SETTING_SPRITE_ZOOM_MIN                              :Högsta upplösning som sprites ska använda: {STRING}
-STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :Begränsa den maximala upplösningen för sprites. Begränsning av spritens upplösning hindrar användandet av högre upplösningar även om det finns tillgängligt. Detta kan hjälpa att hålla spelets utseende mer enhetlig vid användandet av flera olika GRF filer med högre och lägre upplösning
+STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :Begränsa den maximala upplösningen för sprites. Begränsning av spritens upplösning hindrar användandet av högre upplösningar även om det finns tillgängligt. Detta kan hjälpa att hålla spelets utseende mer enhetlig vid användandet av flera olika NewGRF filer med högre och lägre upplösning
 ###length 3
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_MIN                          :4x
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_IN_2X                        :2x
@@ -2204,7 +2204,7 @@ STR_CONFIG_ERROR                                                :{WHITE}Problem 
 STR_CONFIG_ERROR_ARRAY                                          :{WHITE}... fel i listan '{STRING}'
 STR_CONFIG_ERROR_INVALID_VALUE                                  :{WHITE}... ogiltigt värde '{STRING}' för '{STRING}'
 STR_CONFIG_ERROR_TRAILING_CHARACTERS                            :{WHITE}... extra tecken vid slutet av inställning '{STRING}'
-STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... ignorerar NewGRF '{STRING}': GRF ID-dublett med '{STRING}'
+STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... ignorerar NewGRF '{STRING}': NewGRF ID-dublett med '{STRING}'
 STR_CONFIG_ERROR_INVALID_GRF                                    :{WHITE}... ignorerar ogiltig NewGRF '{STRING}': {STRING}
 STR_CONFIG_ERROR_INVALID_GRF_NOT_FOUND                          :hittades ej
 STR_CONFIG_ERROR_INVALID_GRF_UNSAFE                             :osäker för statisk användning
@@ -2869,7 +2869,7 @@ STR_HOUSE_PICKER_YEARS_ANY                                      :{BLACK}År: {GO
 STR_HOUSE_PICKER_YEARS_FROM                                     :{BLACK}År: {GOLD}Från {NUM}
 STR_HOUSE_PICKER_YEARS_UNTIL                                    :{BLACK}År: {GOLD}Till {NUM}
 STR_HOUSE_PICKER_SIZE                                           :{BLACK}Storlek: {GOLD}{NUM}x{NUM} rutor
-STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Accepterat gods: {GOLD}
+STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Accepterat gods: {GOLD}{STRING}
 STR_HOUSE_PICKER_CARGO_PRODUCED                                 :{BLACK}Fraktgods producerat: {GOLD}{CARGO_LIST}
 
 STR_HOUSE_PICKER_CLASS_ZONE1                                    :Gräns
@@ -2878,10 +2878,11 @@ STR_HOUSE_PICKER_CLASS_ZONE3                                    :Yttrerförorter
 STR_HOUSE_PICKER_CLASS_ZONE4                                    :Innerförorter
 STR_HOUSE_PICKER_CLASS_ZONE5                                    :Stadskärnan
 
-STR_HOUSE_PICKER_PROTECT_TITLE                                  :Förhindra uppgraderingar
+STR_HOUSE_PICKER_PROTECT                                        :Hindra uppgraderingar
 STR_HOUSE_PICKER_PROTECT_TOOLTIP                                :Välj huruvida detta hus ska skyddas från att ersättas i samband med att staden växer
-STR_HOUSE_PICKER_PROTECT_OFF                                    :Av
-STR_HOUSE_PICKER_PROTECT_ON                                     :På
+
+STR_HOUSE_PICKER_REPLACE                                        :Ersätt befintlig
+STR_HOUSE_PICKER_REPLACE_TOOLTIP                                :Välj om befintliga hus automatiskt ska tas bort när denna byggnad placeras
 
 STR_STATION_CLASS_DFLT                                          :Original
 STR_STATION_CLASS_DFLT_STATION                                  :Standardstation
@@ -3156,7 +3157,7 @@ STR_LAND_AREA_INFORMATION_AIRPORT_CLASS                         :{BLACK}Flygplat
 STR_LAND_AREA_INFORMATION_AIRPORT_NAME                          :{BLACK}Flygplatsnamn: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_AIRPORTTILE_NAME                      :{BLACK}Flygplatsrutans namn: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_NEWGRF_NAME                           :{BLACK}NewGRF: {LTBLUE}{STRING}
-STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Accepterat gods: {LTBLUE}
+STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Accepterat gods: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_CARGO_EIGHTS                          :({COMMA}/8 {STRING})
 STR_LANG_AREA_INFORMATION_RAIL_TYPE                             :{BLACK}Spårtyp: {LTBLUE}{STRING}
 STR_LANG_AREA_INFORMATION_ROAD_TYPE                             :{BLACK}Vägtyp: {LTBLUE}{STRING}
@@ -3619,7 +3620,7 @@ STR_NEWGRF_ERROR_INVALID_PARAMETER                              :Felaktig parame
 STR_NEWGRF_ERROR_LOAD_BEFORE                                    :{1:STRING} måste laddas in innan {2:STRING}
 STR_NEWGRF_ERROR_LOAD_AFTER                                     :{1:STRING} måste laddas in efter {2:STRING}.
 STR_NEWGRF_ERROR_OTTD_VERSION_NUMBER                            :{1:STRING} kräver OpenTTD version {2:STRING} eller bättre
-STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :GRF-filen den var designad att översätta
+STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :NewGRF-filen den var designad att översätta
 STR_NEWGRF_ERROR_TOO_MANY_NEWGRFS_LOADED                        :För många NewGRFer är laddade
 STR_NEWGRF_ERROR_STATIC_GRF_CAUSES_DESYNC                       :Att ladda {1:STRING} som statisk NewGRF med {2:STRING} kan orsaka desynkronisering
 STR_NEWGRF_ERROR_UNEXPECTED_SPRITE                              :Oväntat spriteobjekt (spriteobjekt {3:NUM})
@@ -3628,7 +3629,7 @@ STR_NEWGRF_ERROR_INVALID_ID                                     :Försök att an
 STR_NEWGRF_ERROR_CORRUPT_SPRITE                                 :{YELLOW}{STRING} innehåller ett skadat spriteobjekt. Alla korrupta spriteobjekt kommer att visas som röda frågetecken (?)
 STR_NEWGRF_ERROR_MULTIPLE_ACTION_8                              :Innehåller flera Action 8 (spriteobjekt {3:NUM})
 STR_NEWGRF_ERROR_READ_BOUNDS                                    :Läste förbi slutet av pseudo-spriteobjekt (spriteobjekt {3:NUM})
-STR_NEWGRF_ERROR_GRM_FAILED                                     :Efterfrågade GRF-resurser är inte tillgängliga (spriteobjekt {3:NUM})
+STR_NEWGRF_ERROR_GRM_FAILED                                     :Efterfrågade NewGRF-resurser är inte tillgängliga (spriteobjekt {3:NUM})
 STR_NEWGRF_ERROR_FORCEFULLY_DISABLED                            :{1:STRING} har inaktiverats av {2:STRING}
 STR_NEWGRF_ERROR_INVALID_SPRITE_LAYOUT                          :Felaktigt/okänt layout-format av spriteobjekt (spriteobjekt {3:NUM})
 STR_NEWGRF_ERROR_LIST_PROPERTY_TOO_LONG                         :För många poster i listan med egenskapsvärden (spriteobjekt {3:NUM}, egenskap {4:HEX})
@@ -3638,13 +3639,13 @@ STR_NEWGRF_ERROR_INDPROD_CALLBACK                               :Ogiltig industr
 STR_NEWGRF_POPUP_CAUTION_CAPTION                                :{WHITE}Varning!
 STR_NEWGRF_CONFIRMATION_TEXT                                    :{YELLOW}Du håller på att göra ändringar i ett pågående spel; detta kan krascha OpenTTD eller orsaka andra fel i spelet. Skicka inte buggrapporter om sådana fel.{}Är du helt säker på detta?
 
-STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}Kan inte lägga till filen: redan existerande GRF ID
-STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}Matchande fil saknas (kompatibel GRF laddad)
+STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}Kan inte lägga till filen: redan existerande NewGRF ID
+STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}Matchande fil saknas (kompatibel NewGRF laddad)
 STR_NEWGRF_TOO_MANY_NEWGRFS                                     :{WHITE}Kan inte lägga till fil: Gränsen för NewGRF-filer uppnådd
 
-STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}Kompatibel GRF laddad för saknade filer
-STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}Saknad GRF-fil har stängts av
-STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Saknad(e) GRF-fil(er)
+STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}Kompatibel NewGRF laddad för saknade filer
+STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}Saknad NewGRF-fil har stängts av
+STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Saknad(e) NewGRF-fil(er)
 STR_NEWGRF_UNPAUSE_WARNING                                      :{WHITE}Avpausning kan krascha OpenTTD. Skicka ej bugg-rapporter för eventuella resulterande krascher.{}Är du säker på att du vill avpausa?
 
 # NewGRF status
@@ -3655,17 +3656,17 @@ STR_NEWGRF_LIST_COMPATIBLE                                      :{YELLOW}Hittade
 STR_NEWGRF_LIST_MISSING                                         :{RED}Saknade filer
 
 # NewGRF 'it's broken' warnings
-STR_NEWGRF_BROKEN                                               :{WHITE}Beteendet hos NewGRF:en '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' kommer troligen orsaka desynkronisering och/eller krascher
-STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}Kraftförsörjning-vagn-tillstånd för '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' ändrades utanför en depå
-STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}Fordonslängd för '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' ändrades utanför en depå
-STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}Kapaciteten ändrades för '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' utan att vara i depå eller anpassning
+STR_NEWGRF_BROKEN                                               :{WHITE}Beteendet hos NewGRF:en '{0:STRING}' kommer troligen orsaka desynkronisering och/eller krascher
+STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}Kraftförsörjning-vagn-tillstånd för '{1:ENGINE}' ändrades utanför en depå
+STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}Fordonslängd för '{1:ENGINE}' ändrades utanför en depån
+STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}Kapaciteten ändrades för '{1:ENGINE}' utan att vara i depå eller anpassning
 STR_BROKEN_VEHICLE_LENGTH                                       :{WHITE}Tåget '{VEHICLE}' som tillhör '{COMPANY}' har ogiltig längd. Detta orsakas förmodligen av problem med en NewGRF. Spelet kan desynkroniseras eller krascha
 
-STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' ger felaktig information
-STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}Last-/återställningsinformationen för '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' skiljer sig från köplistan efter konstruktion. Detta kan leda till att automatisk förnyelse/uppgradering misslyckas med att anpassa fordonen/vagnarna korrekt
-STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' skapade en oändlig loop i produktions-callback-funktionen
+STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{0:STRING} ger felaktig information
+STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}Last-/återställningsinformationen för '{1:ENGINE}' skiljer sig från köplistan efter konstruktion. Detta kan leda till att automatisk förnyelse/uppgradering misslyckas med att anpassa fordonen/vagnarna korrekt
+STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{1:STRING}' skapade en oändlig loop i produktions-callback-funktionen
 STR_NEWGRF_BUGGY_UNKNOWN_CALLBACK_RESULT                        :{WHITE}Callback-funktion {1:HEX} returnerade ett okänt/ogiltligt resultat {2:HEX}
-STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' returnerade ogiltig lasttyp i produktions-callback vid {2:HEX}
+STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{1:STRING}' returnerade ogiltig lasttyp i produktions-callback vid {2:HEX}
 
 # 'User removed essential NewGRFs'-placeholders for stuff without specs
 STR_NEWGRF_INVALID_CARGO                                        :<invalid cargo>
@@ -4039,12 +4040,12 @@ STR_COMPANY_INFRASTRUCTURE_VIEW_TOTAL_PERIOD                    :{WHITE}{CURRENC
 # Industry directory
 STR_INDUSTRY_DIRECTORY_CAPTION                                  :{WHITE}Industrier ({COMMA} av {COMMA})
 STR_INDUSTRY_DIRECTORY_NONE                                     :{ORANGE}- Inga -
-STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% transporterat){BLACK}
+STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% transporterat)
 STR_INDUSTRY_DIRECTORY_ITEM_NOPROD                              :{ORANGE}{INDUSTRY}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING} och {NUM} till...
+STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING} och {NUM} till...
 STR_INDUSTRY_DIRECTORY_LIST_TOOLTIP                             :{BLACK}Industrinamn - klicka på namnet för att centrera huvudvyn över industrin. Ctrl+Klick för att öppna en ny fönstervy över industrins läge
 STR_INDUSTRY_DIRECTORY_ACCEPTED_CARGO_FILTER                    :{BLACK}Accepterat gods: {SILVER}{STRING}
 STR_INDUSTRY_DIRECTORY_PRODUCED_CARGO_FILTER                    :{BLACK}Producerat fraktgods: {SILVER}{STRING}
@@ -4062,9 +4063,9 @@ STR_INDUSTRY_VIEW_CARGO_GRAPH_TOOLTIP                           :{BLACK}Visar gr
 STR_INDUSTRY_VIEW_PRODUCTION_LEVEL                              :{BLACK}Produktionsnivå: {YELLOW}{COMMA}%
 STR_INDUSTRY_VIEW_INDUSTRY_ANNOUNCED_CLOSURE                    :{YELLOW}Industrin har annonserat att den snart kommer att stänga!
 
-STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Kräver: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Producerar: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :, {STRING}{STRING}
+STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Kräver: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Producerar: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :{STRING}{STRING}
 
 STR_INDUSTRY_VIEW_REQUIRES                                      :{BLACK}Kräver:
 STR_INDUSTRY_VIEW_ACCEPT_CARGO_SUFFIX                           :{YELLOW}{0:STRING}{BLACK}{3:STRING}
@@ -4590,7 +4591,7 @@ STR_VEHICLE_DETAILS_TRAIN_CAPACITIES_TOOLTIP                    :{BLACK}Visa kap
 STR_VEHICLE_DETAIL_TAB_TOTAL_CARGO                              :{BLACK}Gods totalt
 STR_VEHICLE_DETAILS_TRAIN_TOTAL_CARGO_TOOLTIP                   :{BLACK}Visa tågets totala kapacitet, separera för typ av gods
 
-STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Kapacitet: {LTBLUE}
+STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Kapacitet: {LTBLUE}{STRING}
 
 # Vehicle refit
 STR_REFIT_CAPTION                                               :{WHITE}{VEHICLE} (Anpassa)
@@ -5729,7 +5730,7 @@ STR_VEHICLE_NAME_ROAD_VEHICLE_MPS_MAIL_TRUCK                    :MPS Postbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_REYNARD_MAIL_TRUCK                :Reynard Postbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_PERRY_MAIL_TRUCK                  :Perry Postbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_MAIL_TRUCK            :MightyMover postbil
-STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_MAIL_TRUCK            :Powernaught Postbil
+STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_MAIL_TRUCK            :Powernaught postbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_MAIL_TRUCK               :Wizzowow Postbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_WITCOMBE_OIL_TANKER               :Witcombe Oljetanker
 STR_VEHICLE_NAME_ROAD_VEHICLE_FOSTER_OIL_TANKER                 :Foster Oljetanker
@@ -5773,7 +5774,7 @@ STR_VEHICLE_NAME_ROAD_VEHICLE_KELLING_FRUIT_TRUCK               :Kelling Fruktla
 STR_VEHICLE_NAME_ROAD_VEHICLE_BALOGH_RUBBER_TRUCK               :Balogh Gummidumper
 STR_VEHICLE_NAME_ROAD_VEHICLE_UHL_RUBBER_TRUCK                  :Uhl Gummidumper
 STR_VEHICLE_NAME_ROAD_VEHICLE_RMT_RUBBER_TRUCK                  :RMT Gummidumper
-STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_SUGAR_TRUCK           :MightyMover Sockerlastare
+STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_SUGAR_TRUCK           :MightyMover sockerlastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_SUGAR_TRUCK           :Powernaught sockerlastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_SUGAR_TRUCK              :Wizzowow sockerlastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_COLA_TRUCK            :MightyMover kolalastare
@@ -5782,10 +5783,10 @@ STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_COLA_TRUCK               :Wizzowow kolala
 STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_COTTON_CANDY          :MightyMover sockervaddslastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_COTTON_CANDY          :Powernaught sockervaddslastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_COTTON_CANDY_TRUCK       :Wizzowow sockervaddslastare
-STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_TOFFEE_TRUCK          :MightyMover Knäcklastare
+STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_TOFFEE_TRUCK          :MightyMover knäcklastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_TOFFEE_TRUCK          :Powernaught knäcklastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_TOFFEE_TRUCK             :Wizzowow knäcklastare
-STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_TOY_VAN               :MightyMover Leksaksbil
+STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_TOY_VAN               :MightyMover leksaksbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_TOY_VAN               :Powernaught leksaksbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_TOY_VAN                  :Wizzowow leksaksbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_CANDY_TRUCK           :MightyMover godislastare
@@ -5797,7 +5798,7 @@ STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_BATTERY_TRUCK            :Wizzowow batter
 STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_FIZZY_DRINK           :MightyMover läsklastbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_FIZZY_DRINK           :Powernaught läsklastbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_FIZZY_DRINK_TRUCK        :Wizzowow läsklastbil
-STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_PLASTIC_TRUCK         :MightyMover Plastlastare
+STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_PLASTIC_TRUCK         :MightyMover plastlastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_POWERNAUGHT_PLASTIC_TRUCK         :Powernaught plastlastare
 STR_VEHICLE_NAME_ROAD_VEHICLE_WIZZOWOW_PLASTIC_TRUCK            :Wizzowow plastlastbil
 STR_VEHICLE_NAME_ROAD_VEHICLE_MIGHTYMOVER_BUBBLE_TRUCK          :MightyMover bubbellastbil

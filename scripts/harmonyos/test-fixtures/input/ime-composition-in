@@ -1,0 +1,8 @@
+# IME lifecycle: composition updates, commit, cancel, text input, selection.
+ime comp n 1 1
+ime comp ni 2 2
+ime commit ni 0 0
+ime comp h 1 1
+ime cancel h 1 1
+text hello
+ime select "" 2 5

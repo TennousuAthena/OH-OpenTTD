@@ -1,0 +1,4 @@
+# Stylus = pointer: contact = left button, move = hover/drag, release = up.
+touch 0 down 100 100 pen
+touch 0 move 120 110 pen
+touch 0 up 120 110 pen

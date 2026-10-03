@@ -65,6 +65,7 @@
 #include <numeric>
 #include <optional>
 #include <set>
+#include <sstream>
 #include <source_location>
 #include <span>
 #include <stdexcept>

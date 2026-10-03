@@ -449,7 +449,7 @@ static void DrawTile_Object(TileInfo *ti)
 	/* Fall back for when the object doesn't exist anymore. */
 	if (!spec->IsEnabled()) type = OBJECT_TRANSMITTER;
 
-	if (!spec->flags.Test(ObjectFlag::HasNoFoundation)) DrawFoundation(ti, GetFoundation_Object(ti->tile, ti->tileh));
+	DrawFoundation(ti, GetFoundation_Object(ti->tile, ti->tileh));
 
 	if (type < NEW_OBJECT_OFFSET) {
 		const DrawTileSprites *dts = nullptr;
@@ -502,7 +502,8 @@ static int GetSlopePixelZ_Object(TileIndex tile, uint x, uint y, bool)
 
 static Foundation GetFoundation_Object(TileIndex tile, Slope tileh)
 {
-	return IsObjectType(tile, OBJECT_OWNED_LAND) ? FOUNDATION_NONE : FlatteningFoundation(tileh);
+	const ObjectSpec *spec = ObjectSpec::Get(GetObjectType(tile));
+	return spec->IsEnabled() && spec->flags.Test(ObjectFlag::HasNoFoundation) ? FOUNDATION_NONE : FlatteningFoundation(tileh);
 }
 
 /**
@@ -566,9 +567,9 @@ static CommandCost ClearTile_Object(TileIndex tile, DoCommandFlags flags)
 		} else if (GetTileOwner(tile) == OWNER_NONE) {
 			/* Owned by nobody and unremovable, so we can only remove it with brute force! */
 			if (!_cheats.magic_bulldozer.value && spec->flags.Test(ObjectFlag::CannotRemove)) return CMD_ERROR;
-		} else if (CheckTileOwnership(tile).Failed()) {
+		} else if (CommandCost ret = CheckTileOwnership(tile); ret.Failed()) {
 			/* We don't own it!. */
-			return CommandCost(STR_ERROR_OWNED_BY);
+			return ret;
 		} else if (spec->flags.Test(ObjectFlag::CannotRemove) && !spec->flags.Test(ObjectFlag::Autoremove)) {
 			/* In the game editor or with cheats we can remove, otherwise we can't. */
 			if (!_cheats.magic_bulldozer.value) {
@@ -610,7 +611,7 @@ static CommandCost ClearTile_Object(TileIndex tile, DoCommandFlags flags)
 			break;
 	}
 
-	_cleared_object_areas.emplace_back(tile, ta);
+	_cleared_object_areas.emplace_back(ClearedObjectArea{tile, ta});
 
 	if (flags.Test(DoCommandFlag::Execute)) ReallyClearObjectTile(o);
 

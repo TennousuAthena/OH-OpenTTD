@@ -1,0 +1,28 @@
+# Two-finger drag up = vertical scroll (8vp per wheel tick)
+touch 0 down 100 100 finger
+touch 1 down 200 100 finger
+touch 0 move 100 92 finger
+touch 1 move 200 92 finger
+touch 0 up 100 92 finger
+touch 1 up 200 92 finger
+# Two-finger drag right = horizontal scroll
+touch 0 down 100 100 finger
+touch 1 down 200 100 finger
+touch 0 move 108 100 finger
+touch 1 move 208 100 finger
+touch 0 up 108 100 finger
+touch 1 up 208 100 finger
+# Pinch spread 100 -> 120 = zoom in (wheel up)
+touch 0 down 100 100 finger
+touch 1 down 200 100 finger
+touch 0 move 90 100 finger
+touch 1 move 210 100 finger
+touch 0 up 90 100 finger
+touch 1 up 210 100 finger
+# Pinch close 120 -> 100 = zoom out (wheel down)
+touch 0 down 90 100 finger
+touch 1 down 210 100 finger
+touch 0 move 100 100 finger
+touch 1 move 200 100 finger
+touch 0 up 100 100 finger
+touch 1 up 200 100 finger

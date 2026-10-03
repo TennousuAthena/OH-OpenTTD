@@ -1,0 +1,12 @@
+# One-finger tap = left click
+touch 0 down 100 100 finger
+touch 0 up 100 100 finger
+# One-finger drag = left drag
+touch 0 down 200 200 finger
+touch 0 move 210 200 finger
+touch 0 move 260 240 finger
+touch 0 up 260 240 finger
+# Long-press (500ms, within 8vp slop) = right click
+touch 0 down 300 300 finger
+tick 600
+touch 0 up 300 300 finger

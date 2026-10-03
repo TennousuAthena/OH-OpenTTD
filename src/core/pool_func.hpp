@@ -101,7 +101,7 @@ DEFINE_POOL_METHOD(inline void *)::AllocateItem(size_t size, size_t index)
 	this->data[index] = item;
 	SetBit(this->used_bitmap[index / BITMAP_SIZE], index % BITMAP_SIZE);
 	/* MSVC complains about casting to narrower type, so first cast to the base type... then to the strong type. */
-	item->index = static_cast<Tindex>(static_cast<Tindex::BaseType>(index));
+	item->index = static_cast<Tindex>(static_cast<typename Tindex::BaseType>(index));
 	return item;
 }
 

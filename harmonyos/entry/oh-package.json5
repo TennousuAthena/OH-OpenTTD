@@ -1,0 +1,9 @@
+{
+  "name": "entry",
+  "version": "15.3.0",
+  "description": "OpenTTD HarmonyOS entry module (Stage app shell + native lifecycle bridge).",
+  "main": "",
+  "author": "OpenTTD",
+  "license": "GPL-2.0-only",
+  "dependencies": {}
+}

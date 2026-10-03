@@ -1,0 +1,7 @@
+btndown left
+mouse x=130 y=120
+btnup left
+focus 0
+mouse x=50 y=50
+btndown left
+btnup left

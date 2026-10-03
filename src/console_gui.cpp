@@ -387,7 +387,7 @@ void IConsoleGUIInit()
 
 	IConsoleClearBuffer();
 
-	IConsolePrint(TC_LIGHT_BLUE, "OpenTTD Game Console Revision 7 - {}", _openttd_revision);
+	IConsolePrint(TC_LIGHT_BLUE, "OpenTTD Game Console Revision 7 - {}", _openttd_revision_display);
 	IConsolePrint(CC_WHITE, "------------------------------------");
 	IConsolePrint(CC_WHITE, "use \"help\" for more information.");
 	IConsolePrint(CC_WHITE, "");

@@ -136,7 +136,7 @@ public:
 		for (const auto &item : src) {
 			const auto *spec = T::GetByGrf(item.grfid, item.local_id);
 			if (spec == nullptr) {
-				dst.emplace(item.grfid, item.local_id, -1, -1);
+				dst.emplace(PickerItem{item.grfid, item.local_id, -1, -1});
 			} else {
 				dst.emplace(GetPickerItem(spec));
 			}

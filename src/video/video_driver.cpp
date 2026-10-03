@@ -190,5 +190,5 @@ void VideoDriver::SleepTillNextTick()
  */
 /* static */ std::string VideoDriver::GetCaption()
 {
-	return fmt::format("OpenTTD {}", _openttd_revision);
+	return fmt::format("OpenTTD {}", _openttd_revision_display);
 }

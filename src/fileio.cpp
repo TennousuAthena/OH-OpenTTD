@@ -752,6 +752,20 @@ static std::string GetHomeDir()
  */
 void DetermineBasePaths(std::string_view exe)
 {
+#ifdef HARMONYOS
+	/* UIAbility supplies its own sandbox path before starting the engine.
+	 * Never use the host's HOME or a bundle-specific hardcoded installation path. */
+	std::string root{GetEnv("OPENTTD_HARMONYOS_ROOT").value_or("")};
+	AppendPathSeparator(root);
+	for (auto &path : _searchpaths) path.clear();
+	_searchpaths[SP_PERSONAL_DIR] = root;
+	_searchpaths[SP_WORKING_DIR] = root;
+	_searchpaths[SP_AUTODOWNLOAD_PERSONAL_DIR] = root + "content_download" PATHSEP;
+	_searchpaths[SP_INSTALLATION_DIR] = root + "data" PATHSEP;
+	_searchpaths[SP_BINARY_DIR] = _searchpaths[SP_INSTALLATION_DIR];
+	_do_scan_working_directory = true;
+	return;
+#endif
 	std::string tmp;
 	const std::string homedir = GetHomeDir();
 #ifdef USE_XDG

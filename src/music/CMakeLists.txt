@@ -28,13 +28,18 @@ if(NOT OPTION_DEDICATED)
     add_files(
         extmidi.cpp
         extmidi.h
-        CONDITION UNIX
+        CONDITION UNIX AND NOT HARMONYOS
     )
 
     add_files(
         bemidi.cpp
         bemidi.h
         CONDITION HAIKU
+    )
+
+    add_files(
+        harmonyos_m.cpp
+        CONDITION HARMONYOS
     )
 
     add_files(

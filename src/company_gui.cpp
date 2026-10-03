@@ -1601,82 +1601,82 @@ struct CompanyInfrastructureWindow : Window
 
 		if (uint32_t rail_total = c->infrastructure.GetRailTotal(); rail_total > 0) {
 			/* Rail types and signals. */
-			this->list.emplace_back(InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_RAIL_SECT);
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_RAIL_SECT});
 
 			for (const RailType &rt : _sorted_railtypes) {
 				if (c->infrastructure.rail[rt] == 0) continue;
 				Money monthly_cost = RailMaintenanceCost(rt, c->infrastructure.rail[rt], rail_total);
 				total_monthly_cost += monthly_cost;
-				this->list.emplace_back(InfrastructureItemType::Value, GetRailTypeInfo(rt)->strings.name, c->infrastructure.rail[rt], monthly_cost);
+				this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Value, GetRailTypeInfo(rt)->strings.name, c->infrastructure.rail[rt], monthly_cost});
 			}
 
 			if (c->infrastructure.signal > 0) {
 				Money monthly_cost = SignalMaintenanceCost(c->infrastructure.signal);
 				total_monthly_cost += monthly_cost;
-				this->list.emplace_back(InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_SIGNALS, c->infrastructure.signal, monthly_cost);
+				this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_SIGNALS, c->infrastructure.signal, monthly_cost});
 			}
 		}
 
 		if (uint32_t road_total = c->infrastructure.GetRoadTotal(); road_total > 0) {
 			/* Road types. */
-			if (!this->list.empty()) this->list.emplace_back(InfrastructureItemType::Spacer);
-			this->list.emplace_back(InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_ROAD_SECT);
+			if (!this->list.empty()) this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Spacer});
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_ROAD_SECT});
 
 			for (const RoadType &rt : _sorted_roadtypes) {
 				if (!RoadTypeIsRoad(rt)) continue;
 				if (c->infrastructure.road[rt] == 0) continue;
 				Money monthly_cost = RoadMaintenanceCost(rt, c->infrastructure.road[rt], road_total);
 				total_monthly_cost += monthly_cost;
-				this->list.emplace_back(InfrastructureItemType::Value, GetRoadTypeInfo(rt)->strings.name, c->infrastructure.road[rt], monthly_cost);
+				this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Value, GetRoadTypeInfo(rt)->strings.name, c->infrastructure.road[rt], monthly_cost});
 			}
 		}
 
 		if (uint32_t tram_total = c->infrastructure.GetTramTotal(); tram_total > 0) {
 			/* Tram types. */
-			if (!this->list.empty()) this->list.emplace_back(InfrastructureItemType::Spacer);
-			this->list.emplace_back(InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_TRAM_SECT);
+			if (!this->list.empty()) this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Spacer});
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_TRAM_SECT});
 
 			for (const RoadType &rt : _sorted_roadtypes) {
 				if (!RoadTypeIsTram(rt)) continue;
 				if (c->infrastructure.road[rt] == 0) continue;
 				Money monthly_cost = RoadMaintenanceCost(rt, c->infrastructure.road[rt], tram_total);
 				total_monthly_cost += monthly_cost;
-				this->list.emplace_back(InfrastructureItemType::Value, GetRoadTypeInfo(rt)->strings.name, c->infrastructure.road[rt], monthly_cost);
+				this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Value, GetRoadTypeInfo(rt)->strings.name, c->infrastructure.road[rt], monthly_cost});
 			}
 		}
 
 		if (c->infrastructure.water > 0) {
 			/* Canals, locks, and ship depots (docks are counted as stations). */
-			if (!this->list.empty()) this->list.emplace_back(InfrastructureItemType::Spacer);
-			this->list.emplace_back(InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_WATER_SECT);
+			if (!this->list.empty()) this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Spacer});
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_WATER_SECT});
 
 			Money monthly_cost = CanalMaintenanceCost(c->infrastructure.water);
 			total_monthly_cost += monthly_cost;
-			this->list.emplace_back(InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_CANALS, c->infrastructure.water, monthly_cost);
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_CANALS, c->infrastructure.water, monthly_cost});
 		}
 
 		if (Money airport_cost = AirportMaintenanceCost(c->index); airport_cost > 0 || c->infrastructure.station > 0) {
 			/* Stations and airports. */
-			if (!this->list.empty()) this->list.emplace_back(InfrastructureItemType::Spacer);
-			this->list.emplace_back(InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_STATION_SECT);
+			if (!this->list.empty()) this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Spacer});
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Header, STR_COMPANY_INFRASTRUCTURE_VIEW_STATION_SECT});
 
 			if (c->infrastructure.station > 0) {
 				Money monthly_cost = StationMaintenanceCost(c->infrastructure.station);
 				total_monthly_cost += monthly_cost;
-				this->list.emplace_back(InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_STATIONS, c->infrastructure.station, monthly_cost);
+				this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_STATIONS, c->infrastructure.station, monthly_cost});
 			}
 
 			if (airport_cost > 0) {
 				Money monthly_cost = airport_cost;
 				total_monthly_cost += monthly_cost;
-				this->list.emplace_back(InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_AIRPORTS, c->infrastructure.airport, monthly_cost);
+				this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Value, STR_COMPANY_INFRASTRUCTURE_VIEW_AIRPORTS, c->infrastructure.airport, monthly_cost});
 			}
 		}
 
 		if (_settings_game.economy.infrastructure_maintenance) {
 			/* Total monthly maintenance cost. */
-			this->list.emplace_back(InfrastructureItemType::Spacer);
-			this->list.emplace_back(InfrastructureItemType::Total, STR_NULL, 0, total_monthly_cost);
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Spacer});
+			this->list.emplace_back(InfrastructureItem{InfrastructureItemType::Total, STR_NULL, 0, total_monthly_cost});
 		}
 
 		/* Update scrollbar. */

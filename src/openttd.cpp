@@ -157,7 +157,7 @@ static void ShowHelp()
 	str.reserve(8192);
 
 	std::back_insert_iterator<std::string> output_iterator = std::back_inserter(str);
-	fmt::format_to(output_iterator, "OpenTTD {}\n", _openttd_revision);
+	fmt::format_to(output_iterator, "OpenTTD {}\n", _openttd_revision_display);
 	str +=
 		"\n"
 		"\n"

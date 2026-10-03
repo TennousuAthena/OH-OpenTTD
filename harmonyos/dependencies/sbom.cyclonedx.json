@@ -1,0 +1,235 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:5e5a4b6e-3c3a-4a2b-9c2d-8f1c8d2e3f4a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-08-11T00:00:00Z",
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:generic/openttd@15.3",
+      "name": "OpenTTD",
+      "version": "15.3",
+      "purl": "pkg:generic/openttd@15.3",
+      "licenses": [
+        {
+          "license": { "id": "GPL-2.0-only" }
+        }
+      ]
+    },
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "OpenTTD HarmonyOS dependency manifest",
+          "version": "1"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "zlib",
+      "name": "zlib",
+      "version": "1.3.1",
+      "purl": "pkg:github/madler/zlib@1.3.1",
+      "licenses": [{ "license": { "id": "Zlib" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "liblzma",
+      "name": "XZ Utils (liblzma)",
+      "version": "5.6.3",
+      "purl": "pkg:github/tukaani-project/xz@5.6.3",
+      "licenses": [{ "license": { "id": "0BSD" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "libpng",
+      "name": "libpng",
+      "version": "1.6.45",
+      "purl": "pkg:github/pnggroup/libpng@1.6.45",
+      "licenses": [{ "license": { "id": "libpng-2.0" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "freetype",
+      "name": "FreeType",
+      "version": "2.13.3",
+      "purl": "pkg:github/freetype/freetype@2.13.3",
+      "licenses": [{ "license": { "id": "FTL" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "harfbuzz",
+      "name": "HarfBuzz",
+      "version": "10.1.0",
+      "purl": "pkg:github/harfbuzz/harfbuzz@10.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "icu",
+      "name": "ICU (ICU4C)",
+      "version": "75.1",
+      "purl": "pkg:github/unicode-org/icu@75.1",
+      "licenses": [{ "license": { "id": "ICU" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "libcurl",
+      "name": "libcurl",
+      "version": "8.11.1",
+      "purl": "pkg:generic/curl@8.11.1",
+      "licenses": [{ "license": { "id": "curl" } }],
+      "properties": [
+        { "name": "harmonyos:linkage", "value": "static" },
+        { "name": "harmonyos:tls.trustStore", "value": "HarmonyOS system trust store" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "opus",
+      "name": "libopus",
+      "version": "1.5.2",
+      "purl": "pkg:github/xiph/opus@1.5.2",
+      "licenses": [{ "license": { "id": "BSD-3-Clause" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "opusfile",
+      "name": "opusfile",
+      "version": "0.12",
+      "purl": "pkg:github/xiph/opusfile@0.12",
+      "licenses": [{ "license": { "id": "BSD-3-Clause" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "lzo",
+      "name": "LZO (liblzo2)",
+      "version": "2.10",
+      "purl": "pkg:generic/lzo@2.10",
+      "licenses": [{ "license": { "id": "GPL-2.0-only" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "libcxx",
+      "name": "LLVM libc++ (C++ runtime)",
+      "version": "NDK API 23",
+      "purl": "pkg:generic/libcxx@NDK-API-23",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "threads",
+      "name": "C++ standard threads",
+      "version": "NDK API 23",
+      "purl": "pkg:generic/threads@NDK-API-23",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "squirrel",
+      "name": "Squirrel",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/squirrel@bundled-upstream",
+      "licenses": [{ "license": { "id": "Zlib" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "fmt",
+      "name": "fmt",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/fmt@bundled-upstream",
+      "licenses": [{ "license": { "id": "MIT" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "nlohmann-json",
+      "name": "nlohmann json",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/nlohmann-json@bundled-upstream",
+      "licenses": [{ "license": { "id": "MIT" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "catch2",
+      "name": "Catch2",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/catch2@bundled-upstream",
+      "licenses": [{ "license": { "id": "BSL-1.0" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "monocypher",
+      "name": "Monocypher",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/monocypher@bundled-upstream",
+      "licenses": [
+        { "license": { "id": "BSD-2-Clause" } },
+        { "license": { "id": "CC0-1.0" } }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "icu-scriptrun",
+      "name": "ICU scriptrun (bundled)",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/icu-scriptrun@bundled-upstream",
+      "licenses": [{ "license": { "id": "Unicode-DFS-2016" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "md5",
+      "name": "md5 (bundled)",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/md5@bundled-upstream",
+      "licenses": [{ "license": { "id": "Zlib" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "opengl-headers",
+      "name": "OpenGL headers (khrplatform)",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/opengl-headers@bundled-upstream",
+      "licenses": [{ "license": { "id": "MIT" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "openttd-social-integration-api",
+      "name": "OpenTTD Social Integration API",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/openttd-social-integration-api@bundled-upstream",
+      "licenses": [{ "license": { "id": "MIT" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "llvm-checkatomic",
+      "name": "LLVM CheckAtomic.cmake",
+      "version": "bundled-upstream",
+      "purl": "pkg:generic/llvm-checkatomic@bundled-upstream",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    }
+  ],
+  "dependencies": [
+    { "ref": "libpng", "dependsOn": ["zlib"] },
+    { "ref": "freetype", "dependsOn": ["libpng", "zlib", "liblzma"] },
+    { "ref": "harfbuzz", "dependsOn": ["freetype", "icu"] },
+    { "ref": "opusfile", "dependsOn": ["opus"] },
+    { "ref": "libcurl", "dependsOn": [] },
+    { "ref": "icu", "dependsOn": [] },
+    { "ref": "liblzma", "dependsOn": [] },
+    { "ref": "zlib", "dependsOn": [] },
+    { "ref": "opus", "dependsOn": [] },
+    { "ref": "lzo", "dependsOn": [] },
+    { "ref": "libcxx", "dependsOn": [] },
+    { "ref": "threads", "dependsOn": [] }
+  ],
+  "externalReferences": [
+    {
+      "type": "other",
+      "url": "https://github.com/OpenTTD/OpenTTD"
+    }
+  ]
+}

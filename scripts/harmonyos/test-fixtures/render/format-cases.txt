@@ -1,0 +1,20 @@
+# format-cases.txt — RGBA/BGRA conversion vectors.
+#
+# A screen pixel carries channels (r,g,b,a). In _screen memory (ColourBGRA on
+# little-endian) the byte order is b,g,r,a. Surface byte order depends on the
+# OH_NativeBuffer_Format:
+#   BGRA_8888 -> b g r a   (direct copy, no conversion)
+#   RGBA_8888 -> r g b a   (red/blue swap during copy)
+#
+# Each line: r g b a   bgra_bytes(hex)   rgba_bytes(hex)
+
+255 0 0 255    0000ffff    ff0000ff
+0 255 0 255    00ff00ff    00ff00ff
+0 0 255 255    ff0000ff    0000ffff
+0 0 0 255      000000ff    000000ff
+255 255 255 255 ffffffff   ffffffff
+10 20 30 40    1e140a28    0a141e28
+200 100 50 25  3264c819    c8643219
+1 2 3 4        03020104    01020304
+128 128 128 255 808080ff   808080ff
+250 100 5 128  0564fa80    fa640580

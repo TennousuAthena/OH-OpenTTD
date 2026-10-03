@@ -123,6 +123,21 @@ else()
     set(REV_ISSTABLETAG 0)
 endif()
 
+# Keep the port's release label separate from the revision sent to servers.
+# The full source hash and dirty state above remain available for diagnostics.
+set(REV_DISPLAY_VERSION "${REV_VERSION}")
+if(HARMONYOS)
+    include("${CMAKE_SOURCE_DIR}/cmake/HarmonyOSVersion.cmake")
+    if(NOT HARMONYOS_UPSTREAM_VERSION STREQUAL "${REV_MAJOR}.${REV_MINOR}")
+        message(FATAL_ERROR "HarmonyOS multiplayer baseline does not match the engine version")
+    endif()
+    set(REV_VERSION "${HARMONYOS_UPSTREAM_VERSION}")
+    set(REV_DISPLAY_VERSION "${HARMONYOS_DISPLAY_VERSION}")
+    # Use the upstream release's exact network string and NewGRF release bit.
+    set(REV_ISTAG 1)
+    set(REV_ISSTABLETAG 1)
+endif()
+
 # Extract REV_YEAR and REV_DATE from REV_ISODATE
 string(SUBSTRING "${REV_ISODATE}" 0 4 REV_YEAR)
 string(SUBSTRING "${REV_ISODATE}" 4 4 REV_DATE)
@@ -135,6 +150,9 @@ if(GENERATE_OTTDREV)
     message(STATUS "Generating .ottdrev")
     file(WRITE ${CMAKE_SOURCE_DIR}/.ottdrev "${REV_VERSION}\t${REV_ISODATE}\t${REV_MODIFIED}\t${REV_HASH}\t${REV_ISTAG}\t${REV_ISSTABLETAG}\n")
 else()
+    if(REV_ISSTABLETAG AND NOT (REV_VERSION STREQUAL "${REV_MAJOR}.${REV_MINOR}"))
+        message(FATAL_ERROR "Tag (${REV_VERSION}) doesn't match internal version (${REV_MAJOR}.${REV_MINOR})")
+    endif()
     message(STATUS "Generating rev.cpp")
     configure_file("${CMAKE_SOURCE_DIR}/src/rev.cpp.in"
             "${FIND_VERSION_BINARY_DIR}/rev.cpp")

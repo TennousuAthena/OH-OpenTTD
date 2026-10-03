@@ -1,0 +1,29 @@
+{
+  "format": "openttd-harmonyos-packaged-manifest",
+  "storageVersion": 3,
+  "resourceGen": 3,
+  "headroomBytes": 67108864,
+  "headroomFraction": 0.08,
+  "entries": [
+    {
+      "relpath": "baseset/opengfx/base.grf",
+      "size": 25,
+      "sha256": "0b77d62d26b66493926f5cf574c94602ce53b429d0efdc31c4a64072e837f660"
+    },
+    {
+      "relpath": "data/openttd.grf",
+      "size": 23,
+      "sha256": "f6466557b6f70db20b05ebaf35442849e300adba0571f38efe25888e71538b41"
+    },
+    {
+      "relpath": "data/sample.cat",
+      "size": 19,
+      "sha256": "514ff533dffe931fbc68d4e8c162edf4f7fd7f9ae8df48fcca352ab436b69d0c"
+    },
+    {
+      "relpath": "lang/english.txt",
+      "size": 24,
+      "sha256": "9b890e55b35c6a0cfc0d0ea23e96469cc75aeec16818f690be93f212c7c65443"
+    }
+  ]
+}

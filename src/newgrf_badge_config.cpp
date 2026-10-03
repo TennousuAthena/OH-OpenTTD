@@ -87,7 +87,7 @@ void AddBadgeClassesToConfiguration()
 			if (found != std::end(config)) continue;
 
 			/* Not found, insert it. */
-			config.emplace_back(badge.label, 0, true, false);
+			config.emplace_back(BadgeClassConfigItem{badge.label, 0, true, false});
 		}
 	}
 }
@@ -106,7 +106,7 @@ void ResetBadgeClassConfiguration(GrfSpecFeature feature)
 	for (const BadgeID &index : GetClassBadges()) {
 		const Badge &badge = *GetBadge(index);
 		if (badge.name == STR_NULL) continue;
-		config.emplace_back(badge.label, 0, true, false);
+		config.emplace_back(BadgeClassConfigItem{badge.label, 0, true, false});
 	}
 }
 
@@ -158,7 +158,7 @@ static void BadgeClassLoadConfigFeature(const IniFile &ini, GrfSpecFeature featu
 			if (auto value = consumer.TryReadIntegerBase<int>(10); value.has_value()) column = *value;
 		}
 
-		config.emplace_back(item.name, column, show_icon, show_filter);
+		config.emplace_back(BadgeClassConfigItem{item.name, static_cast<uint>(column), show_icon, show_filter});
 	}
 }
 

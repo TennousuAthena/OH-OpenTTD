@@ -1,0 +1,3 @@
+# OpenTTD HarmonyOS obfuscation rules.
+# Obfuscation is disabled for release builds; this file is reserved for future
+# ArkGuard rule whitelisting (e.g. -keep-property-name for native interop).

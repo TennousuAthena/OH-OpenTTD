@@ -402,7 +402,7 @@ ParsedCommandStruct ExtractCommandString(std::string_view s, bool)
 
 			p.consuming_commands[argidx++] = cs.cmd;
 		} else if (!cs.cmd->flags.Test(CmdFlag::DontCount)) { // Ignore some of them
-			p.non_consuming_commands.emplace_back(cs.cmd, std::move(cs.param));
+			p.non_consuming_commands.push_back({cs.cmd, std::move(cs.param)});
 		}
 	}
 

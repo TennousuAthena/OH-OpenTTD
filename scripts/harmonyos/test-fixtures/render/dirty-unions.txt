@@ -1,0 +1,62 @@
+# dirty-unions.txt — MakeDirty union scenarios (half-open rects [l,t,r,b))
+#
+# Each block:
+#   surface <w> <h>                screen size
+#   dirty   <l> <t> <w> <h>        one MakeDirty() call (repeatable)
+#   expect  <l> <t> <r> <b>        expected BoundingRect union (half-open)
+#   expect empty                    expected empty union (no flush)
+# '#' starts a comment; blocks separated by blank lines.
+#
+# Matches VideoDriver_SDL_Base::MakeDirty (src/video/sdl2_v.cpp:28-35).
+
+surface 640 480
+dirty 10 20 100 80
+expect 10 20 110 100
+
+surface 640 480
+dirty 10 20 100 80
+dirty 200 50 40 40
+expect 10 20 240 100
+
+surface 640 480
+dirty 10 20 100 80
+dirty 600 400 40 80
+expect 10 20 640 480
+
+surface 640 480
+dirty 10 20 0 80
+expect empty
+
+surface 640 480
+dirty 10 20 100 0
+expect empty
+
+surface 640 480
+dirty 100 100 10 10
+dirty 95 95 10 10
+dirty 105 105 10 10
+expect 95 95 115 115
+
+surface 640 480
+dirty 0 0 640 480
+dirty 50 50 5 5
+expect 0 0 640 480
+
+surface 800 600
+dirty 799 599 1 1
+expect 799 599 800 600
+
+surface 800 600
+dirty 799 599 1 1
+dirty 800 600 1 1
+expect 799 599 801 601
+
+surface 640 480
+dirty -50 -30 100 80
+expect -50 -30 50 50
+
+surface 640 480
+dirty 300 200 50 50
+dirty 301 201 48 48
+dirty 299 199 52 52
+expect 299 199 351 251

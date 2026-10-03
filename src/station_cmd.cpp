@@ -506,7 +506,7 @@ CargoTypes GetEmptyMask(const Station *st)
 	CargoTypes mask = 0;
 
 	for (auto it = std::begin(st->goods); it != std::end(st->goods); ++it) {
-		if (!it->HasData() || it->GetData().cargo.TotalCount() == 0) SetBit(mask, std::distance(std::begin(st->goods), it));
+		if (it->TotalCount() == 0) SetBit(mask, std::distance(std::begin(st->goods), it));
 	}
 	return mask;
 }
@@ -961,6 +961,20 @@ static CommandCost IsDockBridgeAboveOk(TileIndex tile, StationGfx layout)
 }
 
 /**
+ * Test if a buoy can be built below a bridge.
+ * @param tile Tile to test.
+ * @return Command result.
+ */
+CommandCost IsBuoyBridgeAboveOk(TileIndex tile)
+{
+	if (!IsBridgeAbove(tile)) return CommandCost();
+
+	TileIndex rampsouth = GetSouthernBridgeEnd(tile);
+	auto bridgeable_info = GetStationBridgeableTileInfo(StationType::Buoy);
+	return IsStationBridgeAboveOk(tile, bridgeable_info, StationType::Buoy, 0, GetBridgeHeight(rampsouth), STR_ERROR_MUST_DEMOLISH_BRIDGE_FIRST);
+}
+
+/**
  * Checks if a rail station can be built at the given tile.
  * @param tile_cur Tile to check.
  * @param north_tile North tile of the area being checked.
@@ -1126,7 +1140,7 @@ static CommandCost CheckFlatLandRoadStop(TileIndex cur_tile, int &allowed_z, con
 
 				if (rt != INVALID_ROADTYPE && RoadTypeIsRoad(rt) && !HasPowerOnRoad(rt, road_rt)) return CommandCost(STR_ERROR_NO_SUITABLE_ROAD);
 
-				if (GetDisallowedRoadDirections(cur_tile) != DRD_NONE && road_owner != OWNER_TOWN) {
+				if (GetDisallowedRoadDirections(cur_tile) != DRD_NONE && road_owner != OWNER_TOWN && road_owner != OWNER_NONE) {
 					ret = CheckOwnership(road_owner);
 					if (ret.Failed()) return ret;
 				}
@@ -3990,7 +4004,7 @@ static void UpdateStationRating(Station *st)
 
 		bool skip = false;
 		int rating = 0;
-		uint waiting = ge->HasData() ? ge->GetData().cargo.AvailableCount() : 0;
+		uint waiting = ge->AvailableCount();
 
 		/* num_dests is at least 1 if there is any cargo as
 		 * StationID::Invalid() is also a destination.
@@ -4098,12 +4112,12 @@ static void UpdateStationRating(Station *st)
 
 			/* We can't truncate cargo that's already reserved for loading.
 			 * Thus StoredCount() here. */
-			if (waiting_changed && waiting < (ge->HasData() ? ge->GetData().cargo.AvailableCount() : 0)) {
+			if (waiting_changed && waiting < ge->AvailableCount()) {
 				/* Feed back the exact own waiting cargo at this station for the
 				 * next rating calculation. */
 				ge->max_waiting_cargo = 0;
 
-				TruncateCargo(cs, ge, ge->GetData().cargo.AvailableCount() - waiting);
+				TruncateCargo(cs, ge, ge->AvailableCount() - waiting);
 			} else {
 				/* If the average number per next hop is low, be more forgiving. */
 				ge->max_waiting_cargo = waiting_avg;

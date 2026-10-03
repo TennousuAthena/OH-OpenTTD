@@ -1,0 +1,292 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "OpenTTD-15.3-HarmonyOS",
+  "documentNamespace": "https://github.com/OpenTTD/OpenTTD/harmonyos/dependencies/sbom.spdx",
+  "creationInfo": {
+    "created": "2026-08-11T00:00:00Z",
+    "creators": [
+      "Tool: OpenTTD HarmonyOS dependency manifest v1"
+    ]
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-openttd",
+      "name": "OpenTTD",
+      "versionInfo": "15.3",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "GPL-2.0-only",
+      "licenseDeclared": "GPL-2.0-only",
+      "copyrightText": "Copyright (c) OpenTTD team and contributors"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-zlib",
+      "name": "zlib",
+      "versionInfo": "1.3.1",
+      "downloadLocation": "https://zlib.net/fossils/zlib-1.3.1.tar.gz",
+      "licenseConcluded": "Zlib",
+      "licenseDeclared": "Zlib",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"
+        }
+      ],
+      "copyrightText": "Copyright (C) 1995-2024 Jean-loup Gailly and Mark Adler"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-liblzma",
+      "name": "XZ Utils (liblzma)",
+      "versionInfo": "5.6.3",
+      "downloadLocation": "https://github.com/tukaani-project/xz/releases/download/v5.6.3/xz-5.6.3.tar.gz",
+      "licenseConcluded": "0BSD",
+      "licenseDeclared": "0BSD",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b1d45295d3f71f25a4c9101bd7c8d16cb56348bbef3bbc738da0351e17c73317"
+        }
+      ],
+      "copyrightText": "Copyright (C) 2005-2024 The Tukaani Project"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-libpng",
+      "name": "libpng",
+      "versionInfo": "1.6.45",
+      "downloadLocation": "https://download.sourceforge.net/libpng/libpng-1.6.45.tar.gz",
+      "licenseConcluded": "libpng-2.0",
+      "licenseDeclared": "libpng-2.0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7dee9e1ca8152bf52f919456f4190330aee48209887f2ec0b3d9f0ad571df11b"
+        }
+      ],
+      "copyrightText": "Copyright (c) 1995-2024 The PNG Reference Library Authors"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-freetype",
+      "name": "FreeType",
+      "versionInfo": "2.13.3",
+      "downloadLocation": "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.3.tar.xz",
+      "licenseConcluded": "FTL",
+      "licenseDeclared": "FTL",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289"
+        }
+      ],
+      "copyrightText": "Copyright (C) 1996-2024 The FreeType Project"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-harfbuzz",
+      "name": "HarfBuzz",
+      "versionInfo": "10.1.0",
+      "downloadLocation": "https://github.com/harfbuzz/harfbuzz/releases/download/10.1.0/harfbuzz-10.1.0.tar.xz",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6ce3520f2d089a33cef0fc48321334b8e0b72141f6a763719aaaecd2779ecb82"
+        }
+      ],
+      "copyrightText": "Copyright (C) 2010-2024 The HarfBuzz authors"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-icu",
+      "name": "ICU (ICU4C)",
+      "versionInfo": "75.1",
+      "downloadLocation": "https://github.com/unicode-org/icu/releases/download/release-75-1/icu4c-75_1-src.tgz",
+      "licenseConcluded": "ICU",
+      "licenseDeclared": "ICU",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cb968df3e4d2e87e8b11c49a5d01c787bd13b9545280fc6642f826527618caef"
+        }
+      ],
+      "copyrightText": "Copyright (C) 2016 and later: Unicode, Inc. and others."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-libcurl",
+      "name": "libcurl",
+      "versionInfo": "8.11.1",
+      "downloadLocation": "https://curl.se/download/curl-8.11.1.tar.xz",
+      "licenseConcluded": "curl",
+      "licenseDeclared": "curl",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c7ca7db48b0909743eaef34250da02c19bc61d4f1dcedd6603f109409536ab56"
+        }
+      ],
+      "copyrightText": "Copyright (C) 1998-2024 Daniel Stenberg, et al."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-opus",
+      "name": "libopus",
+      "versionInfo": "1.5.2",
+      "downloadLocation": "https://downloads.xiph.org/releases/opus/opus-1.5.2.tar.gz",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1"
+        }
+      ],
+      "copyrightText": "Copyright (c) 2007-2024 Xiph.Org Foundation"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-opusfile",
+      "name": "opusfile",
+      "versionInfo": "0.12",
+      "downloadLocation": "https://github.com/xiph/opusfile/releases/download/v0.12/opusfile-0.12.tar.gz",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
+        }
+      ],
+      "copyrightText": "Copyright (c) 2007-2020 Xiph.Org Foundation"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-lzo",
+      "name": "LZO (liblzo2)",
+      "versionInfo": "2.10",
+      "downloadLocation": "https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz",
+      "licenseConcluded": "GPL-2.0-only",
+      "licenseDeclared": "GPL-2.0-only",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072"
+        }
+      ],
+      "copyrightText": "Copyright (C) 1996-2017 Markus F.X.J. Oberhumer"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-libcxx",
+      "name": "LLVM libc++ (C++ runtime)",
+      "versionInfo": "NDK API 23",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright (c) The LLVM Project"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-threads",
+      "name": "C++ standard threads",
+      "versionInfo": "NDK API 23",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright (c) The LLVM Project"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-squirrel",
+      "name": "Squirrel (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "Zlib",
+      "licenseDeclared": "Zlib",
+      "copyrightText": "Copyright (c) 2003-2023 Alberto Demichelis"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-fmt",
+      "name": "fmt (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2012-present, Victor Zverovich"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-nlohmann-json",
+      "name": "nlohmann json (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2013-2023 Niels Lohmann"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-catch2",
+      "name": "Catch2 (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "BSL-1.0",
+      "licenseDeclared": "BSL-1.0",
+      "copyrightText": "Copyright (c) 2022 Two Blue Cubes Ltd."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-monocypher",
+      "name": "Monocypher (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "BSD-2-Clause AND CC0-1.0",
+      "licenseDeclared": "BSD-2-Clause AND CC0-1.0",
+      "copyrightText": "Copyright (c) 2017-2022 Loup Vaillant"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-icu-scriptrun",
+      "name": "ICU scriptrun (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "Unicode-DFS-2016",
+      "licenseDeclared": "Unicode-DFS-2016",
+      "copyrightText": "Copyright (c) Unicode, Inc."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-md5",
+      "name": "md5 (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "Zlib",
+      "licenseDeclared": "Zlib",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-opengl-headers",
+      "name": "OpenGL headers (khrplatform, bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2008-2018 The Khronos Group Inc."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-openttd-social-integration-api",
+      "name": "OpenTTD Social Integration API (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) OpenTTD team"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-llvm-checkatomic",
+      "name": "LLVM CheckAtomic.cmake (bundled)",
+      "versionInfo": "bundled-upstream",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright (c) The LLVM Project"
+    }
+  ],
+  "relationships": [
+    { "spdxElementId": "SPDXRef-DOCUMENT", "relatedSpdxElement": "SPDXRef-Package-openttd", "relationshipType": "DESCRIBES" },
+    { "spdxElementId": "SPDXRef-Package-libpng", "relatedSpdxElement": "SPDXRef-Package-zlib", "relationshipType": "DEPENDS_ON" },
+    { "spdxElementId": "SPDXRef-Package-freetype", "relatedSpdxElement": "SPDXRef-Package-libpng", "relationshipType": "DEPENDS_ON" },
+    { "spdxElementId": "SPDXRef-Package-freetype", "relatedSpdxElement": "SPDXRef-Package-zlib", "relationshipType": "DEPENDS_ON" },
+    { "spdxElementId": "SPDXRef-Package-freetype", "relatedSpdxElement": "SPDXRef-Package-liblzma", "relationshipType": "DEPENDS_ON" },
+    { "spdxElementId": "SPDXRef-Package-harfbuzz", "relatedSpdxElement": "SPDXRef-Package-freetype", "relationshipType": "DEPENDS_ON" },
+    { "spdxElementId": "SPDXRef-Package-harfbuzz", "relatedSpdxElement": "SPDXRef-Package-icu", "relationshipType": "DEPENDS_ON" },
+    { "spdxElementId": "SPDXRef-Package-opusfile", "relatedSpdxElement": "SPDXRef-Package-opus", "relationshipType": "DEPENDS_ON" }
+  ]
+}

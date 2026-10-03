@@ -11,6 +11,7 @@
 #define REV_H
 
 extern const std::string _openttd_revision;
+extern const std::string _openttd_revision_display;
 extern const std::string_view _openttd_build_date;
 extern const std::string_view _openttd_revision_hash;
 extern const std::string_view _openttd_revision_year;

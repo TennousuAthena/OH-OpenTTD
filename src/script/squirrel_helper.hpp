@@ -100,7 +100,7 @@ namespace SQConvert {
 		{
 			SQInteger tmp;
 			sq_getinteger(vm, index, &tmp);
-			return T{static_cast<T::BaseType>(tmp)};
+			return T{static_cast<typename T::BaseType>(tmp)};
 		}
 	};
 

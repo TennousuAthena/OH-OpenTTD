@@ -1,0 +1,6 @@
+keypress kc=800a char=0000 rep=0
+dirkeys 2
+dirkeys 2
+ctrl 1
+dirkeys 0
+ctrl 0

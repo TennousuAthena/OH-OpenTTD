@@ -35,7 +35,7 @@ add_files(
 add_files(
     40bpp_anim.cpp
     40bpp_anim.hpp
-    CONDITION NOT OPTION_DEDICATED AND OPENGL_FOUND
+    CONDITION NOT OPTION_DEDICATED AND (OPENGL_FOUND OR HARMONYOS)
 )
 
 add_files(

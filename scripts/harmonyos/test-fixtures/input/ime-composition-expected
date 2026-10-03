@@ -1,0 +1,7 @@
+textinput "n" marked=1 caret=1 insert=1 repl=1
+textinput "ni" marked=1 caret=2 insert=2 repl=2
+textinput "ni" marked=0 caret=-1 insert=-1 repl=-1
+textinput "h" marked=1 caret=1 insert=1 repl=1
+textinput "" marked=0 caret=-1 insert=-1 repl=-1
+textinput "hello" marked=0 caret=-1 insert=-1 repl=-1
+textinput "" marked=0 caret=2 insert=2 repl=5

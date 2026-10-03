@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "project": "OpenTTD 15.3 HarmonyOS port",
+  "openttdRelease": "15.3 (14ec60f248547d4d062a1160f0fc26d742319888)",
+  "openttdLicense": {
+    "spdx": "GPL-2.0-only",
+    "file": "COPYING.md"
+  },
+  "runtimeAbis": ["arm64-v8a", "x86_64"],
+  "cachePolicy": {
+    "envVar": "HARMONY_DEPS_CACHE",
+    "offlineEnvVar": "HARMONY_DEPS_OFFLINE",
+    "networkFallback": false
+  },
+  "dependencies": [
+    {
+      "id": "threads",
+      "name": "C++ standard threads (std::thread)",
+      "version": "NDK API 23 sysroot (SDK 6.1.0.105, pinned by bootstrap.sh toolchain-manifest.json)",
+      "source": "ndk",
+      "url": null,
+      "sha256": null,
+      "archive": null,
+      "license": { "spdx": "Apache-2.0", "licenseFile": "HarmonyOS NDK toolchain license (native/sysroot)" },
+      "linkage": "system",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "provided by API 23 NDK sysroot; no fetch, no build",
+      "dependsOn": [],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "libcxx",
+      "name": "LLVM libc++ (C++ runtime)",
+      "version": "NDK API 23 sysroot (SDK 6.1.0.105, pinned by bootstrap.sh toolchain-manifest.json)",
+      "source": "ndk",
+      "url": null,
+      "sha256": null,
+      "archive": null,
+      "license": { "spdx": "Apache-2.0-with-LLVM-exception", "licenseFile": "HarmonyOS NDK toolchain license (native/sysroot)" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "provided by API 23 NDK sysroot; C++20 runtime for all port targets; no fetch, no build",
+      "dependsOn": [],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "zlib",
+      "name": "zlib",
+      "version": "1.3.1",
+      "source": "archive",
+      "url": "https://zlib.net/fossils/zlib-1.3.1.tar.gz",
+      "sha256": "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23",
+      "archive": "zlib-1.3.1.tar.gz",
+      "license": { "spdx": "Zlib", "licenseFile": "zlib.h (in-tree copyright notice)" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: deflate/inflate for savegames, baseset and network compression",
+      "dependsOn": [],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "liblzma",
+      "name": "XZ Utils (liblzma)",
+      "version": "5.6.3",
+      "source": "archive",
+      "url": "https://github.com/tukaani-project/xz/releases/download/v5.6.3/xz-5.6.3.tar.gz",
+      "sha256": "b1d45295d3f71f25a4c9101bd7c8d16cb56348bbef3bbc738da0351e17c73317",
+      "archive": "xz-5.6.3.tar.gz",
+      "license": { "spdx": "0BSD", "licenseFile": "COPYING (liblzma is 0BSD; XZ Utils tools are GPL-2.0-or-later)" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: xz/lzma2 for baseset .tar.xz decompression (free data files are shipped as .tar.xz)",
+      "dependsOn": [],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "libpng",
+      "name": "libpng",
+      "version": "1.6.45",
+      "source": "archive",
+      "url": "https://download.sourceforge.net/libpng/libpng-1.6.45.tar.gz",
+      "sha256": "7dee9e1ca8152bf52f919456f4190330aee48209887f2ec0b3d9f0ad571df11b",
+      "archive": "libpng-1.6.45.tar.gz",
+      "license": { "spdx": "libpng-2.0", "licenseFile": "LICENSE" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: PNG decoding for baseset sprites, logo and screenshots",
+      "dependsOn": ["zlib"],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "freetype",
+      "name": "FreeType",
+      "version": "2.13.3",
+      "source": "archive",
+      "url": "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.3.tar.xz",
+      "sha256": "0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289",
+      "archive": "freetype-2.13.3.tar.xz",
+      "license": { "spdx": "FTL", "licenseFile": "docs/FTL.TXT (dual with GPL-2.0-or-later, FTL applies)" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: vector font rendering for text engine",
+      "dependsOn": ["libpng", "zlib", "liblzma"],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "harfbuzz",
+      "name": "HarfBuzz",
+      "version": "10.1.0",
+      "source": "archive",
+      "url": "https://github.com/harfbuzz/harfbuzz/releases/download/10.1.0/harfbuzz-10.1.0.tar.xz",
+      "sha256": "6ce3520f2d089a33cef0fc48321334b8e0b72141f6a763719aaaecd2779ecb82",
+      "archive": "harfbuzz-10.1.0.tar.xz",
+      "license": { "spdx": "MIT", "licenseFile": "COPYING" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: complex text shaping (CJK/Indic/Arabic) for the text engine",
+      "dependsOn": ["freetype", "icu"],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "icu",
+      "name": "ICU (ICU4C)",
+      "version": "75.1",
+      "source": "archive",
+      "url": "https://github.com/unicode-org/icu/releases/download/release-75-1/icu4c-75_1-src.tgz",
+      "sha256": "cb968df3e4d2e87e8b11c49a5d01c787bd13b9545280fc6642f826527618caef",
+      "archive": "icu4c-75_1-src.tgz",
+      "license": { "spdx": "ICU", "licenseFile": "icu4c/LICENSE" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: Unicode normalization and script run detection for HarfBuzz/ICU integration",
+      "dependsOn": [],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "libcurl",
+      "name": "libcurl",
+      "version": "8.11.1",
+      "source": "archive",
+      "url": "https://curl.se/download/curl-8.11.1.tar.xz",
+      "sha256": "c7ca7db48b0909743eaef34250da02c19bc61d4f1dcedd6603f109409536ab56",
+      "archive": "curl-8.11.1.tar.xz",
+      "license": { "spdx": "curl", "licenseFile": "COPYING" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: network HTTP(S) content download (http_curl.cpp); TLS must use HarmonyOS trust store",
+      "dependsOn": [],
+      "tls": {
+        "backend": "HarmonyOS NDK TLS provider / system trust store (resolved by build recipe; no third-party CA bundle)",
+        "trustStore": "HarmonyOS system certificate store (via NDK-provided TLS), NOT a bundled cacert.pem"
+      },
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "opus",
+      "name": "libopus",
+      "version": "1.5.2",
+      "source": "archive",
+      "url": "https://downloads.xiph.org/releases/opus/opus-1.5.2.tar.gz",
+      "sha256": "65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1",
+      "archive": "opus-1.5.2.tar.gz",
+      "license": { "spdx": "BSD-3-Clause", "licenseFile": "COPYING" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: Opus decoding for packaged sound-effect assets (OpenSFX ships .opus files); consumed by src/soundloader_opus.cpp (SoundLoader_Opus), compiled under OpusFile_FOUND",
+      "dependsOn": [],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "opusfile",
+      "name": "opusfile",
+      "version": "0.12",
+      "source": "archive",
+      "url": "https://github.com/xiph/opusfile/releases/download/v0.12/opusfile-0.12.tar.gz",
+      "sha256": "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b",
+      "archive": "opusfile-0.12.tar.gz",
+      "license": { "spdx": "BSD-3-Clause", "licenseFile": "COPYING" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "required: Ogg Opus container demuxing feeding SoundLoader_Opus for packaged sound-effect assets (OpenSFX)",
+      "dependsOn": ["opus"],
+      "optional": false,
+      "excluded": false
+    },
+    {
+      "id": "lzo",
+      "name": "LZO (liblzo2)",
+      "version": "2.10",
+      "source": "archive",
+      "url": "https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz",
+      "sha256": "c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072",
+      "archive": "lzo-2.10.tar.gz",
+      "license": { "spdx": "GPL-2.0-only", "licenseFile": "COPYING" },
+      "linkage": "static",
+      "abis": ["arm64-v8a", "x86_64"],
+      "updateOwner": "OpenTTD HarmonyOS port maintainers",
+      "buildRole": "OPTIONAL: compatibility path only; do not link into default HAP unless a documented savegame/base requirement proves it",
+      "dependsOn": [],
+      "optional": true,
+      "excluded": false
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "sdl",
+      "name": "SDL (SDL2)",
+      "reason": "HarmonyOS rendering/input are native (NativeWindow XComponent, NAPI events); SDL would duplicate the platform layer and is not needed for the port.",
+      "excluded": true
+    },
+    {
+      "id": "allegro",
+      "name": "Allegro",
+      "reason": "Legacy video/audio backend not supported on HarmonyOS; no documented requirement.",
+      "excluded": true
+    },
+    {
+      "id": "fluidsynth",
+      "name": "FluidSynth",
+      "reason": "MIDI synthesis via external soundfont not supported on HarmonyOS; no documented requirement.",
+      "excluded": true
+    },
+    {
+      "id": "fontconfig",
+      "name": "Fontconfig",
+      "reason": "Font discovery on HarmonyOS uses system font APIs; fontconfig is not available in the NDK and not needed.",
+      "excluded": true
+    },
+    {
+      "id": "breakpad",
+      "name": "Breakpad",
+      "reason": "Crash reporting uses the HarmonyOS crash kit instead; no documented requirement for Breakpad.",
+      "excluded": true
+    }
+  ],
+  "upstreamBundled": [
+    {
+      "id": "squirrel",
+      "path": "src/3rdparty/squirrel",
+      "license": { "spdx": "Zlib", "licenseFile": "src/3rdparty/squirrel/COPYRIGHT" }
+    },
+    {
+      "id": "md5",
+      "path": "src/3rdparty/md5",
+      "license": { "spdx": "Zlib", "licenseFile": "src/3rdparty/md5 (comments in source)" }
+    },
+    {
+      "id": "fmt",
+      "path": "src/3rdparty/fmt",
+      "license": { "spdx": "MIT", "licenseFile": "src/3rdparty/fmt/LICENSE.rst" }
+    },
+    {
+      "id": "nlohmann-json",
+      "path": "src/3rdparty/nlohmann",
+      "license": { "spdx": "MIT", "licenseFile": "src/3rdparty/nlohmann/LICENSE.MIT" }
+    },
+    {
+      "id": "opengl-headers",
+      "path": "src/3rdparty/opengl",
+      "license": { "spdx": "MIT", "licenseFile": "src/3rdparty/opengl/khrplatform.h" }
+    },
+    {
+      "id": "catch2",
+      "path": "src/3rdparty/catch2",
+      "license": { "spdx": "BSL-1.0", "licenseFile": "src/3rdparty/catch2/LICENSE.txt" }
+    },
+    {
+      "id": "icu-scriptrun",
+      "path": "src/3rdparty/icu",
+      "license": { "spdx": "Unicode-DFS-2016", "licenseFile": "src/3rdparty/icu/LICENSE" }
+    },
+    {
+      "id": "monocypher",
+      "path": "src/3rdparty/monocypher",
+      "license": { "spdx": "BSD-2-Clause AND CC0-1.0", "licenseFile": "src/3rdparty/monocypher/LICENSE.md" }
+    },
+    {
+      "id": "openttd-social-integration-api",
+      "path": "src/3rdparty/openttd_social_integration_api",
+      "license": { "spdx": "MIT", "licenseFile": "src/3rdparty/openttd_social_integration_api/LICENSE" }
+    },
+    {
+      "id": "llvm-checkatomic",
+      "path": "cmake/3rdparty/llvm",
+      "license": { "spdx": "Apache-2.0", "licenseFile": "cmake/3rdparty/llvm/LICENSE.txt" }
+    }
+  ],
+  "governanceNotes": [
+    "All archive URLs are immutable release/fossil URLs pinned to an exact version; mutable branches (master/main/latest) are forbidden by the schema and the verifier.",
+    "All SHA-256 values were computed from the official archives at pin time and cross-checked against independent published checksums (distro package manifests).",
+    "Threads and libc++ are pinned by the API 23 NDK toolchain manifest (scripts/harmonyos/bootstrap.sh), not fetched as archives.",
+    "libcurl TLS must bind to the HarmonyOS system trust store; a bundled CA bundle is NOT permitted.",
+    "LZO (optional) must not be linked into the default HAP until a documented compatibility requirement proves otherwise.",
+    "The SBOM (CycloneDX + SPDX) and NOTICES.md are generated from this manifest; check-licenses.sh enforces consistency in CI."
+  ]
+}

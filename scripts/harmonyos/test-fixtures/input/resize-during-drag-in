@@ -1,0 +1,8 @@
+# Drag across a surface resize: pointer clamped into the new bounds.
+resize 320 240
+touch 0 down 100 100 finger
+touch 0 move 200 200 finger
+resize 160 120
+touch 0 move 300 300 finger
+touch 0 up 159 119 finger
+leakcheck

@@ -1,0 +1,11 @@
+# Physical mouse: enter/move/press/release/wheel/leave.
+enter
+mouse 100 100
+mbtn left down
+mouse 120 120
+mbtn left up
+mbtn right down
+mbtn right up
+wheel -1 0
+wheel 0 2
+leave

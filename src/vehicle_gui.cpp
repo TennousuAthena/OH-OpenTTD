@@ -796,7 +796,7 @@ struct RefitWindow : public Window {
 				bool first_vehicle = list.empty();
 				if (first_vehicle) {
 					/* Keeping the current subtype is always an option. It also serves as the option in case of no subtypes */
-					list.emplace_back(cargo_type, UINT8_MAX, STR_EMPTY);
+					list.emplace_back(RefitOption{cargo_type, UINT8_MAX, STR_EMPTY});
 				}
 
 				/* Check the vehicle's callback mask for cargo suffixes.

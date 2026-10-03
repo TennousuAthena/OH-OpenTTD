@@ -1,0 +1,10 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "openttd-ohos",
+  "version": "15.3.0",
+  "description": "OpenTTD transport tycoon game — HarmonyOS port (Stage application scaffold).",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

@@ -1,0 +1,6 @@
+mouse x=0 y=0
+btndown left
+mouse x=200 y=200
+mouse x=159 y=119
+mouse x=159 y=119
+btnup left

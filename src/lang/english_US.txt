@@ -454,7 +454,7 @@ STR_SETTINGS_MENU_SANDBOX_OPTIONS                               :Sandbox options
 STR_SETTINGS_MENU_TRANSPARENCY_OPTIONS                          :Transparency options
 STR_SETTINGS_MENU_TOWN_NAMES_DISPLAYED                          :Town names displayed
 STR_SETTINGS_MENU_STATION_NAMES_DISPLAYED                       :Station names displayed
-STR_SETTINGS_MENU_STATION_NAMES_TRAIN                           :Train stations
+STR_SETTINGS_MENU_STATION_NAMES_TRAIN                           :Railroad stations
 STR_SETTINGS_MENU_STATION_NAMES_LORRY                           :Truck stops
 STR_SETTINGS_MENU_STATION_NAMES_BUS                             :Bus stops
 STR_SETTINGS_MENU_STATION_NAMES_SHIP                            :Docks
@@ -697,7 +697,7 @@ STR_PERFORMANCE_DETAIL_TOTAL                                    :{BLACK}Total:
 
 STR_PERFORMANCE_DETAIL_VEHICLES_TOOLTIP_YEARS                   :{BLACK}Number of vehicles that turned a profit last year. This includes road vehicles, trains, ships and aircraft
 STR_PERFORMANCE_DETAIL_VEHICLES_TOOLTIP_PERIODS                 :{BLACK}Number of vehicles that turned a profit last period. This includes road vehicles, trains, ships and aircraft
-STR_PERFORMANCE_DETAIL_STATIONS_TOOLTIP                         :{BLACK}Number of recently-serviced stations. Train stations, bus stops, airports and so on are counted separately even if they belong to the same station
+STR_PERFORMANCE_DETAIL_STATIONS_TOOLTIP                         :{BLACK}Number of recently-serviced stations. Railroad stations, bus stops, airports and so on are counted separately even if they belong to the same station
 STR_PERFORMANCE_DETAIL_MIN_PROFIT_TOOLTIP_YEARS                 :{BLACK}The profit of the vehicle with the lowest income (only vehicles older than two years are considered)
 STR_PERFORMANCE_DETAIL_MIN_PROFIT_TOOLTIP_PERIODS               :{BLACK}The profit of the vehicle with the lowest income (only vehicles older than two periods are considered)
 STR_PERFORMANCE_DETAIL_MIN_INCOME_TOOLTIP                       :{BLACK}Amount of cash made in the quarter with the lowest profit of the last 12 quarters
@@ -1062,7 +1062,7 @@ STR_GAME_OPTIONS_LANGUAGE_TOOLTIP                               :Select the inte
 STR_GAME_OPTIONS_LANGUAGE_PERCENTAGE                            :{STRING} ({NUM}% completed)
 
 STR_GAME_OPTIONS_FULLSCREEN                                     :Fullscreen
-STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :Check this box to play OpenTTD fullscreen mode
+STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :Turn on to play OpenTTD fullscreen mode
 
 STR_GAME_OPTIONS_RESOLUTION                                     :Screen resolution
 STR_GAME_OPTIONS_RESOLUTION_TOOLTIP                             :Select the screen resolution to use
@@ -1070,11 +1070,11 @@ STR_GAME_OPTIONS_RESOLUTION_OTHER                               :other
 STR_GAME_OPTIONS_RESOLUTION_ITEM                                :{NUM}x{NUM}
 
 STR_GAME_OPTIONS_VIDEO_ACCELERATION                             :Hardware acceleration
-STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :Check this box to allow OpenTTD to try to use hardware acceleration. A changed setting will only be applied upon game restart
+STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :Turn on to allow OpenTTD to try to use hardware acceleration. A changed setting will only be applied upon game restart
 STR_GAME_OPTIONS_VIDEO_ACCELERATION_RESTART                     :{WHITE}The setting will only take effect after a game restart
 
 STR_GAME_OPTIONS_VIDEO_VSYNC                                    :VSync
-STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :Check this box to v-sync the screen. A changed setting will only be applied upon game restart. Only works with hardware acceleration enabled
+STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :Turn on to v-sync the screen. A changed setting will only be applied upon game restart. Only works with hardware acceleration enabled
 
 STR_GAME_OPTIONS_VIDEO_DRIVER_INFO                              :Current driver: {STRING}
 
@@ -1083,15 +1083,15 @@ STR_GAME_OPTIONS_INTERFACE                                      :Interface
 STR_GAME_OPTIONS_GUI_SCALE_FRAME                                :Interface size
 STR_GAME_OPTIONS_GUI_SCALE_TOOLTIP                              :Drag slider to set interface size. Ctrl+Drag for continuous adjustment
 STR_GAME_OPTIONS_GUI_SCALE_AUTO                                 :Auto-detect size
-STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :Check this box to detect interface size automatically
+STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :Turn on to detect interface size automatically
 
 STR_GAME_OPTIONS_GUI_SCALE_BEVELS                               :Scale bevels
-STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :Check this box to scale bevels by interface size
+STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :Turn on to scale bevels by interface size
 
 STR_GAME_OPTIONS_GUI_FONT_SPRITE                                :Use traditional sprite font
-STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Check this box if you prefer to use the traditional fixed-size sprite font
+STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Turn on if you prefer to use the traditional fixed-size sprite font
 STR_GAME_OPTIONS_GUI_FONT_AA                                    :Anti-alias fonts
-STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Check this box to anti-alias resizable fonts
+STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Turn on to anti-alias resizable fonts
 
 STR_GAME_OPTIONS_GUI_SCALE_MARK                                 :{DECIMAL}x
 
@@ -1115,7 +1115,7 @@ STR_GAME_OPTIONS_BASE_GRF_TOOLTIP                               :Select the base
 STR_GAME_OPTIONS_BASE_GRF_DESCRIPTION_TOOLTIP                   :Additional information about the base graphics set
 
 STR_GAME_OPTIONS_BASE_SFX                                       :Base sounds set
-STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Select the base sounds set to use (cannot be changed in-game, only from the main menu)
+STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Select the base sounds set to use
 STR_GAME_OPTIONS_BASE_SFX_DESCRIPTION_TOOLTIP                   :Additional information about the base sounds set
 
 STR_GAME_OPTIONS_BASE_MUSIC                                     :Base music set
@@ -1248,7 +1248,7 @@ STR_CONFIG_SETTING_EXPAND_ALL                                   :Expand all
 STR_CONFIG_SETTING_COLLAPSE_ALL                                 :Collapse all
 STR_CONFIG_SETTING_RESET_ALL                                    :Reset all values
 STR_CONFIG_SETTING_NO_EXPLANATION_AVAILABLE_HELPTEXT            :(no explanation available)
-STR_CONFIG_SETTING_VALUE                                        :{PUSH_COLOUR}{ORANGE}{STRING}{POP_COLOUR}
+STR_CONFIG_SETTING_VALUE                                        :{ORANGE}{STRING}
 STR_CONFIG_SETTING_DEFAULT_VALUE                                :{LTBLUE}Default value: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE                                         :{LTBLUE}Setting type: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE_CLIENT                                  :Client setting (not stored in saves; affects all games)
@@ -2068,7 +2068,7 @@ STR_CONFIG_SETTING_ZOOM_LVL_OUT_4X                              :4x
 STR_CONFIG_SETTING_ZOOM_LVL_OUT_8X                              :8x
 
 STR_CONFIG_SETTING_SPRITE_ZOOM_MIN                              :Highest resolution sprites to use: {STRING}
-STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :Limit the maximum resolution to use for sprites. Limiting sprite resolution will avoid using high resolution graphics even when available. This can help keep the game appearance unified when using a mix of GRF files with and without high resolution graphics
+STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :Limit the maximum resolution to use for sprites. Limiting sprite resolution will avoid using high resolution graphics even when available. This can help keep the game appearance unified when using a mix of NewGRF files with and without high resolution graphics
 ###length 3
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_MIN                          :4x
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_IN_2X                        :2x
@@ -2204,7 +2204,7 @@ STR_CONFIG_ERROR                                                :{WHITE}Error wi
 STR_CONFIG_ERROR_ARRAY                                          :{WHITE}... error in array '{STRING}'
 STR_CONFIG_ERROR_INVALID_VALUE                                  :{WHITE}... invalid value '{STRING}' for '{STRING}'
 STR_CONFIG_ERROR_TRAILING_CHARACTERS                            :{WHITE}... trailing characters at end of setting '{STRING}'
-STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... ignoring NewGRF '{STRING}': duplicate GRF ID with '{STRING}'
+STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... ignoring NewGRF '{STRING}': duplicate NewGRF ID with '{STRING}'
 STR_CONFIG_ERROR_INVALID_GRF                                    :{WHITE}... ignoring invalid NewGRF '{STRING}': {STRING}
 STR_CONFIG_ERROR_INVALID_GRF_NOT_FOUND                          :not found
 STR_CONFIG_ERROR_INVALID_GRF_UNSAFE                             :unsafe for static use
@@ -2869,7 +2869,7 @@ STR_HOUSE_PICKER_YEARS_ANY                                      :{BLACK}Years: {
 STR_HOUSE_PICKER_YEARS_FROM                                     :{BLACK}Years: {GOLD}From {NUM}
 STR_HOUSE_PICKER_YEARS_UNTIL                                    :{BLACK}Years: {GOLD}Until {NUM}
 STR_HOUSE_PICKER_SIZE                                           :{BLACK}Size: {GOLD}{NUM}x{NUM} tiles
-STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Cargo accepted: {GOLD}
+STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Cargo accepted: {GOLD}{STRING}
 STR_HOUSE_PICKER_CARGO_PRODUCED                                 :{BLACK}Cargo produced: {GOLD}{CARGO_LIST}
 
 STR_HOUSE_PICKER_CLASS_ZONE1                                    :Edge
@@ -2878,10 +2878,11 @@ STR_HOUSE_PICKER_CLASS_ZONE3                                    :Outer Suburbs
 STR_HOUSE_PICKER_CLASS_ZONE4                                    :Inner Suburbs
 STR_HOUSE_PICKER_CLASS_ZONE5                                    :Town center
 
-STR_HOUSE_PICKER_PROTECT_TITLE                                  :Prevent upgrades
+STR_HOUSE_PICKER_PROTECT                                        :Prevent upgrades
 STR_HOUSE_PICKER_PROTECT_TOOLTIP                                :Choose whether this house will be protected from replacement as the town grows
-STR_HOUSE_PICKER_PROTECT_OFF                                    :Off
-STR_HOUSE_PICKER_PROTECT_ON                                     :On
+
+STR_HOUSE_PICKER_REPLACE                                        :Replace existing
+STR_HOUSE_PICKER_REPLACE_TOOLTIP                                :Choose whether to automatically remove an existing house on the tile where this house is placed
 
 STR_STATION_CLASS_DFLT                                          :Default
 STR_STATION_CLASS_DFLT_STATION                                  :Default station
@@ -3156,7 +3157,7 @@ STR_LAND_AREA_INFORMATION_AIRPORT_CLASS                         :{BLACK}Airport 
 STR_LAND_AREA_INFORMATION_AIRPORT_NAME                          :{BLACK}Airport name: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_AIRPORTTILE_NAME                      :{BLACK}Airport tile name: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_NEWGRF_NAME                           :{BLACK}NewGRF: {LTBLUE}{STRING}
-STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Cargo accepted: {LTBLUE}
+STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Cargo accepted: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_CARGO_EIGHTS                          :({COMMA}/8 {STRING})
 STR_LANG_AREA_INFORMATION_RAIL_TYPE                             :{BLACK}Rail type: {LTBLUE}{STRING}
 STR_LANG_AREA_INFORMATION_ROAD_TYPE                             :{BLACK}Road type: {LTBLUE}{STRING}
@@ -3619,7 +3620,7 @@ STR_NEWGRF_ERROR_INVALID_PARAMETER                              :Invalid paramet
 STR_NEWGRF_ERROR_LOAD_BEFORE                                    :{1:STRING} must be loaded before {2:STRING}
 STR_NEWGRF_ERROR_LOAD_AFTER                                     :{1:STRING} must be loaded after {2:STRING}
 STR_NEWGRF_ERROR_OTTD_VERSION_NUMBER                            :{1:STRING} requires OpenTTD version {2:STRING} or better
-STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :the GRF file it was designed to translate
+STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :the NewGRF file it was designed to translate
 STR_NEWGRF_ERROR_TOO_MANY_NEWGRFS_LOADED                        :Too many NewGRFs are loaded
 STR_NEWGRF_ERROR_STATIC_GRF_CAUSES_DESYNC                       :Loading {1:STRING} as static NewGRF with {2:STRING} could cause desyncs
 STR_NEWGRF_ERROR_UNEXPECTED_SPRITE                              :Unexpected sprite (sprite {3:NUM})
@@ -3628,7 +3629,7 @@ STR_NEWGRF_ERROR_INVALID_ID                                     :Attempt to use 
 STR_NEWGRF_ERROR_CORRUPT_SPRITE                                 :{YELLOW}{STRING} contains a corrupt sprite. All corrupt sprites will be shown as a red question mark (?)
 STR_NEWGRF_ERROR_MULTIPLE_ACTION_8                              :Contains multiple Action 8 entries (sprite {3:NUM})
 STR_NEWGRF_ERROR_READ_BOUNDS                                    :Read past end of pseudo-sprite (sprite {3:NUM})
-STR_NEWGRF_ERROR_GRM_FAILED                                     :Requested GRF resources not available (sprite {3:NUM})
+STR_NEWGRF_ERROR_GRM_FAILED                                     :Requested NewGRF resources not available (sprite {3:NUM})
 STR_NEWGRF_ERROR_FORCEFULLY_DISABLED                            :{1:STRING} was disabled by {2:STRING}
 STR_NEWGRF_ERROR_INVALID_SPRITE_LAYOUT                          :Invalid/unknown sprite layout format (sprite {3:NUM})
 STR_NEWGRF_ERROR_LIST_PROPERTY_TOO_LONG                         :Too many elements in property value list (sprite {3:NUM}, property {4:HEX})
@@ -3638,13 +3639,13 @@ STR_NEWGRF_ERROR_INDPROD_CALLBACK                               :Invalid industr
 STR_NEWGRF_POPUP_CAUTION_CAPTION                                :{WHITE}Caution!
 STR_NEWGRF_CONFIRMATION_TEXT                                    :{YELLOW}You are about to make changes to a running game. This can crash OpenTTD or break the game state. Do not file bug reports about these issues.{}Are you absolutely sure about this?
 
-STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}Can't add file: duplicate GRF ID
-STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}Matching file not found (compatible GRF loaded)
+STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}Can't add file: duplicate NewGRF ID
+STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}Matching file not found (compatible NewGRF loaded)
 STR_NEWGRF_TOO_MANY_NEWGRFS                                     :{WHITE}Can't add file: NewGRF file limit reached
 
-STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}Compatible GRF(s) loaded for missing files
-STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}Missing GRF file(s) have been disabled
-STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Missing GRF file(s)
+STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}Compatible NewGRF(s) loaded for missing files
+STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}Missing NewGRF file(s) have been disabled
+STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Missing NewGRF file(s)
 STR_NEWGRF_UNPAUSE_WARNING                                      :{WHITE}Unpausing can crash OpenTTD. Do not file bug reports for subsequent crashes.{}Do you really want to unpause?
 
 # NewGRF status
@@ -3655,17 +3656,17 @@ STR_NEWGRF_LIST_COMPATIBLE                                      :{YELLOW}Found c
 STR_NEWGRF_LIST_MISSING                                         :{RED}Missing files
 
 # NewGRF 'it's broken' warnings
-STR_NEWGRF_BROKEN                                               :{WHITE}Behavior of NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' is likely to cause desyncs and/or crashes
-STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}It changed powered-wagon state for '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' when not inside a depot
-STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}It changed vehicle length for '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' when not inside a depot
-STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}It changed vehicle capacity for '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' when not inside a depot or refitting
+STR_NEWGRF_BROKEN                                               :{WHITE}Behavior of NewGRF '{0:STRING}' is likely to cause desyncs and/or crashes
+STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}It changed powered-wagon state for '{1:ENGINE}' when not inside a depot
+STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}It changed vehicle length for '{1:ENGINE}' when not inside a depot
+STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}It changed vehicle capacity for '{1:ENGINE}' when not inside a depot or refitting
 STR_BROKEN_VEHICLE_LENGTH                                       :{WHITE}Train '{VEHICLE}' belonging to '{COMPANY}' has invalid length. It is probably caused by problems with NewGRFs. Game may desync or crash
 
-STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' provides incorrect information
-STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}Cargo/refit information for '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' differs from purchase list after construction. This might cause autorenew/-replace to fail refitting correctly
-STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' caused an endless loop in the production callback
+STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{0:STRING}' provides incorrect information
+STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}Cargo/refit information for '{1:ENGINE}' differs from purchase list after construction. This might cause autorenew/-replace to fail refitting correctly
+STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{1:STRING}' caused an endless loop in the production callback
 STR_NEWGRF_BUGGY_UNKNOWN_CALLBACK_RESULT                        :{WHITE}Callback {1:HEX} returned unknown/invalid result {2:HEX}
-STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' returned invalid cargo type in the production callback at {2:HEX}
+STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{1:STRING}' returned invalid cargo type in the production callback at {2:HEX}
 
 # 'User removed essential NewGRFs'-placeholders for stuff without specs
 STR_NEWGRF_INVALID_CARGO                                        :<invalid cargo>
@@ -4039,12 +4040,12 @@ STR_COMPANY_INFRASTRUCTURE_VIEW_TOTAL_PERIOD                    :{WHITE}{CURRENC
 # Industry directory
 STR_INDUSTRY_DIRECTORY_CAPTION                                  :{WHITE}Industries ({COMMA} of {COMMA})
 STR_INDUSTRY_DIRECTORY_NONE                                     :{ORANGE}- None -
-STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% transported){BLACK}
+STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% transported)
 STR_INDUSTRY_DIRECTORY_ITEM_NOPROD                              :{ORANGE}{INDUSTRY}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING} and {NUM} more...
+STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING} and {NUM} more...
 STR_INDUSTRY_DIRECTORY_LIST_TOOLTIP                             :{BLACK}Industry names - click on name to center main view on industry. Ctrl+Click to open a new viewport on industry location
 STR_INDUSTRY_DIRECTORY_ACCEPTED_CARGO_FILTER                    :{BLACK}Accepted cargo: {SILVER}{STRING}
 STR_INDUSTRY_DIRECTORY_PRODUCED_CARGO_FILTER                    :{BLACK}Produced cargo: {SILVER}{STRING}
@@ -4062,9 +4063,9 @@ STR_INDUSTRY_VIEW_CARGO_GRAPH_TOOLTIP                           :{BLACK}Shows th
 STR_INDUSTRY_VIEW_PRODUCTION_LEVEL                              :{BLACK}Production level: {YELLOW}{COMMA}%
 STR_INDUSTRY_VIEW_INDUSTRY_ANNOUNCED_CLOSURE                    :{YELLOW}The industry has announced imminent closure!
 
-STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Requires: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Produces: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :, {STRING}{STRING}
+STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Requires: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Produces: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :{STRING}{STRING}
 
 STR_INDUSTRY_VIEW_REQUIRES                                      :{BLACK}Requires:
 STR_INDUSTRY_VIEW_ACCEPT_CARGO_SUFFIX                           :{YELLOW}{0:STRING}{BLACK}{3:STRING}
@@ -4590,7 +4591,7 @@ STR_VEHICLE_DETAILS_TRAIN_CAPACITIES_TOOLTIP                    :{BLACK}Show cap
 STR_VEHICLE_DETAIL_TAB_TOTAL_CARGO                              :{BLACK}Total Cargo
 STR_VEHICLE_DETAILS_TRAIN_TOTAL_CARGO_TOOLTIP                   :{BLACK}Show total capacity of train, split by cargo type
 
-STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Capacity: {LTBLUE}
+STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Capacity: {LTBLUE}{STRING}
 
 # Vehicle refit
 STR_REFIT_CAPTION                                               :{WHITE}{VEHICLE} (Refit)

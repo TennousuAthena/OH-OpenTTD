@@ -5,7 +5,7 @@ if(NOT BINARY_NAME)
 endif()
 
 project(${BINARY_NAME}
-    VERSION 15.0
+    VERSION 15.3
     LANGUAGES CXX
 )
 
@@ -24,6 +24,14 @@ endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 set(CMAKE_OSX_DEPLOYMENT_TARGET 10.15)
+
+# HarmonyOS is a first-class platform. The OHOS toolchain sets UNIX=1, so we
+# must detect it explicitly and exclude generic-Unix sources/behaviour.
+include(HarmonyOS)
+if(HARMONYOS)
+    message(STATUS "HarmonyOS platform detected (OHOS toolchain)")
+    include(HarmonyOSPerformance)
+endif()
 
 # Use GNUInstallDirs to allow customisation
 # but set our own default data and bin dir
@@ -54,11 +62,11 @@ add_custom_target(tools)
 include(CompileFlags)
 compile_flags()
 
-if(APPLE OR UNIX)
+if((APPLE OR UNIX) AND NOT HARMONYOS)
     add_definitions(-DUNIX)
 endif()
 
-if(UNIX)
+if(UNIX AND NOT HARMONYOS)
     find_package(Doxygen)
 endif()
 
@@ -74,6 +82,7 @@ add_custom_target(find_version
                 -DCPACK_BINARY_DIR=${CMAKE_BINARY_DIR}
                 -DREV_MAJOR=${PROJECT_VERSION_MAJOR}
                 -DREV_MINOR=${PROJECT_VERSION_MINOR}
+                -DHARMONYOS=${HARMONYOS}
                 -DWINDOWS=${WIN32}
                 -P "${CMAKE_SOURCE_DIR}/cmake/scripts/FindVersion.cmake"
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
@@ -130,8 +139,8 @@ else()
     find_package(CURL)
 endif()
 
-# Breakpad doesn't support emscripten.
-if(NOT EMSCRIPTEN)
+# Breakpad doesn't support emscripten or HarmonyOS.
+if(NOT EMSCRIPTEN AND NOT HARMONYOS)
     find_package(unofficial-breakpad NO_MODULE)
 endif()
 
@@ -181,7 +190,7 @@ check_ipo_supported(RESULT IPO_FOUND)
 
 show_options()
 
-if(UNIX AND NOT APPLE AND NOT OPTION_DEDICATED)
+if(UNIX AND NOT APPLE AND NOT HARMONYOS AND NOT OPTION_DEDICATED)
     if(NOT SDL2_FOUND AND NOT ALLEGRO_FOUND)
         message(FATAL_ERROR "SDL2 or Allegro is required for this platform")
     endif()
@@ -237,7 +246,21 @@ include_directories(${CMAKE_SOURCE_DIR}/src/3rdparty/squirrel/include)
 include(MSVCFilters)
 
 add_library(openttd_lib OBJECT ${GENERATED_SOURCE_FILES})
-add_executable(openttd WIN32)
+if(HARMONYOS)
+    add_library(openttd SHARED)
+    set_target_properties(openttd_lib PROPERTIES POSITION_INDEPENDENT_CODE ON)
+    target_include_directories(openttd_lib BEFORE PRIVATE "${CMAKE_SOURCE_DIR}/cmake/harmonyos-compat")
+    target_include_directories(openttd BEFORE PRIVATE "${CMAKE_SOURCE_DIR}/cmake/harmonyos-compat")
+    # The API 26 SDK still uses libc++ 15, which gates its ranges algorithms.
+    target_compile_definitions(openttd_lib PUBLIC _LIBCPP_ENABLE_EXPERIMENTAL)
+    harmonyos_native_compile_options(openttd_lib)
+    harmonyos_native_compile_options(openttd)
+    if(OPENTTD_HARMONYOS_PERF)
+        target_compile_definitions(openttd_lib PRIVATE OPENTTD_HARMONYOS_PERF)
+    endif()
+else()
+    add_executable(openttd WIN32)
+endif()
 add_executable(openttd_test)
 set_target_properties(openttd PROPERTIES OUTPUT_NAME "${BINARY_NAME}")
 # All other files are added via target_sources()
@@ -265,6 +288,11 @@ set_source_files_properties(src/3rdparty/fmt/format.cc PROPERTIES SKIP_PRECOMPIL
 add_subdirectory(${CMAKE_SOURCE_DIR}/bin)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src)
 add_subdirectory(${CMAKE_SOURCE_DIR}/media)
+
+# Platform guard: on HarmonyOS the generic-Unix sources (unix_main.cpp,
+# crashlog_unix.cpp, extmidi.cpp, unix.cpp, library_loader_unix.cpp,
+# survey_unix.cpp) are forbidden. Fail loudly if any leaked in.
+assert_no_forbidden_harmonyos_sources(openttd_lib)
 
 add_dependencies(openttd
     find_version)
@@ -312,7 +340,7 @@ if(NOT WIN32 AND NOT EMSCRIPTEN)
     target_link_libraries(openttd_lib ${CMAKE_DL_LIBS})
 endif()
 
-if(NOT EMSCRIPTEN)
+if(NOT EMSCRIPTEN AND NOT HARMONYOS)
     link_package(unofficial-breakpad TARGET unofficial::breakpad::libbreakpad_client)
 endif()
 
@@ -327,7 +355,7 @@ if(NOT OPTION_DEDICATED)
     link_package(ICU_uc)
     link_package(OpusFile TARGET OpusFile::opusfile)
 
-    if(SDL2_FOUND AND OPENGL_FOUND AND UNIX)
+    if(SDL2_FOUND AND OPENGL_FOUND AND UNIX AND NOT HARMONYOS)
         # SDL2 dynamically loads OpenGL if needed, so do not link to OpenGL when
         # on Linux. For Windows, we need to link to OpenGL as we also have a win32
         # driver using it.

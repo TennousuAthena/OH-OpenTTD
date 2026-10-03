@@ -1,0 +1,63 @@
+# clip-cases.txt — dirty-rectangle clipping scenarios against a surface.
+#
+# Each block:
+#   surface <w> <h>                surface pixel size
+#   dirty   <l> <t> <w> <h>        pre-union dirty rect (may extend OOB)
+#   expect  <l> <t> <r> <b>        expected clip (half-open, within surface)
+#   expect empty                    expected empty clip -> no flush
+# '#' starts a comment; blocks separated by blank lines.
+#
+# Clip = intersect(union, [0,w)x[0,h)); fully-outside rects clip to empty.
+
+surface 640 480
+dirty 10 10 100 80
+expect 10 10 110 90
+
+surface 640 480
+dirty 620 460 100 100
+expect 620 460 640 480
+
+surface 640 480
+dirty -100 -100 50 50
+expect empty
+
+surface 640 480
+dirty 700 500 50 50
+expect empty
+
+surface 640 480
+dirty -50 100 100 50
+expect 0 100 50 150
+
+surface 640 480
+dirty 600 -50 100 100
+expect 600 0 640 50
+
+surface 640 480
+dirty 0 0 640 480
+expect 0 0 640 480
+
+surface 800 600
+dirty 700 100 300 500
+expect 700 100 800 600
+
+surface 800 600
+dirty 799 599 3 3
+expect 799 599 800 600
+
+surface 640 480
+dirty 100 100 0 50
+expect empty
+
+surface 640 480
+dirty 100 100 50 0
+expect empty
+
+surface 32 32
+dirty 16 16 32 32
+expect 16 16 32 32
+
+surface 640 480
+dirty 0 0 640 480
+dirty 700 0 100 100
+expect 0 0 640 480

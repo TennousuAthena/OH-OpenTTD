@@ -24,7 +24,7 @@ class LRUCache {
 private:
 	using PairType = std::pair<Tkey, Tdata>;
 	using StorageType = std::list<PairType>;
-	using IteratorType = StorageType::iterator;
+	using IteratorType = typename StorageType::iterator;
 	using LookupType = std::unordered_map<Tkey, IteratorType, Thash, Tequality>;
 
 	StorageType data; ///< Ordered list of all items.

@@ -99,7 +99,7 @@ class EncodedString {
 public:
 	EncodedString() = default;
 
-	auto operator<=>(const EncodedString &) const = default;
+	std::strong_ordering operator<=>(const EncodedString &) const = default;
 
 	std::string GetDecodedString() const;
 	EncodedString ReplaceParam(size_t param, StringParameter &&value) const;

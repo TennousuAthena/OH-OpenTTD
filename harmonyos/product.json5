@@ -1,0 +1,13 @@
+// product.json5 — OpenTTD HarmonyOS product identity.
+//
+// versionCode policy: MAJOR*1000000 + MINOR*10000 + PATCH*100
+//   e.g. 15.3.0 -> 15*1000000 + 3*10000 + 0*100 = 15000300
+//   (the trailing *100 reserves two digits for a build/patch counter).
+{
+  bundleName: 'org.openttd.openttd',
+  versionName: '15.3',
+  versionCode: 15000300,
+  deviceTypes: ['tablet', '2in1'],
+  targetAPIVersion: 26,
+  compatibleAPIVersion: 20,
+}

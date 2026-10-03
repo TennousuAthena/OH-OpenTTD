@@ -20,7 +20,7 @@ template <class Tkey, class Tcompare = std::less<>>
 class FlatSet {
 	std::vector<Tkey> data; ///< Sorted vector. of values.
 public:
-	using const_iterator = std::vector<Tkey>::const_iterator;
+	using const_iterator = typename std::vector<Tkey>::const_iterator;
 
 	/**
 	 * Insert a key into the set, if it does not already exist.

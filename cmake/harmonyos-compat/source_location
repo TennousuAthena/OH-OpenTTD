@@ -1,0 +1,35 @@
+#ifndef OPENTTD_HARMONYOS_SOURCE_LOCATION
+#define OPENTTD_HARMONYOS_SOURCE_LOCATION
+
+#include <cstdint>
+
+namespace std {
+
+struct source_location {
+	static constexpr source_location current(
+		const char *file = __builtin_FILE(),
+		const char *function = __builtin_FUNCTION(),
+		uint_least32_t line = __builtin_LINE(),
+		uint_least32_t column = 0) noexcept
+	{
+		return source_location(file, function, line, column);
+	}
+
+	constexpr const char *file_name() const noexcept { return this->file; }
+	constexpr const char *function_name() const noexcept { return this->function; }
+	constexpr uint_least32_t line() const noexcept { return this->line_number; }
+	constexpr uint_least32_t column() const noexcept { return this->column_number; }
+
+private:
+	constexpr source_location(const char *file, const char *function, uint_least32_t line, uint_least32_t column) noexcept :
+		file(file), function(function), line_number(line), column_number(column) {}
+
+	const char *file = "";
+	const char *function = "";
+	uint_least32_t line_number = 0;
+	uint_least32_t column_number = 0;
+};
+
+}
+
+#endif

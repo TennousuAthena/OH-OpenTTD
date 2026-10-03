@@ -255,6 +255,8 @@ protected:
 	struct Filler : BaseFiller {
 		Tprojection proj; ///< Projection to apply.
 
+		Filler(BaseFiller base, Tprojection proj) : BaseFiller(base), proj(proj) {}
+
 		inline void Fill(uint i, const auto &data) const { this->dataset.values[i] = std::invoke(this->proj, data); }
 	};
 
@@ -677,16 +679,9 @@ public:
 
 				/* Draw x-axis labels and markings for graphs based on financial quarters and years.  */
 				if (this->draw_dates) {
-					TimerGameEconomy::Month month = this->month;
-					TimerGameEconomy::Year year = this->year;
-					for (int i = 0; i < this->num_on_x_axis; i++) {
+					uint year = GetParamMaxValue(this->year.base(), 4, FS_SMALL);
+					for (uint month = 0; month < 12; ++month) {
 						x_label_width = std::max(x_label_width, GetStringBoundingBox(GetString(month == 0 ? STR_GRAPH_X_LABEL_MONTH_YEAR : STR_GRAPH_X_LABEL_MONTH, STR_MONTH_ABBREV_JAN + month, year)).width);
-
-						month += this->month_increment;
-						if (month >= 12) {
-							month = 0;
-							year++;
-						}
 					}
 				} else {
 					/* Draw x-axis labels for graphs not based on quarterly performance (cargo payment rates). */
@@ -1873,7 +1868,6 @@ struct TownCargoGraphWindow : BaseCargoGraphWindow {
 		this->num_on_x_axis = GRAPH_NUM_MONTHS;
 		this->num_vert_lines = GRAPH_NUM_MONTHS;
 		this->month_increment = 1;
-		this->x_values_reversed = true;
 		this->x_values_increment = ECONOMY_MONTH_MINUTES;
 		this->draw_dates = !TimerGameEconomy::UsingWallclockUnits();
 		this->ranges = RANGE_LABELS;
@@ -1912,7 +1906,7 @@ struct TownCargoGraphWindow : BaseCargoGraphWindow {
 
 	void UpdateStatistics(bool initialize) override
 	{
-		int mo = TimerGameEconomy::month - this->num_vert_lines;
+		int mo = (TimerGameEconomy::month / this->month_increment - this->num_vert_lines) * this->month_increment;
 		auto yr = TimerGameEconomy::year;
 		while (mo < 0) {
 			yr--;

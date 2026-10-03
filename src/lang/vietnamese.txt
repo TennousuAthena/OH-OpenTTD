@@ -254,6 +254,7 @@ STR_UNITS_FORCE_SI                                              :{DECIMAL}{NBSP}
 STR_UNITS_HEIGHT_IMPERIAL                                       :{DECIMAL}{NBSP}ft
 STR_UNITS_HEIGHT_METRIC                                         :{DECIMAL}{NBSP}m
 STR_UNITS_HEIGHT_SI                                             :{DECIMAL}{NBSP}m
+STR_UNITS_HEIGHT_GAMEUNITS                                      :{DECIMAL}{NBSP}mức độ
 
 # Time units used in string control characters
 STR_UNITS_DAYS                                                  :{COMMA}{NBSP}ngày
@@ -311,6 +312,7 @@ STR_SHOW_HIDDEN_ENGINES_VEHICLE_AIRCRAFT_TOOLTIP                :{BLACK}Khi bậ
 STR_BUTTON_DEFAULT                                              :{BLACK}Mặc định
 STR_BUTTON_CANCEL                                               :{BLACK}Hủy bỏ
 STR_BUTTON_OK                                                   :{BLACK}Đồng ý
+STR_BUTTON_MOVE                                                 :{BLACK}Di chuyển
 
 # On screen keyboard window
 STR_OSK_KEYBOARD_LAYOUT                                         :`1234567890-= qwertyuiop[]asdfghjkl;'#\zxcvbnm,./ .
@@ -1087,9 +1089,9 @@ STR_GAME_OPTIONS_GUI_SCALE_BEVELS                               :Tỷ lệ góc 
 STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :Đánh dấu vào ô này để điều chỉnh tỷ lệ góc xiên theo kích thước giao diện
 
 STR_GAME_OPTIONS_GUI_FONT_SPRITE                                :Sử dụng sprite phông truyền thống
-STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Tuỳ chọn này nếu bạn muốn sử dụng sprite phông cố định truyền thống
+STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :Bật lên tuỳ chọn này nếu bạn muốn sử dụng sprite phông cố định truyền thống
 STR_GAME_OPTIONS_GUI_FONT_AA                                    :Phông chữ chống răng cưa
-STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Tuỳ chọn này để chống răng cưa phông chữ co dãn được
+STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :Bật tuỳ chọn này để chống răng cưa phông chữ co dãn được
 
 STR_GAME_OPTIONS_GUI_SCALE_MARK                                 :{DECIMAL}x
 
@@ -1113,7 +1115,7 @@ STR_GAME_OPTIONS_BASE_GRF_TOOLTIP                               :Chọn gói đ�
 STR_GAME_OPTIONS_BASE_GRF_DESCRIPTION_TOOLTIP                   :Thông tin thêm về gói đồ họa
 
 STR_GAME_OPTIONS_BASE_SFX                                       :Bộ âm thanh chuẩn
-STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Chọn bộ âm thanh chuẩn để dùng (không thể thay đổi khi trong ván chơi, chỉ đổi được khi ở menu chính)
+STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :Chọn bộ âm thanh chuẩn để dùng
 STR_GAME_OPTIONS_BASE_SFX_DESCRIPTION_TOOLTIP                   :Thông tin thêm về bộ âm thanh chuẩn
 
 STR_GAME_OPTIONS_BASE_MUSIC                                     :Gói nhạc chuẩn
@@ -1246,7 +1248,7 @@ STR_CONFIG_SETTING_EXPAND_ALL                                   :Mở xuống t�
 STR_CONFIG_SETTING_COLLAPSE_ALL                                 :Đóng lại tất cả
 STR_CONFIG_SETTING_RESET_ALL                                    :Thiết lập lại tất cả
 STR_CONFIG_SETTING_NO_EXPLANATION_AVAILABLE_HELPTEXT            :(hiện không có giải thích nào)
-STR_CONFIG_SETTING_VALUE                                        :{PUSH_COLOUR}{ORANGE}{STRING}{POP_COLOUR}
+STR_CONFIG_SETTING_VALUE                                        :{ORANGE}{STRING}
 STR_CONFIG_SETTING_DEFAULT_VALUE                                :{LTBLUE}Giá trị mặc định: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE                                         :{LTBLUE}Kiểu thiết lập: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE_CLIENT                                  :Cấu hình máy khách (không được lưu trong save; tác động tới tất cả các ván chơi)
@@ -2162,6 +2164,7 @@ STR_CONFIG_SETTING_LOCALISATION_UNITS_HEIGHT_HELPTEXT           :Khi độ cao t
 STR_CONFIG_SETTING_LOCALISATION_UNITS_HEIGHT_IMPERIAL           :Hoàng Gia (ft)
 STR_CONFIG_SETTING_LOCALISATION_UNITS_HEIGHT_METRIC             :Metric (m)
 STR_CONFIG_SETTING_LOCALISATION_UNITS_HEIGHT_SI                 :SI (m)
+STR_CONFIG_SETTING_LOCALISATION_UNITS_HEIGHT_GAMEUNITS          :Đơn vị trò chơi (mức độ)
 
 STR_CONFIG_SETTING_LOCALISATION                                 :Tiêu chuẩn đo lường
 STR_CONFIG_SETTING_GRAPHICS                                     :Đồ họa
@@ -2201,7 +2204,7 @@ STR_CONFIG_ERROR                                                :{WHITE}lỗi tr
 STR_CONFIG_ERROR_ARRAY                                          :{WHITE}... lỗi trong mảng '{STRING}'
 STR_CONFIG_ERROR_INVALID_VALUE                                  :{WHITE}... giá trị không hợp lệ của '{STRING}' đối với '{STRING}'
 STR_CONFIG_ERROR_TRAILING_CHARACTERS                            :{WHITE}... thừa ký tự ở cuối tùy chọn '{STRING}'
-STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... bỏ qua NewGRF '{STRING}': trùng lặp GRF ID với '{STRING}'
+STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}... bỏ qua NewGRF '{STRING}': trùng lặp NewGRF ID với '{STRING}'
 STR_CONFIG_ERROR_INVALID_GRF                                    :{WHITE}... bỏ qua NewGRF '{STRING}' không hợp lệ: {STRING}
 STR_CONFIG_ERROR_INVALID_GRF_NOT_FOUND                          :không tìm thấy
 STR_CONFIG_ERROR_INVALID_GRF_UNSAFE                             :không an toàn để dùng tĩnh
@@ -2859,15 +2862,15 @@ STR_PICKER_HOUSE_CLASS_TOOLTIP                                  :Chọn vùng đ
 STR_PICKER_HOUSE_TYPE_TOOLTIP                                   :Chọn kiểu nhà để xây. Ctrl+Click để thêm hoặc xóa trong danh sách lưu
 
 STR_HOUSE_PICKER_CAPTION                                        :Chọn Kiểu Nhà
-STR_HOUSE_PICKER_NAME                                           :{BLACK}Tên: {ORANGE}{STRING}
-STR_HOUSE_PICKER_POPULATION                                     :{BLACK}Dân số: {ORANGE}{NUM}
-STR_HOUSE_PICKER_YEARS                                          :{BLACK}Năm: {ORANGE}{NUM}-{NUM}
-STR_HOUSE_PICKER_YEARS_ANY                                      :{BLACK}Năm: {ORANGE}Tất cả
-STR_HOUSE_PICKER_YEARS_FROM                                     :{BLACK}Năm: {ORANGE}Từ {NUM}
-STR_HOUSE_PICKER_YEARS_UNTIL                                    :{BLACK}Năm: {ORANGE}Đến {NUM}
-STR_HOUSE_PICKER_SIZE                                           :{BLACK}Kích thước: {ORANGE}{NUM}x{NUM} ô
-STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Hàng hóa được chấp nhận: {ORANGE}
-STR_HOUSE_PICKER_CARGO_PRODUCED                                 :{BLACK}Hàng hóa cung cấp: {ORANGE}{CARGO_LIST}
+STR_HOUSE_PICKER_NAME                                           :{BLACK}Tên: {GOLD}{STRING}
+STR_HOUSE_PICKER_POPULATION                                     :{BLACK}Dân số: {GOLD}{NUM}
+STR_HOUSE_PICKER_YEARS                                          :{BLACK}Năm: {GOLD}{NUM}-{NUM}
+STR_HOUSE_PICKER_YEARS_ANY                                      :{BLACK}Năm: {GOLD}Tất cả
+STR_HOUSE_PICKER_YEARS_FROM                                     :{BLACK}Năm: {GOLD}Từ {NUM}
+STR_HOUSE_PICKER_YEARS_UNTIL                                    :{BLACK}Năm: {GOLD}Đến {NUM}
+STR_HOUSE_PICKER_SIZE                                           :{BLACK}Kích thước: {GOLD}{NUM}x{NUM} ô
+STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}Hàng hóa được chấp nhận: {GOLD}{STRING}
+STR_HOUSE_PICKER_CARGO_PRODUCED                                 :{BLACK}Hàng hóa cung cấp: {GOLD}{CARGO_LIST}
 
 STR_HOUSE_PICKER_CLASS_ZONE1                                    :Ngoài rìa
 STR_HOUSE_PICKER_CLASS_ZONE2                                    :Ngoại ô
@@ -2875,10 +2878,11 @@ STR_HOUSE_PICKER_CLASS_ZONE3                                    :Phía ngoài ng
 STR_HOUSE_PICKER_CLASS_ZONE4                                    :Phía trong ngoại ô
 STR_HOUSE_PICKER_CLASS_ZONE5                                    :Nội thành
 
-STR_HOUSE_PICKER_PROTECT_TITLE                                  :Ngăn chặn nâng cấp
+STR_HOUSE_PICKER_PROTECT                                        :Ngăn chặn nâng cấp
 STR_HOUSE_PICKER_PROTECT_TOOLTIP                                :Chọn nếu ngôi nhà này có được bảo vệ khỏi việc bị thay thế hay không khi thị trấn phát triển
-STR_HOUSE_PICKER_PROTECT_OFF                                    :Tắt
-STR_HOUSE_PICKER_PROTECT_ON                                     :Bật
+
+STR_HOUSE_PICKER_REPLACE                                        :Thay thế hiện trạng
+STR_HOUSE_PICKER_REPLACE_TOOLTIP                                :Bật/tắt tùy chọn tự động xóa công trình cũ trên ô khi đặt công trình mới
 
 STR_STATION_CLASS_DFLT                                          :Mặc định
 STR_STATION_CLASS_DFLT_STATION                                  :Trạm mặc định
@@ -2893,13 +2897,13 @@ STR_BUILD_SIGNAL_SEMAPHORE_ENTRY_TOOLTIP                        :{BLACK}Đèn (c
 STR_BUILD_SIGNAL_SEMAPHORE_EXIT_TOOLTIP                         :{BLACK}Đèn (cờ) tín hiệu cửa thoát{}Tương tự đèn tín hiệu khoá, nhưng cần có để đổi trạng thái của đèn tín hiệu loại cửa nhập & kết hợp nằm trước nó.
 STR_BUILD_SIGNAL_SEMAPHORE_COMBO_TOOLTIP                        :{BLACK}Đèn (cờ) tín hiệu kết hợp{}Nó vừa là đèn tín hiệu cửa thoát (với đèn nhập ở phía trước nó) và vừa là đèn tín hiệu cửa nhập (đối với đèn thoát ở sau nó). Loại đèn này cho phép tạo nhiều lớp đèn cho một hệ thống tín hiệu phức tạp.
 STR_BUILD_SIGNAL_SEMAPHORE_PBS_TOOLTIP                          :{BLACK}Đèn (cờ) tín hiệu giành đường{}Đèn tín hiệu giành đường cho phép nhiều hơn 1 đoàn tàu có thể đi vào 1 khu vực khoá, nếu như mỗi đoàn tàu có thể giành lấy một con đường tới một điểm đến một cách an toàn. Đèn tín hiệu giành đường tiêu chuẩn cho thể cho phép đi qua từ phía sau của đèn.
-STR_BUILD_SIGNAL_SEMAPHORE_PBS_OWAY_TOOLTIP                     :{BLACK}Đèn (cờ) tín hiệu giành đường một chiều{}Đèn tín hiệu giành đường cho phép nhiều hơn 1 đoàn tàu có thể đi vào 1 khu vực khoá, nếu như mỗi đoàn tàu có thể giành lấy một con đường tới một điểm đến một cách an toàn. Đèn tín hiệu giành đường tiêu chuẩn cho thể cho phép đi qua từ phía sau của đèn.
+STR_BUILD_SIGNAL_SEMAPHORE_PBS_OWAY_TOOLTIP                     :{BLACK}Đèn (cờ) tín hiệu giành đường một chiều{}Đèn tín hiệu giành đường cho phép nhiều hơn 1 đoàn tàu có thể đi vào 1 khu vực khoá, nếu như mỗi đoàn tàu có thể giành lấy một con đường tới một điểm đến một cách an toàn. Đèn tín hiệu giành đường một chiều không cho phép đi ngược từ phía sau của đèn.
 STR_BUILD_SIGNAL_ELECTRIC_NORM_TOOLTIP                          :{BLACK}Đèn tín hiệu (điện){}Đèn tín hiệu cơ bản, chỉ cho phép một đoàn toàn đi vào một khu vực khoá của đèn.
 STR_BUILD_SIGNAL_ELECTRIC_ENTRY_TOOLTIP                         :{BLACK}Đèn tín hiệu cửa nhập (điện){}Sẽ xanh nếu một hoặc nhiều đèn tín hiệu cửa thoát ở phía sau màu xanh. Không thì sẽ đỏ.
 STR_BUILD_SIGNAL_ELECTRIC_EXIT_TOOLTIP                          :{BLACK}Đèn tín hiệu cửa thoát (điện){}Tương tự đèn tín hiệu khoá, nhưng cần có để đổi trạng thái của đèn tín hiệu loại cửa nhập & kết hợp nằm trước nó.
 STR_BUILD_SIGNAL_ELECTRIC_COMBO_TOOLTIP                         :{BLACK}Đèn tín hiệu kết hợp (điện){}Nó vừa là đèn tín hiệu cửa thoát (với đèn nhập ở phía trước nó) và vừa là đèn tín hiệu cửa nhập (đối với đèn thoát ở sau nó). Loại đèn này cho phép tạo nhiều lớp đèn cho một hệ thống tín hiệu phức tạp.
 STR_BUILD_SIGNAL_ELECTRIC_PBS_TOOLTIP                           :{BLACK}Đèn tín hiệu giành đường (điện){}Đèn tín hiệu giành đường cho phép nhiều hơn 1 đoàn tàu có thể đi vào 1 khu vực khoá, nếu như mỗi đoàn tàu có thể giành lấy một con đường tới một điểm đến một cách an toàn. Đèn tín hiệu giành đường tiêu chuẩn cho thể cho phép đi qua từ phía sau của đèn.
-STR_BUILD_SIGNAL_ELECTRIC_PBS_OWAY_TOOLTIP                      :{BLACK}Đèn tín hiệu giành đường một chiều (điện){}Đèn tín hiệu giành đường cho phép nhiều hơn 1 đoàn tàu có thể đi vào 1 khu vực khoá, nếu như mỗi đoàn tàu có thể giành lấy một con đường tới một điểm đến một cách an toàn. Đèn tín hiệu giành đường tiêu chuẩn cho thể cho phép đi qua từ phía sau của đèn.
+STR_BUILD_SIGNAL_ELECTRIC_PBS_OWAY_TOOLTIP                      :{BLACK}Đèn tín hiệu giành đường một chiều (điện){}Đèn tín hiệu giành đường cho phép nhiều hơn 1 đoàn tàu có thể đi vào 1 khu vực khoá, nếu như mỗi đoàn tàu có thể giành lấy một con đường tới điểm đến một cách an toàn. Đèn tín hiệu giành đường một chiều không cho phép đi ngược lại từ phía sau của đèn.
 STR_BUILD_SIGNAL_CONVERT_TOOLTIP                                :{BLACK}Chuyển đổi đèn tín hiệu{}Khi sử dụng, nháy vào đèn hiệu đang có, sẽ chuyển đổi loại đèn đã chọn, Ctrl+Click sẽ đổi loại đèn. Shift để hiện chi phí dự tính
 STR_BUILD_SIGNAL_DRAG_SIGNALS_DENSITY_TOOLTIP                   :{BLACK}Mật độ khi kéo chuỗi đèn hiệu
 STR_BUILD_SIGNAL_DRAG_SIGNALS_DENSITY_DECREASE_TOOLTIP          :{BLACK}Giảm khoảng cách kéo chuỗi đèn hiệu
@@ -3153,7 +3157,7 @@ STR_LAND_AREA_INFORMATION_AIRPORT_CLASS                         :{BLACK}Loại s
 STR_LAND_AREA_INFORMATION_AIRPORT_NAME                          :{BLACK}Tên sân bay: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_AIRPORTTILE_NAME                      :{BLACK}Tên sân bay vị trí này: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_NEWGRF_NAME                           :{BLACK}NewGRF: {LTBLUE}{STRING}
-STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Hàng hoá chấp nhận: {LTBLUE}
+STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}Hàng hoá chấp nhận: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_CARGO_EIGHTS                          :({COMMA}/8 {STRING})
 STR_LANG_AREA_INFORMATION_RAIL_TYPE                             :{BLACK}Kiểu đường ray: {LTBLUE}{STRING}
 STR_LANG_AREA_INFORMATION_ROAD_TYPE                             :{BLACK}Kiểu đường: {LTBLUE}{STRING}
@@ -3425,13 +3429,18 @@ STR_MAPGEN_NORTHWEST                                            :{BLACK}Tây B�
 STR_MAPGEN_NORTHEAST                                            :{BLACK}Đông Bắc
 STR_MAPGEN_SOUTHEAST                                            :{BLACK}Đông Nam
 STR_MAPGEN_SOUTHWEST                                            :{BLACK}Tây Nam
+STR_MAPGEN_NORTHWEST_TOOLTIP                                    :Bật/tắt mép nước hoặc mép tự do ở cạnh tây bắc bản đồ
+STR_MAPGEN_NORTHEAST_TOOLTIP                                    :Bật/tắt mép nước hoặc mép tự do ở cạnh đông bắc bản đồ
+STR_MAPGEN_SOUTHEAST_TOOLTIP                                    :Bật/tắt mép nước hoặc mép tự do ở cạnh đông nam bản đồ
+STR_MAPGEN_SOUTHWEST_TOOLTIP                                    :Bật/tắt mép nước hoặc mép tự do ở cạnh tây nam bản đồ
 STR_MAPGEN_BORDER_FREEFORM                                      :{BLACK}Dạng Tự Do
 STR_MAPGEN_BORDER_WATER                                         :{BLACK}Nước
 STR_MAPGEN_BORDER_RANDOM                                        :{BLACK}Ngẫu Nhiên
 
 ###length 3
-STR_MAPGEN_BORDER_RANDOMIZE                                     :{BLACK}Ngẫu Nhiên
-STR_MAPGEN_BORDER_MANUAL                                        :{BLACK}Điều Chỉnh
+STR_MAPGEN_BORDER_RANDOMIZE                                     :Ngẫu Nhiên
+STR_MAPGEN_BORDER_MANUAL                                        :Điều Chỉnh
+STR_MAPGEN_BORDER_INFINITE_WATER                                :Xung Quanh Toàn Nước
 
 STR_MAPGEN_HEIGHTMAP_ROTATION                                   :{BLACK}Xoay bản đồ địa hình:
 STR_MAPGEN_HEIGHTMAP_NAME                                       :{BLACK}Tên bản đồ địa hình:
@@ -3470,6 +3479,8 @@ STR_GENERATION_LANDSCAPE_GENERATION                             :{BLACK}Khởi t
 STR_GENERATION_RIVER_GENERATION                                 :{BLACK}Khởi tạo sông suối
 STR_GENERATION_CLEARING_TILES                                   :{BLACK}Sinh đá và sự gồ ghề
 STR_GENERATION_TOWN_GENERATION                                  :{BLACK}Khởi tạo thị trấn
+STR_GENERATION_LAND_INDUSTRY_GENERATION                         :{BLACK}Khởi tạo công nghiệp trên cạn
+STR_GENERATION_WATER_INDUSTRY_GENERATION                        :{BLACK}Khởi tạo công nghiệp đường thủy
 STR_GENERATION_OBJECT_GENERATION                                :{BLACK}Sinh đối tượng cứng
 STR_GENERATION_TREE_GENERATION                                  :{BLACK}Trồng cây
 STR_GENERATION_SETTINGUP_GAME                                   :{BLACK}Thiết lập ván chơi
@@ -3634,7 +3645,7 @@ STR_NEWGRF_TOO_MANY_NEWGRFS                                     :{WHITE}Không t
 
 STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}GRF tương thích được nạp thay cho các file thiếu.
 STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}Các GRF file thiếu bị bỏ qua
-STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Thiếu GRF file
+STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}Thiếu NewGRF file
 STR_NEWGRF_UNPAUSE_WARNING                                      :{WHITE}Tiếp tục có thể làm treo OpenTTD. Không nên báo cáo lỗi sau khi bị treo.{}Bạn có chắc là tiếp tục chơi?
 
 # NewGRF status
@@ -3645,17 +3656,17 @@ STR_NEWGRF_LIST_COMPATIBLE                                      :{YELLOW}Đã t�
 STR_NEWGRF_LIST_MISSING                                         :{RED}Thiếu files
 
 # NewGRF 'it's broken' warnings
-STR_NEWGRF_BROKEN                                               :{WHITE}Hoạt động của NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' có thể gây mất đồng bộ hoặc bị treo.
-STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}Trạng thái đầu kéo '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' được thay đổi khi không ở trong xưởng sửa chữa.
-STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}Nó cắt ngắn độ dài của đoàn tàu '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' nếu không ở trong xưởng.
-STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}Sức chứa của phương tiện bị thay đổi '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' khi không ở trong xưởng hoặc vì cải biến
+STR_NEWGRF_BROKEN                                               :{WHITE}Hoạt động của NewGRF '{0:STRING}' có thể gây mất đồng bộ hoặc bị treo
+STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}Trạng thái đầu kéo '{1:ENGINE}' được thay đổi khi không ở trong xưởng sửa chữa
+STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}Nó cắt ngắn độ dài của đoàn tàu '{1:ENGINE}' nếu không ở trong xưởng
+STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}Sức chứa của phương tiện bị thay đổi {1:ENGINE}' khi không ở trong xưởng hoặc vì cải biến
 STR_BROKEN_VEHICLE_LENGTH                                       :{WHITE}Đoàn tàu '{VEHICLE}' của '{COMPANY}' có độ dài không hợp lệ. Sự cố có thể có căn nguyên từ NewGRFs. Ván chơi có thể mất đồng bộ hoặc bị treo
 
-STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' không hợp lệ.
-STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}Danh mục hàng hoá/cải biến được cho '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' khác với danh mục mua được sau khi đã có. Việc này khiến cho việc tự thay thế hay là tự cải biến không chính xác.
-STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' gây ra một vòng lặp vô tận khi gọi hàm callback.
+STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{0:STRING}' không hợp lệ
+STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}Danh mục hàng hoá/cải biến được cho '{1:ENGINE}' khác với danh mục mua được sau khi đã có. Việc này khiến cho việc tự thay thế hay là tự cải biến không chính xác
+STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{1:STRING}' gây ra một vòng lặp vô tận khi gọi hàm callback
 STR_NEWGRF_BUGGY_UNKNOWN_CALLBACK_RESULT                        :{WHITE}Hàm callback {1:HEX} gửi trả kết quả sai/không rõ {2:HEX}
-STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' trả về loại hàng hoá sản xuất không hợp lệ khi gọi lại tại {2:HEX}
+STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{1:STRING} trả về loại hàng hoá sản xuất không hợp lệ khi gọi lại tại {2:HEX}
 
 # 'User removed essential NewGRFs'-placeholders for stuff without specs
 STR_NEWGRF_INVALID_CARGO                                        :<sai kiểu hàng>
@@ -3689,6 +3700,7 @@ STR_EDIT_SIGN_SIGN_OSKTITLE                                     :{BLACK}Nhập t
 STR_TOWN_DIRECTORY_CAPTION                                      :{WHITE}Đô Thị ({COMMA} đến {COMMA})
 STR_TOWN_DIRECTORY_NONE                                         :{ORANGE}- Không Có -
 STR_TOWN_DIRECTORY_TOWN                                         :{ORANGE}{TOWN}{BLACK} ({COMMA})
+STR_TOWN_DIRECTORY_CITY                                         :{ORANGE}{TOWN}{BLACK} ({COMMA}) {YELLOW}{CITY_ICON}
 STR_TOWN_DIRECTORY_LIST_TOOLTIP                                 :{BLACK}Tên các đô thị - nháy vào tên để xem trung tâm đô thị. Ctrl+Click mở cửa sổ mới của đô thị
 STR_TOWN_POPULATION                                             :{BLACK}Dân số thế giới: {COMMA}
 
@@ -3894,12 +3906,14 @@ STR_CARGO_RATING_EXCELLENT                                      :Tuyệt vời
 STR_CARGO_RATING_OUTSTANDING                                    :Hoàn hảo
 
 STR_STATION_VIEW_CENTER_TOOLTIP                                 :{BLACK}Xem trung tâm ga, bến, cảng. Ctrl+Click mở cửa sổ mới để xem
+STR_STATION_VIEW_EDIT_TOOLTIP                                   :{BLACK}Đổi tên trạm hoặc di chuyển biển hiệu
 
 STR_STATION_VIEW_SCHEDULED_TRAINS_TOOLTIP                       :{BLACK}Hiện lên tất cả các đoàn tàu có lộ trình đi qua ga này
 STR_STATION_VIEW_SCHEDULED_ROAD_VEHICLES_TOOLTIP                :{BLACK}Hiện lên tất cả các xe có lộ trình đi qua bến này
 STR_STATION_VIEW_SCHEDULED_AIRCRAFT_TOOLTIP                     :{BLACK}Hiện tất cả các máy bay có lộ trình đi qua sân bay này
 STR_STATION_VIEW_SCHEDULED_SHIPS_TOOLTIP                        :{BLACK}Hiện tất cả tàu thuỷ có lộ trình đi qua cảng này.
 
+STR_STATION_VIEW_EDIT_STATION_SIGN                              :{WHITE}Sửa biển hiệu của trạm
 
 STR_STATION_VIEW_CLOSE_AIRPORT                                  :{BLACK}Đóng cửa sân bay
 STR_STATION_VIEW_CLOSE_AIRPORT_TOOLTIP                          :{BLACK}Không cho máy bay hạ cánh ở sân bay này
@@ -3907,9 +3921,11 @@ STR_STATION_VIEW_CLOSE_AIRPORT_TOOLTIP                          :{BLACK}Không c
 # Waypoint/buoy view window
 STR_WAYPOINT_VIEW_CAPTION                                       :{WHITE}{WAYPOINT}
 STR_WAYPOINT_VIEW_CENTER_TOOLTIP                                :{BLACK}Xem vị trí của điểm mốc. Ctrl+Click để mở cửa sổ mới cho điểm mốc
+STR_WAYPOINT_VIEW_EDIT_TOOLTIP                                  :{BLACK}Đổi tên điểm mốc hoặc di chuyển biển hiệu
 STR_BUOY_VIEW_CENTER_TOOLTIP                                    :{BLACK}Xem vị trí phao hàng hải. Ctrl+Click mở cửa sổ mới vị trí phao
 STR_BUOY_VIEW_RENAME_TOOLTIP                                    :{BLACK}Đổi tên phao
 
+STR_WAYPOINT_VIEW_EDIT_WAYPOINT_SIGN                            :{WHITE}Đổi biển hiệu điểm mốc
 
 # Finances window
 STR_FINANCES_CAPTION                                            :{WHITE}Tài Chính Công Ty {COMPANY} {BLACK}{COMPANY_NUM}
@@ -4024,12 +4040,12 @@ STR_COMPANY_INFRASTRUCTURE_VIEW_TOTAL_PERIOD                    :{WHITE}{CURRENC
 # Industry directory
 STR_INDUSTRY_DIRECTORY_CAPTION                                  :{WHITE}Nhà máy ({COMMA} đến {COMMA})
 STR_INDUSTRY_DIRECTORY_NONE                                     :{ORANGE}- Không Có -
-STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% đã vận chuyển){BLACK}
+STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% đã vận chuyển)
 STR_INDUSTRY_DIRECTORY_ITEM_NOPROD                              :{ORANGE}{INDUSTRY}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING} và hơn {NUM}...
+STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING} và hơn {NUM}...
 STR_INDUSTRY_DIRECTORY_LIST_TOOLTIP                             :{BLACK}Tên các nhà máy - nháy vào tên để xem vị trí nhà máy. Ctrl+Click mở cửa sổ mới để xem
 STR_INDUSTRY_DIRECTORY_ACCEPTED_CARGO_FILTER                    :{BLACK}Chấp nhận hàng hóa: {SILVER}{STRING}
 STR_INDUSTRY_DIRECTORY_PRODUCED_CARGO_FILTER                    :{BLACK}Hàng hóa cung cấp: {SILVER}{STRING}
@@ -4047,9 +4063,9 @@ STR_INDUSTRY_VIEW_CARGO_GRAPH_TOOLTIP                           :{BLACK}Xem đ�
 STR_INDUSTRY_VIEW_PRODUCTION_LEVEL                              :{BLACK}Mức sản lượng: {YELLOW}{COMMA}%
 STR_INDUSTRY_VIEW_INDUSTRY_ANNOUNCED_CLOSURE                    :{YELLOW}Nhà máy này đã thông báo sắp đóng cửa!
 
-STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Yêu cầu: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Sản lượng: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :, {STRING}{STRING}
+STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}Yêu cầu: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}Sản lượng: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :{STRING}{STRING}
 
 STR_INDUSTRY_VIEW_REQUIRES                                      :{BLACK}Cần cung cấp:
 STR_INDUSTRY_VIEW_ACCEPT_CARGO_SUFFIX                           :{YELLOW}{0:STRING}{BLACK}{3:STRING}
@@ -4575,7 +4591,7 @@ STR_VEHICLE_DETAILS_TRAIN_CAPACITIES_TOOLTIP                    :{BLACK}Hiện s
 STR_VEHICLE_DETAIL_TAB_TOTAL_CARGO                              :{BLACK}Tổng sức chứa
 STR_VEHICLE_DETAILS_TRAIN_TOTAL_CARGO_TOOLTIP                   :{BLACK}Xem tổng sức chứa của tàu, phân chia bởi loại hàng hoá
 
-STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Sức chứa: {LTBLUE}
+STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}Sức chứa: {LTBLUE}{STRING}
 
 # Vehicle refit
 STR_REFIT_CAPTION                                               :{WHITE}{VEHICLE} (Cải biến)
@@ -5123,6 +5139,7 @@ STR_ERROR_TOO_MANY_TRUCK_STOPS                                  :{WHITE}Quá nhi
 STR_ERROR_TOO_CLOSE_TO_ANOTHER_DOCK                             :{WHITE}Quá sát với hải cảng khác
 STR_ERROR_TOO_CLOSE_TO_ANOTHER_AIRPORT                          :{WHITE}Quá sát với sân bay khác
 STR_ERROR_CAN_T_RENAME_STATION                                  :{WHITE}Không thể đổi tên ga, bến,cảng...
+STR_ERROR_CAN_T_MOVE_STATION_NAME                               :{WHITE}Không thể di chuyển biển hiệu của trạm...
 STR_ERROR_DRIVE_THROUGH_ON_TOWN_ROAD                            :{WHITE}... đây là đường sở hữu bởi địa phương
 STR_ERROR_DRIVE_THROUGH_DIRECTION                               :{WHITE}... đường quay mặt sai hướng
 STR_ERROR_DRIVE_THROUGH_CORNER                                  :{WHITE}... đi qua điểm dừng không thể đi qua góc
@@ -5154,6 +5171,7 @@ STR_ERROR_CAN_T_BUILD_RAIL_WAYPOINT                             :{WHITE}Không t
 STR_ERROR_CAN_T_BUILD_ROAD_WAYPOINT                             :{WHITE}Không thể xây điểm mốc đường bộ ở đây...
 STR_ERROR_CAN_T_POSITION_BUOY_HERE                              :{WHITE}Không thể xây phao hàng hải ở đây...
 STR_ERROR_CAN_T_CHANGE_WAYPOINT_NAME                            :{WHITE}Không thể thay đổi tên điểm mốc...
+STR_ERROR_CAN_T_MOVE_WAYPOINT_NAME                              :{WHITE}Không thể di chuyển biển hiệu của điểm mốc...
 
 STR_ERROR_CAN_T_REMOVE_RAIL_WAYPOINT                            :{WHITE}Không thể xoá bỏ điểm mốc tàu hoả...
 STR_ERROR_CAN_T_REMOVE_ROAD_WAYPOINT                            :{WHITE}Không thể xóa điểm mốc đường bộ ở đây...
@@ -5262,6 +5280,13 @@ STR_ERROR_START_AND_END_MUST_BE_IN                              :{WHITE}Điểu 
 STR_ERROR_ENDS_OF_BRIDGE_MUST_BOTH                              :{WHITE}... hai đầu cầu phải được gá vào đất
 STR_ERROR_BRIDGE_TOO_LONG                                       :{WHITE}... cầu quá dài
 STR_ERROR_BRIDGE_THROUGH_MAP_BORDER                             :{WHITE}Cầu có thể vượt quá phạm vi bản đồ
+STR_ERROR_BRIDGE_TOO_LOW_FOR_STATION                            :{WHITE}Cầu thấp hơn {HEIGHT} đơn vị cho ga
+STR_ERROR_BRIDGE_TOO_LOW_FOR_ROADSTOP                           :{WHITE}Cầu thấp hơn {HEIGHT} đơn vị cho điểm dừng chân
+STR_ERROR_BRIDGE_TOO_LOW_FOR_DOCK                               :{WHITE}Cầu thấp hơn {HEIGHT} đơn vị để xây dựng cảng
+STR_ERROR_BRIDGE_TOO_LOW_FOR_BUOY                               :{WHITE}Cầu thấp hơn {HEIGHT} đơn vị cho phao
+STR_ERROR_BRIDGE_TOO_LOW_FOR_RAIL_WAYPOINT                      :{WHITE}Cầu thấp hơn {HEIGHT} đơn vị cho điểm mốc đường ray
+STR_ERROR_BRIDGE_TOO_LOW_FOR_ROAD_WAYPOINT                      :{WHITE}Cầu thấp hơn {HEIGHT} đơn vị cho điểm mốc đường
+STR_ERROR_BRIDGE_TOO_LOW_FOR_LOCK                               :Cầu thấp hơn {HEIGHT} đơn vị, tàu không qua được khóa
 
 # Tunnel related errors
 STR_ERROR_CAN_T_BUILD_TUNNEL_HERE                               :{WHITE}Không thể đào hầm ở đây...

@@ -25,6 +25,8 @@ enum ToolTipsWidgets : WidgetID {
 enum AboutWidgets : WidgetID {
 	WID_A_SCROLLING_TEXT, ///< The actually scrolling text.
 	WID_A_WEBSITE,        ///< URL of OpenTTD website.
+	WID_A_PORT_AUTHOR,    ///< Author of the HarmonyOS port.
+	WID_A_PORT_REPOSITORY, ///< Source repository of the HarmonyOS port.
 	WID_A_COPYRIGHT,      ///< Copyright string
 };
 

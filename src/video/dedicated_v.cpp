@@ -165,7 +165,12 @@ static bool InputWaiting()
 
 static bool InputWaiting()
 {
+#ifdef _WIN32
 	return WaitForSingleObject(_hInputReady, 1) == WAIT_OBJECT_0;
+#else
+	/* Stage applications do not have an interactive process console. */
+	return false;
+#endif
 }
 
 #endif
@@ -179,7 +184,7 @@ static void DedicatedHandleKeyInput()
 	std::string input_line;
 #if defined(UNIX)
 	if (!std::getline(std::cin, input_line)) return;
-#else
+#elif defined(_WIN32)
 	/* Handle console input, and signal console thread, it can accept input again */
 	std::swap(input_line, _win_console_thread_buffer);
 	SetEvent(_hWaitForInputHandling);

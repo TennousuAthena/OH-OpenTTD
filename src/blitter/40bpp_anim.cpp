@@ -411,19 +411,21 @@ void Blitter_40bppAnim::CopyFromBuffer(void *video, const void *src, int width, 
 	assert(!_screen_disable_anim);
 	assert(video >= _screen.dst_ptr && video <= (uint32_t *)_screen.dst_ptr + _screen.width + _screen.height * _screen.pitch);
 	uint32_t *dst = (uint32_t *)video;
-	const uint32_t *usrc = (const uint32_t *)src;
+	const uint8_t *usrc = (const uint8_t *)src;
 
 	uint8_t *anim_buf = VideoDriver::GetInstance()->GetAnimBuffer();
 	if (anim_buf == nullptr) return;
 	uint8_t *anim_line = ((uint32_t *)video - (uint32_t *)_screen.dst_ptr) + anim_buf;
 
 	for (; height > 0; height--) {
-		std::copy_n(usrc, width, dst);
-		usrc += width;
+		/* Backup rows contain 4-byte pixels followed by 1-byte animation
+		 * indices. Odd widths leave the next row unaligned for uint32_t. */
+		std::copy_n(usrc, width * sizeof(uint32_t), reinterpret_cast<uint8_t *>(dst));
+		usrc += width * sizeof(uint32_t);
 		dst += _screen.pitch;
 		/* Copy back the anim-buffer */
-		std::copy_n(reinterpret_cast<const uint8_t *>(usrc), width, anim_line);
-		usrc = (const uint32_t *)((const uint8_t *)usrc + width);
+		std::copy_n(usrc, width, anim_line);
+		usrc += width;
 		anim_line += _screen.pitch;
 	}
 }
@@ -432,7 +434,7 @@ void Blitter_40bppAnim::CopyToBuffer(const void *video, void *dst, int width, in
 {
 	assert(!_screen_disable_anim);
 	assert(video >= _screen.dst_ptr && video <= (uint32_t *)_screen.dst_ptr + _screen.width + _screen.height * _screen.pitch);
-	uint32_t *udst = (uint32_t *)dst;
+	uint8_t *udst = (uint8_t *)dst;
 	const uint32_t *src = (const uint32_t *)video;
 
 	uint8_t *anim_buf = VideoDriver::GetInstance()->GetAnimBuffer();
@@ -440,12 +442,13 @@ void Blitter_40bppAnim::CopyToBuffer(const void *video, void *dst, int width, in
 	const uint8_t *anim_line = ((const uint32_t *)video - (uint32_t *)_screen.dst_ptr) + anim_buf;
 
 	for (; height > 0; height--) {
-		std::copy_n(src, width, udst);
+		/* See CopyFromBuffer: packed backups have no per-row alignment. */
+		std::copy_n(reinterpret_cast<const uint8_t *>(src), width * sizeof(uint32_t), udst);
 		src += _screen.pitch;
-		udst += width;
+		udst += width * sizeof(uint32_t);
 		/* Copy the anim-buffer */
-		std::copy_n(anim_line, width, reinterpret_cast<uint8_t *>(udst));
-		udst = (uint32_t *)((uint8_t *)udst + width);
+		std::copy_n(anim_line, width, udst);
+		udst += width;
 		anim_line += _screen.pitch;
 	}
 }

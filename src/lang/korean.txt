@@ -1063,7 +1063,7 @@ STR_GAME_OPTIONS_LANGUAGE_TOOLTIP                               :사용할 언�
 STR_GAME_OPTIONS_LANGUAGE_PERCENTAGE                            :{STRING} ({NUM}% 번역됨)
 
 STR_GAME_OPTIONS_FULLSCREEN                                     :전체화면
-STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :OpenTTD를 전체화면으로 플레이하려면 클릭하세요
+STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :OpenTTD를 전체화면으로 플레이하려면 이 설정을 켜세요
 
 STR_GAME_OPTIONS_RESOLUTION                                     :화면 해상도
 STR_GAME_OPTIONS_RESOLUTION_TOOLTIP                             :사용할 화면 해상도를 선택하세요
@@ -1071,11 +1071,11 @@ STR_GAME_OPTIONS_RESOLUTION_OTHER                               :기타
 STR_GAME_OPTIONS_RESOLUTION_ITEM                                :{NUM}x{NUM}
 
 STR_GAME_OPTIONS_VIDEO_ACCELERATION                             :하드웨어 가속
-STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :}OpenTTD가 하드웨어 가속을 사용하게 하려면 체크하세요. 변경한 설정은 게임을 재시작한 뒤에 적용될 것입니다
+STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :OpenTTD가 하드웨어 가속을 사용하게 하려면 이 설정을 켜세요. 변경한 설정은 게임을 재시작한 뒤에 적용됩니다
 STR_GAME_OPTIONS_VIDEO_ACCELERATION_RESTART                     :{WHITE}이 설정은 게임을 재시작한 뒤에 적용될 것입니다
 
 STR_GAME_OPTIONS_VIDEO_VSYNC                                    :수직 동기화
-STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :화면과 수직 동기화하려면 체크하세요. 변경한 설정은 게임을 재시작한 뒤에 적용될 것입니다. 하드웨어 가속을 켠 경우에만 작동합니다
+STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :화면과 수직 동기화하려면 이 설정을 켜세요. 변경한 설정은 게임을 재시작한 뒤에 적용됩니다. 하드웨어 가속을 켠 경우에만 작동합니다
 
 STR_GAME_OPTIONS_VIDEO_DRIVER_INFO                              :현재 드라이버: {STRING}
 
@@ -1084,15 +1084,15 @@ STR_GAME_OPTIONS_INTERFACE                                      :인터페이스
 STR_GAME_OPTIONS_GUI_SCALE_FRAME                                :인터페이스 크기
 STR_GAME_OPTIONS_GUI_SCALE_TOOLTIP                              :인터페이스 크기를 설정하려면 슬라이더를 드래그하세요. CTRL+드래그하면 미세 조정이 가능합니다
 STR_GAME_OPTIONS_GUI_SCALE_AUTO                                 :크기 자동 탐지
-STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :인터페이스 크기를 자동으로 탐지하려면 이 박스에 체크하세요
+STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :인터페이스 크기를 자동으로 탐지하려면 이 설정을 켜세요
 
 STR_GAME_OPTIONS_GUI_SCALE_BEVELS                               :크기 조절
 STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :인터페이스 크기를 슬라이더로 조절하려면 이 박스에 체크하세요
 
 STR_GAME_OPTIONS_GUI_FONT_SPRITE                                :원본 그래픽 글꼴 사용
-STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :기존 영어의 고정폭 글꼴을 사용하는 것을 선호하는 경우 이 박스에 체크하세요. 한국어 사용자는 체크하면 안 됩니다
+STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :기존 영어의 고정폭 글꼴을 사용하는 것을 선호하는 경우 이 설정을 켜세요. 한국어 사용자는 체크하면 안 됩니다
 STR_GAME_OPTIONS_GUI_FONT_AA                                    :글씨체 테두리를 부드럽게
-STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :크기 조절이 가능한 글씨체에 안티 에일리어싱을 적용하여 테두리를 부드럽게 표현하려면 이 박스에 체크하세요
+STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :크기 조절이 가능한 글씨체에 안티 에일리어싱을 적용하여 테두리를 부드럽게 표현하려면 이 설정을 켜세요
 
 STR_GAME_OPTIONS_GUI_SCALE_MARK                                 :{DECIMAL}x
 
@@ -1116,7 +1116,7 @@ STR_GAME_OPTIONS_BASE_GRF_TOOLTIP                               :게임에 사�
 STR_GAME_OPTIONS_BASE_GRF_DESCRIPTION_TOOLTIP                   :기본 그래픽 세트에 대한 추가 정보를 봅니다
 
 STR_GAME_OPTIONS_BASE_SFX                                       :기본 효과음 세트
-STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :게임에 사용할 기본 효과음 세트를 선택하세요 (플레이 도중에는 변경할 수 없고 메인 메뉴에서만 변경 가능합니다)
+STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :게임에 사용할 기본 효과음 세트를 선택하세요
 STR_GAME_OPTIONS_BASE_SFX_DESCRIPTION_TOOLTIP                   :기본 효과음 세트에 대한 추가 정보를 봅니다
 
 STR_GAME_OPTIONS_BASE_MUSIC                                     :기본 배경 음악 세트
@@ -1249,7 +1249,7 @@ STR_CONFIG_SETTING_EXPAND_ALL                                   :모두 펼치�
 STR_CONFIG_SETTING_COLLAPSE_ALL                                 :모두 접기
 STR_CONFIG_SETTING_RESET_ALL                                    :모든 설정 초기화
 STR_CONFIG_SETTING_NO_EXPLANATION_AVAILABLE_HELPTEXT            :(설명이 존재하지 않습니다)
-STR_CONFIG_SETTING_VALUE                                        :{PUSH_COLOUR}{ORANGE}{STRING}{POP_COLOUR}
+STR_CONFIG_SETTING_VALUE                                        :{ORANGE}{STRING}
 STR_CONFIG_SETTING_DEFAULT_VALUE                                :{LTBLUE}기본값: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE                                         :{LTBLUE}설정 종류: {ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE_CLIENT                                  :접속자 설정 (게임 저장 파일에 저장되지 않음; 모든 게임에 적용됨)
@@ -1591,7 +1591,7 @@ STR_CONFIG_SETTING_SHOW_CARGO_IN_LISTS                          :차량 목록 �
 STR_CONFIG_SETTING_SHOW_CARGO_IN_LISTS_HELPTEXT                 :이 설정을 켜면, 차량 목록 상단에 차량이 실을 수 있는 화물을 표시합니다
 
 STR_CONFIG_SETTING_LANDSCAPE                                    :지형: {STRING}
-STR_CONFIG_SETTING_LANDSCAPE_HELPTEXT                           :지형에 따라 화물과 도시 성장 요구 조건이 다른 게임 플레이 시나리오가 만들어집니다. NewGRF과 게임 스크립트를 통해 세밀한 조절이 가능합니다.
+STR_CONFIG_SETTING_LANDSCAPE_HELPTEXT                           :지형에 따라 화물과 도시 성장 요구 조건이 다른 게임 플레이 시나리오가 만들어집니다. NewGRF과 게임 스크립트를 통해 세밀한 조절이 가능합니다
 
 STR_CONFIG_SETTING_LAND_GENERATOR                               :지형 만들기: {STRING}
 STR_CONFIG_SETTING_LAND_GENERATOR_HELPTEXT                      :오리지널 모드는 기본 그래픽 세트에 따라 다른 지형을 생성하며, 단조로운 지형을 구성합니다. 천지창조는 개선된 제어 설정을 가진 생성기로 만들어진 임의 지형(펄린 노이즈)을 구성합니다.
@@ -2069,7 +2069,7 @@ STR_CONFIG_SETTING_ZOOM_LVL_OUT_4X                              :4x
 STR_CONFIG_SETTING_ZOOM_LVL_OUT_8X                              :8x
 
 STR_CONFIG_SETTING_SPRITE_ZOOM_MIN                              :최고 해상도 그래픽 스프라이트: {STRING}
-STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :그래픽 스프라이트에 사용할 최고 해상도를 제한할 수 있습니다. 그래픽 스프라이트 해상도를 제한하면 고해상도 그래픽을 사용할 수 있어도 이를 사용하지 않을 수 있습니다. 이 설정을 사용하면 고해상도 그래픽을 지원하지 않는 GRF 파일을 섞어서 사용할 때 게임의 모습을 일관성있게 만들 수 있습니다
+STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :그래픽 스프라이트에 사용할 최고 해상도를 제한할 수 있습니다. 그래픽 스프라이트 해상도를 제한하면 고해상도 그래픽을 사용할 수 있어도 이를 사용하지 않을 수 있습니다. 이 설정을 사용하면 고해상도 그래픽을 지원하지 않는 NewGRF 파일을 섞어서 사용할 때 게임의 모습을 일관성있게 만들 수 있습니다
 ###length 3
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_MIN                          :4x
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_IN_2X                        :2x
@@ -2870,7 +2870,7 @@ STR_HOUSE_PICKER_YEARS_ANY                                      :{BLACK}연도: 
 STR_HOUSE_PICKER_YEARS_FROM                                     :{BLACK}연도: {GOLD}{NUM}년부터
 STR_HOUSE_PICKER_YEARS_UNTIL                                    :{BLACK}연도: {GOLD}{NUM}년까지
 STR_HOUSE_PICKER_SIZE                                           :{BLACK}크기: {GOLD}{NUM}x{NUM}칸
-STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}받는 화물: {GOLD}
+STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}받는 화물: {GOLD}{STRING}
 STR_HOUSE_PICKER_CARGO_PRODUCED                                 :{BLACK}생산 화물량: {GOLD}{CARGO_LIST}
 
 STR_HOUSE_PICKER_CLASS_ZONE1                                    :가장자리
@@ -2879,10 +2879,11 @@ STR_HOUSE_PICKER_CLASS_ZONE3                                    :바깥쪽 시�
 STR_HOUSE_PICKER_CLASS_ZONE4                                    :안쪽 시내
 STR_HOUSE_PICKER_CLASS_ZONE5                                    :도시 중심
 
-STR_HOUSE_PICKER_PROTECT_TITLE                                  :업그레이드 방지
+STR_HOUSE_PICKER_PROTECT                                        :업그레이드 방지
 STR_HOUSE_PICKER_PROTECT_TOOLTIP                                :이 건물이 도시가 성장함에 따라 교체되는 것을 막을지 여부를 선택합니다
-STR_HOUSE_PICKER_PROTECT_OFF                                    :끄기
-STR_HOUSE_PICKER_PROTECT_ON                                     :켜기
+
+STR_HOUSE_PICKER_REPLACE                                        :이미 설치된 것 교체
+STR_HOUSE_PICKER_REPLACE_TOOLTIP                                :이 건물이 배치된 칸에서 기존 건물을 자동으로 제거할지 여부를 선택합니다
 
 STR_STATION_CLASS_DFLT                                          :기본
 STR_STATION_CLASS_DFLT_STATION                                  :기본 역
@@ -3157,7 +3158,7 @@ STR_LAND_AREA_INFORMATION_AIRPORT_CLASS                         :{BLACK}공항 �
 STR_LAND_AREA_INFORMATION_AIRPORT_NAME                          :{BLACK}공항 이름: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_AIRPORTTILE_NAME                      :{BLACK}공항 칸 이름: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_NEWGRF_NAME                           :{BLACK}NewGRF: {LTBLUE}{STRING}
-STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}받을 수 있는 화물: {LTBLUE}
+STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}받을 수 있는 화물: {LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_CARGO_EIGHTS                          :({COMMA}/8 {STRING})
 STR_LANG_AREA_INFORMATION_RAIL_TYPE                             :{BLACK}철도 종류: {LTBLUE}{STRING}
 STR_LANG_AREA_INFORMATION_ROAD_TYPE                             :{BLACK}도로 종류: {LTBLUE}{STRING}
@@ -3620,7 +3621,7 @@ STR_NEWGRF_ERROR_INVALID_PARAMETER                              :{1:STRING}의 �
 STR_NEWGRF_ERROR_LOAD_BEFORE                                    :{1:STRING}{G 1 "은" "는"} 반드시 {2:STRING}보다 앞에 불러와야 합니다
 STR_NEWGRF_ERROR_LOAD_AFTER                                     :{1:STRING}{G 1 "은" "는"} 반드시 {2:STRING}보다 뒤에 불러와야 합니다
 STR_NEWGRF_ERROR_OTTD_VERSION_NUMBER                            :{1:STRING}{G 1 "은" "는"} OpenTTD {2:STRING} 버전이나 그 이상이 필요합니다
-STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :GRF 파일이 번역을 위해 만들어졌습니다
+STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :이 NewGRF 파일은 번역 용입니다
 STR_NEWGRF_ERROR_TOO_MANY_NEWGRFS_LOADED                        :NewGRF가 너무 많습니다
 STR_NEWGRF_ERROR_STATIC_GRF_CAUSES_DESYNC                       :{2:STRING}{G 2 "을" "를"} 포함한 정적 NewGRF {1:STRING}{G 1 "을" "를"} 불러오는 것은 비동기화를 일으킬 수 있습니다
 STR_NEWGRF_ERROR_UNEXPECTED_SPRITE                              :예기치 않은 스프라이트 (스프라이트 {3:NUM})
@@ -3629,7 +3630,7 @@ STR_NEWGRF_ERROR_INVALID_ID                                     :유효하지 �
 STR_NEWGRF_ERROR_CORRUPT_SPRITE                                 :{YELLOW}{STRING}에 손상된 객체가 있습니다. 모든 손상된 객체는 붉은 물음표로 보일 것입니다
 STR_NEWGRF_ERROR_MULTIPLE_ACTION_8                              :여러 개의 Action 8 엔트리 포함 (스프라이트 {3:NUM})
 STR_NEWGRF_ERROR_READ_BOUNDS                                    :유사 스프라이트의 끝이었던 부분을 읽으려고 시도함 (스프라이트 {3:NUM})
-STR_NEWGRF_ERROR_GRM_FAILED                                     :요청한 GRF 자원을 사용할 수 없음 (스프라이트 {3:NUM})
+STR_NEWGRF_ERROR_GRM_FAILED                                     :요청한 NewGRF 자원을 사용할 수 없음 (스프라이트 {3:NUM})
 STR_NEWGRF_ERROR_FORCEFULLY_DISABLED                            :{1:STRING}(은)는 {STRING} 때문에 사용할 수 없습니다
 STR_NEWGRF_ERROR_INVALID_SPRITE_LAYOUT                          :유효하지 않은/알 수 없는 스프라이트 구조 유형 (스프라이트 {3:NUM})
 STR_NEWGRF_ERROR_LIST_PROPERTY_TOO_LONG                         :속성값 목록에 너무 많은 요소가 있음 (스프라이트 {3:NUM}, 속성 {4:HEX})
@@ -3639,13 +3640,13 @@ STR_NEWGRF_ERROR_INDPROD_CALLBACK                               :유효하지 �
 STR_NEWGRF_POPUP_CAUTION_CAPTION                                :{WHITE}경고!
 STR_NEWGRF_CONFIRMATION_TEXT                                    :{YELLOW}게임 진행중에 설정을 변경하면 게임이 충돌할 수도 있습니다.{}정말로 설정을 변경하시겠습니까?
 
-STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}파일 추가 불가: 중복된 GRF 아이디
-STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}해당 파일을 찾을 수 없습니다. (대체 GRF를 불러옵니다)
+STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}파일 추가 불가: 중복된 NewGRF 아이디
+STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}해당 파일을 찾을 수 없습니다. (대체 NewGRF를 불러옵니다)
 STR_NEWGRF_TOO_MANY_NEWGRFS                                     :{WHITE}파일을 추가할 수 없습니다: NewGRF 파일이 너무 많습니다
 
-STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}대체할 수 있는 GRF를 불러왔습니다
-STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}없는 GRF 파일은 비활성화됩니다
-STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}GRF 파일 없음
+STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}대체할 수 있는 NewGRF를 불러왔습니다
+STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}없는 NewGRF 파일은 비활성화됩니다
+STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}NewGRF 파일 없음
 STR_NEWGRF_UNPAUSE_WARNING                                      :{WHITE}일시 정지 해제 시 오류가 발생하거나 게임이 종료될 수 있으며, 이와 관련된 버그 리포트는 접수받지 않습니다.{}정말로 일시 정지를 해제하시겠습니까?
 
 # NewGRF status
@@ -3656,17 +3657,17 @@ STR_NEWGRF_LIST_COMPATIBLE                                      :{YELLOW}호환�
 STR_NEWGRF_LIST_MISSING                                         :{RED}파일 없음
 
 # NewGRF 'it's broken' warnings
-STR_NEWGRF_BROKEN                                               :{WHITE}'{PUSH_COLOUR}{0:STRING}{POP_COLOUR}' NewGRF가 적용되는 과정에서 비동기화나 충돌이 일어날 수 있습니다
-STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}차고지 안에 있지 않은 '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}' 동력 차량의 상태가 바뀌었습니다
-STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}'{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}'{G 1 "이" "가"} 차고지 안에 있지 않으면 차량 길이가 바뀝니다
-STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}차량이 기지 안에 있지 않거나 개조가 불가능한 상태에서 '{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}'의 수송량이 변경되었습니다
+STR_NEWGRF_BROKEN                                               :{WHITE}'{0:STRING}' NewGRF가 적용되는 과정에서 비동기화나 충돌이 일어날 수 있습니다
+STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}차고지 안에 있지 않은 '{1:ENGINE}' 동력 차량의 상태가 바뀌었습니다
+STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}'{1:ENGINE}'{G 1 "이" "가"} 차고지 안에 있지 않으면 차량 길이가 바뀝니다
+STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}차량이 기지 안에 있지 않거나 개조가 불가능한 상태에서 '{1:ENGINE}'의 수송량이 변경되었습니다
 STR_BROKEN_VEHICLE_LENGTH                                       :{WHITE}'{1:COMPANY}'에 속한 열차 '{0:VEHICLE}'의 길이가 잘못된 값을 가지고 있습니다. NewGRF에 의한 문제로 보입니다. 게임이 비동기화 또는 충돌을 일으킬 수 있습니다
 
-STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{PUSH_COLOUR}{0:STRING}{POP_COLOUR}'에서 잘못된 정보를 제공하고 있습니다
-STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}(을)를 만들기 이전과 이후의 화물/개조 정보가 현재의 구매 목록과 다릅니다. 이 경우 자동 교체시 열차 개조에 실패할 수도 있습니다
-STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' 때문에 결과물 콜백 과정에서 무한 루프가 발생하고 있습니다
+STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF '{0:STRING}'에서 잘못된 정보를 제공하고 있습니다
+STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}{1:ENGINE}의 구매 이전과 이후의 화물/개조 정보가 현재의 구매 목록과 다릅니다. 이 경우 자동 교체시 열차 개조에 실패할 수도 있습니다
+STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}'{1:STRING}' 때문에 결과물 콜백 과정에서 무한 루프가 발생하고 있습니다
 STR_NEWGRF_BUGGY_UNKNOWN_CALLBACK_RESULT                        :{WHITE}콜백 함수({1:HEX})가 알 수 없거나 잘못된 결과 값({2:HEX})을 반환했습니다
-STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{PUSH_COLOUR}{1:STRING}{POP_COLOUR}' - 생산 콜백 함수의 {2:HEX}에서 잘못된 화물 종류를 반환했습니다
+STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}'{1:STRING}' - 생산 콜백 함수의 {2:HEX}에서 잘못된 화물 종류를 반환했습니다
 
 # 'User removed essential NewGRFs'-placeholders for stuff without specs
 STR_NEWGRF_INVALID_CARGO                                        :<알 수 없는 화물>
@@ -4040,12 +4041,12 @@ STR_COMPANY_INFRASTRUCTURE_VIEW_TOTAL_PERIOD                    :{WHITE}{CURRENC
 # Industry directory
 STR_INDUSTRY_DIRECTORY_CAPTION                                  :{WHITE}산업시설 ({1:COMMA}개 중 {0:COMMA}개)
 STR_INDUSTRY_DIRECTORY_NONE                                     :{ORANGE}(없음)
-STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% 수송됨){BLACK}
+STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW} ({COMMA}% 수송됨)
 STR_INDUSTRY_DIRECTORY_ITEM_NOPROD                              :{ORANGE}{INDUSTRY}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {STRING}, {STRING}, {STRING} 및 {NUM}종의 화물
+STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {BLACK}{STRING}, {STRING}, {STRING} 및 {NUM}종의 화물
 STR_INDUSTRY_DIRECTORY_LIST_TOOLTIP                             :{BLACK}산업시설 이름 - 산업시설로 이동하려면 이름을 클릭하세요. CTRL+클릭하면 이 산업시설의 위치를 기준으로 새로운 외부 화면을 엽니다
 STR_INDUSTRY_DIRECTORY_ACCEPTED_CARGO_FILTER                    :{BLACK}받는 화물: {SILVER}{STRING}
 STR_INDUSTRY_DIRECTORY_PRODUCED_CARGO_FILTER                    :{BLACK}생산 화물: {SILVER}{STRING}
@@ -4063,9 +4064,9 @@ STR_INDUSTRY_VIEW_CARGO_GRAPH_TOOLTIP                           :{BLACK}산업�
 STR_INDUSTRY_VIEW_PRODUCTION_LEVEL                              :{BLACK}생산 수준: {YELLOW}{COMMA}%
 STR_INDUSTRY_VIEW_INDUSTRY_ANNOUNCED_CLOSURE                    :{YELLOW}산업시설이 곧 폐쇄됩니다!
 
-STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}받는 화물: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}생산 화물: {YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :, {STRING}{STRING}
+STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}받는 화물: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}생산 화물: {YELLOW}{STRING}
+STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :{STRING}{STRING}
 
 STR_INDUSTRY_VIEW_REQUIRES                                      :{BLACK}받는 화물:
 STR_INDUSTRY_VIEW_ACCEPT_CARGO_SUFFIX                           :{YELLOW}{0:STRING}{BLACK}{3:STRING}
@@ -4235,10 +4236,10 @@ STR_BUY_VEHICLE_SHIP_BUY_REFIT_VEHICLE_TOOLTIP                  :{BLACK}선택�
 STR_BUY_VEHICLE_AIRCRAFT_BUY_REFIT_VEHICLE_TOOLTIP              :{BLACK}선택한 항공기를 구입하고 개조합니다. SHIFT+클릭하면 예상 비용을 볼 수 있습니다
 
 ###length VEHICLE_TYPES
-STR_BUY_VEHICLE_TRAIN_RENAME_BUTTON                             :{BLACK}이름 지정
-STR_BUY_VEHICLE_ROAD_VEHICLE_RENAME_BUTTON                      :{BLACK}이름 지정
-STR_BUY_VEHICLE_SHIP_RENAME_BUTTON                              :{BLACK}이름 지정
-STR_BUY_VEHICLE_AIRCRAFT_RENAME_BUTTON                          :{BLACK}이름 지정
+STR_BUY_VEHICLE_TRAIN_RENAME_BUTTON                             :{BLACK}이름 변경
+STR_BUY_VEHICLE_ROAD_VEHICLE_RENAME_BUTTON                      :{BLACK}이름 변경
+STR_BUY_VEHICLE_SHIP_RENAME_BUTTON                              :{BLACK}이름 변경
+STR_BUY_VEHICLE_AIRCRAFT_RENAME_BUTTON                          :{BLACK}이름 변경
 
 ###length VEHICLE_TYPES
 STR_BUY_VEHICLE_TRAIN_RENAME_TOOLTIP                            :{BLACK}열차의 모델명을 변경합니다
@@ -4516,10 +4517,10 @@ STR_VEHICLE_COMMAND_STARTED                                     :{GREEN}출발
 STR_VEHICLE_DETAILS_CAPTION                                     :{WHITE}{VEHICLE} (상세정보)
 
 ###length VEHICLE_TYPES
-STR_VEHICLE_DETAILS_TRAIN_RENAME                                :{BLACK}열차 이름 지정
-STR_VEHICLE_DETAILS_ROAD_VEHICLE_RENAME                         :{BLACK}차량 이름 지정
-STR_VEHICLE_DETAILS_SHIP_RENAME                                 :{BLACK}선박 이름 지정
-STR_VEHICLE_DETAILS_AIRCRAFT_RENAME                             :{BLACK}항공기 이름 지정
+STR_VEHICLE_DETAILS_TRAIN_RENAME                                :{BLACK}열차 이름 변경
+STR_VEHICLE_DETAILS_ROAD_VEHICLE_RENAME                         :{BLACK}차량 이름 변경
+STR_VEHICLE_DETAILS_SHIP_RENAME                                 :{BLACK}선박 이름 변경
+STR_VEHICLE_DETAILS_AIRCRAFT_RENAME                             :{BLACK}항공기 이름 변경
 
 STR_VEHICLE_INFO_AGE                                            :{COMMA}년 ({COMMA})
 STR_VEHICLE_INFO_AGE_RED                                        :{RED}{COMMA}년 ({COMMA})
@@ -4565,10 +4566,10 @@ STR_VEHICLE_DETAILS_MINUTES                                     :분
 STR_VEHICLE_DETAILS_PERCENT                                     :신뢰도
 
 ###length VEHICLE_TYPES
-STR_QUERY_RENAME_TRAIN_CAPTION                                  :{WHITE}열차 이름 지정
-STR_QUERY_RENAME_ROAD_VEHICLE_CAPTION                           :{WHITE}차량 이름 지정
-STR_QUERY_RENAME_SHIP_CAPTION                                   :{WHITE}선박 이름 지정
-STR_QUERY_RENAME_AIRCRAFT_CAPTION                               :{WHITE}항공기 이름 지정
+STR_QUERY_RENAME_TRAIN_CAPTION                                  :{WHITE}열차 이름 변경
+STR_QUERY_RENAME_ROAD_VEHICLE_CAPTION                           :{WHITE}차량 이름 변경
+STR_QUERY_RENAME_SHIP_CAPTION                                   :{WHITE}선박 이름 변경
+STR_QUERY_RENAME_AIRCRAFT_CAPTION                               :{WHITE}항공기 이름 변경
 
 # Extra buttons for train details windows
 STR_VEHICLE_DETAILS_TRAIN_ENGINE_BUILT_AND_VALUE                :{LTBLUE}{ENGINE}{BLACK}   생산: {LTBLUE}{NUM}{BLACK} 가격: {LTBLUE}{CURRENCY_LONG}
@@ -4591,7 +4592,7 @@ STR_VEHICLE_DETAILS_TRAIN_CAPACITIES_TOOLTIP                    :{BLACK}각 차�
 STR_VEHICLE_DETAIL_TAB_TOTAL_CARGO                              :{BLACK}총 화물량
 STR_VEHICLE_DETAILS_TRAIN_TOTAL_CARGO_TOOLTIP                   :{BLACK}각 화물 종류에 따른 총 수송량을 보여줍니다
 
-STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}수송량: {LTBLUE}
+STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}수송량: {LTBLUE}{STRING}
 
 # Vehicle refit
 STR_REFIT_CAPTION                                               :{WHITE}{VEHICLE} (개조)

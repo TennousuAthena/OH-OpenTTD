@@ -1062,7 +1062,7 @@ STR_GAME_OPTIONS_LANGUAGE_TOOLTIP                               :选择界面语
 STR_GAME_OPTIONS_LANGUAGE_PERCENTAGE                            :{STRING}（已完成 {NUM}%）
 
 STR_GAME_OPTIONS_FULLSCREEN                                     :全屏幕
-STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :勾选此框可以在全屏幕模式下游玩 OpenTTD
+STR_GAME_OPTIONS_FULLSCREEN_TOOLTIP                             :启用以在全屏幕模式下游玩 OpenTTD
 
 STR_GAME_OPTIONS_RESOLUTION                                     :屏幕分辨率
 STR_GAME_OPTIONS_RESOLUTION_TOOLTIP                             :选择屏幕分辨率
@@ -1070,11 +1070,11 @@ STR_GAME_OPTIONS_RESOLUTION_OTHER                               :其他
 STR_GAME_OPTIONS_RESOLUTION_ITEM                                :{NUM}×{NUM}
 
 STR_GAME_OPTIONS_VIDEO_ACCELERATION                             :硬件加速
-STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :勾选此框以让 OpenTTD 尝试使用硬件加速。修改后的设置将在游戏重启后生效
+STR_GAME_OPTIONS_VIDEO_ACCELERATION_TOOLTIP                     :启用以允许 OpenTTD 尝试使用硬件加速。修改后的设置将在游戏重启后生效
 STR_GAME_OPTIONS_VIDEO_ACCELERATION_RESTART                     :{WHITE}修改后的设置将在游戏重启后生效
 
 STR_GAME_OPTIONS_VIDEO_VSYNC                                    :垂直同步
-STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :勾选此框以开启垂直同步（V-sync）。修改后的设置将在游戏重启后生效。仅于开启硬件加速时可用
+STR_GAME_OPTIONS_VIDEO_VSYNC_TOOLTIP                            :启用以开启垂直同步（V-sync）。修改后的设置将在游戏重启后生效。仅于开启硬件加速时可用
 
 STR_GAME_OPTIONS_VIDEO_DRIVER_INFO                              :驱动程序：{STRING}
 
@@ -1083,15 +1083,15 @@ STR_GAME_OPTIONS_INTERFACE                                      :界面
 STR_GAME_OPTIONS_GUI_SCALE_FRAME                                :界面大小
 STR_GAME_OPTIONS_GUI_SCALE_TOOLTIP                              :拖动滑块以设置界面大小。按住 <Ctrl> 键以精准调整
 STR_GAME_OPTIONS_GUI_SCALE_AUTO                                 :自动检测大小
-STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :勾选此框以自动检测界面大小
+STR_GAME_OPTIONS_GUI_SCALE_AUTO_TOOLTIP                         :启用以自动检测界面大小
 
 STR_GAME_OPTIONS_GUI_SCALE_BEVELS                               :缩放边框
-STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :勾选此框使边框随界面大小而缩放
+STR_GAME_OPTIONS_GUI_SCALE_BEVELS_TOOLTIP                       :启用使边框随界面大小而缩放
 
 STR_GAME_OPTIONS_GUI_FONT_SPRITE                                :使用位图字体
-STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :勾选此框以使用固定大小的传统位图字体
+STR_GAME_OPTIONS_GUI_FONT_SPRITE_TOOLTIP                        :启用以使用固定大小的传统位图字体
 STR_GAME_OPTIONS_GUI_FONT_AA                                    :字体抗锯齿
-STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :勾选此框以对游戏字体应用抗锯齿
+STR_GAME_OPTIONS_GUI_FONT_AA_TOOLTIP                            :启用以应用字体抗锯齿
 
 STR_GAME_OPTIONS_GUI_SCALE_MARK                                 :{DECIMAL}×
 
@@ -1115,7 +1115,7 @@ STR_GAME_OPTIONS_BASE_GRF_TOOLTIP                               :选择使用的
 STR_GAME_OPTIONS_BASE_GRF_DESCRIPTION_TOOLTIP                   :关于基础图形组的额外信息
 
 STR_GAME_OPTIONS_BASE_SFX                                       :基础音效组
-STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :选择使用的基础音效组（无法在游戏中更改，只能在主菜单更改）
+STR_GAME_OPTIONS_BASE_SFX_TOOLTIP                               :选择使用的基础音效组
 STR_GAME_OPTIONS_BASE_SFX_DESCRIPTION_TOOLTIP                   :关于基础音效组的额外信息
 
 STR_GAME_OPTIONS_BASE_MUSIC                                     :基础音乐组
@@ -1248,7 +1248,7 @@ STR_CONFIG_SETTING_EXPAND_ALL                                   :展开全部
 STR_CONFIG_SETTING_COLLAPSE_ALL                                 :折叠全部
 STR_CONFIG_SETTING_RESET_ALL                                    :重置所有数值
 STR_CONFIG_SETTING_NO_EXPLANATION_AVAILABLE_HELPTEXT            :（没有可用的提示）
-STR_CONFIG_SETTING_VALUE                                        :{PUSH_COLOUR}{ORANGE}{STRING}{POP_COLOUR}
+STR_CONFIG_SETTING_VALUE                                        :{ORANGE}{STRING}
 STR_CONFIG_SETTING_DEFAULT_VALUE                                :{LTBLUE}默认值：{ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE                                         :{LTBLUE}设置类型：{ORANGE}{STRING}
 STR_CONFIG_SETTING_TYPE_CLIENT                                  :当前客户端设置（不保存，影响所有游戏）
@@ -2068,7 +2068,7 @@ STR_CONFIG_SETTING_ZOOM_LVL_OUT_4X                              :4 倍
 STR_CONFIG_SETTING_ZOOM_LVL_OUT_8X                              :8 倍
 
 STR_CONFIG_SETTING_SPRITE_ZOOM_MIN                              :贴图的最高分辨率：{STRING}
-STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :限制贴图的最高分辨率。限制贴图分辨率将避免使用高分辨率贴图，即使它们可用。有助于在混用有/无高分辨率图形的 GRF 文件时保持游戏外观的统一
+STR_CONFIG_SETTING_SPRITE_ZOOM_MIN_HELPTEXT                     :限制贴图的最高分辨率。限制贴图分辨率将避免使用高分辨率贴图，即使它们可用。有助于在混用有/无高分辨率图形的 NewGRF 文件时保持游戏外观的统一
 ###length 3
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_MIN                          :4 倍
 STR_CONFIG_SETTING_SPRITE_ZOOM_LVL_IN_2X                        :2 倍
@@ -2204,7 +2204,7 @@ STR_CONFIG_ERROR                                                :{WHITE}配置�
 STR_CONFIG_ERROR_ARRAY                                          :{WHITE}……函数错误“{STRING}”
 STR_CONFIG_ERROR_INVALID_VALUE                                  :{WHITE}……“{STRING}”不是“{STRING}”的有效值
 STR_CONFIG_ERROR_TRAILING_CHARACTERS                            :{WHITE}……有多余字符在设定的结尾处“{STRING}”
-STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}……正忽略 NewGRF“{STRING}”：重复的 GRF ID “{STRING}”
+STR_CONFIG_ERROR_DUPLICATE_GRFID                                :{WHITE}……正忽略 NewGRF“{STRING}”：重复的 NewGRF ID “{STRING}”
 STR_CONFIG_ERROR_INVALID_GRF                                    :{WHITE}……正忽略无效的 NewGRF“{STRING}”：{STRING}
 STR_CONFIG_ERROR_INVALID_GRF_NOT_FOUND                          :未找到
 STR_CONFIG_ERROR_INVALID_GRF_UNSAFE                             :静态使用时不安全
@@ -2280,6 +2280,7 @@ STR_HELP_WINDOW_CHANGELOG                                       :{BLACK}更新�
 STR_HELP_WINDOW_KNOWN_BUGS                                      :{BLACK}已知漏洞
 STR_HELP_WINDOW_LICENSE                                         :{BLACK}许可证
 STR_HELP_WINDOW_FONTS                                           :{BLACK}字体
+STR_HELP_WINDOW_HARMONYOS_PORT_STATEMENT                       :{BLACK}HarmonyOS 移植声明
 STR_HELP_WINDOW_MAIN_WEBSITE                                    :{BLACK}OpenTTD
 STR_HELP_WINDOW_MANUAL_WIKI                                     :{BLACK}手册 / 百科
 STR_HELP_WINDOW_BUGTRACKER                                      :{BLACK}反馈游戏漏洞
@@ -2869,7 +2870,7 @@ STR_HOUSE_PICKER_YEARS_ANY                                      :{BLACK}可用�
 STR_HOUSE_PICKER_YEARS_FROM                                     :{BLACK}可用年份：{GOLD}自 {NUM} 年起可用
 STR_HOUSE_PICKER_YEARS_UNTIL                                    :{BLACK}可用年份：{GOLD}至 {NUM} 年前可用
 STR_HOUSE_PICKER_SIZE                                           :{BLACK}大小：{GOLD}{NUM}×{NUM} 格
-STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}接受货物：{GOLD}
+STR_HOUSE_PICKER_CARGO_ACCEPTED                                 :{BLACK}接受货物：{GOLD}{STRING}
 STR_HOUSE_PICKER_CARGO_PRODUCED                                 :{BLACK}产出货物：{GOLD}{CARGO_LIST}
 
 STR_HOUSE_PICKER_CLASS_ZONE1                                    :城镇边缘
@@ -2878,10 +2879,11 @@ STR_HOUSE_PICKER_CLASS_ZONE3                                    :外郊区
 STR_HOUSE_PICKER_CLASS_ZONE4                                    :内郊区
 STR_HOUSE_PICKER_CLASS_ZONE5                                    :城镇中心
 
-STR_HOUSE_PICKER_PROTECT_TITLE                                  :防止升级
+STR_HOUSE_PICKER_PROTECT                                        :阻止重盖建筑
 STR_HOUSE_PICKER_PROTECT_TOOLTIP                                :选择是否保护房屋以防止房屋随着城镇发展被替换
-STR_HOUSE_PICKER_PROTECT_OFF                                    :关闭
-STR_HOUSE_PICKER_PROTECT_ON                                     :开启
+
+STR_HOUSE_PICKER_REPLACE                                        :替换现有建筑
+STR_HOUSE_PICKER_REPLACE_TOOLTIP                                :选择是否自动移除选中格子上已经存在的房屋
 
 STR_STATION_CLASS_DFLT                                          :默认
 STR_STATION_CLASS_DFLT_STATION                                  :默认车站
@@ -3156,7 +3158,7 @@ STR_LAND_AREA_INFORMATION_AIRPORT_CLASS                         :{BLACK}机场�
 STR_LAND_AREA_INFORMATION_AIRPORT_NAME                          :{BLACK}机场名称：{LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_AIRPORTTILE_NAME                      :{BLACK}机场区域名称：{LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_NEWGRF_NAME                           :{BLACK}NewGRF：{LTBLUE}{STRING}
-STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}接受货物：{LTBLUE}
+STR_LAND_AREA_INFORMATION_CARGO_ACCEPTED                        :{BLACK}接受货物：{LTBLUE}{STRING}
 STR_LAND_AREA_INFORMATION_CARGO_EIGHTS                          :({COMMA}/8 {STRING})
 STR_LANG_AREA_INFORMATION_RAIL_TYPE                             :{BLACK}铁轨类型：{LTBLUE}{STRING}
 STR_LANG_AREA_INFORMATION_ROAD_TYPE                             :{BLACK}道路类型：{LTBLUE}{STRING}
@@ -3619,7 +3621,7 @@ STR_NEWGRF_ERROR_INVALID_PARAMETER                              :{1:STRING} 具�
 STR_NEWGRF_ERROR_LOAD_BEFORE                                    :{1:STRING} 必须在 {2:STRING} 之前加载
 STR_NEWGRF_ERROR_LOAD_AFTER                                     :{1:STRING} 必须在 {2:STRING} 后加载
 STR_NEWGRF_ERROR_OTTD_VERSION_NUMBER                            :{1:STRING} 需要 OpenTTD {2:STRING} 或更高版本
-STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :GRF 文件翻译后出现错误
+STR_NEWGRF_ERROR_AFTER_TRANSLATED_FILE                          :NewGRF 文件翻译后出现错误
 STR_NEWGRF_ERROR_TOO_MANY_NEWGRFS_LOADED                        :加载的 NewGRF 太多
 STR_NEWGRF_ERROR_STATIC_GRF_CAUSES_DESYNC                       :载入 {1:STRING} 为静态 NewGRF 时载入 {2:STRING} 可能造成同步错误
 STR_NEWGRF_ERROR_UNEXPECTED_SPRITE                              :未预期的 sprite（sprite {3:NUM}）
@@ -3628,7 +3630,7 @@ STR_NEWGRF_ERROR_INVALID_ID                                     :尝试使用非
 STR_NEWGRF_ERROR_CORRUPT_SPRITE                                 :{YELLOW}{STRING} 含有损坏的图形元素{}所有损坏的图形元素{}将显示为红色的问号（？）
 STR_NEWGRF_ERROR_MULTIPLE_ACTION_8                              :具有多个 Action 8（sprite {3:NUM}）
 STR_NEWGRF_ERROR_READ_BOUNDS                                    :读取 pseudo-sprite 时越界（sprite {3:NUM}）
-STR_NEWGRF_ERROR_GRM_FAILED                                     :请求的 GRF 资源不可用（sprite {3:NUM}）
+STR_NEWGRF_ERROR_GRM_FAILED                                     :请求的 NewGRF 资源不可用（sprite {3:NUM}）
 STR_NEWGRF_ERROR_FORCEFULLY_DISABLED                            :{1:STRING} 被 {STRING} 禁用
 STR_NEWGRF_ERROR_INVALID_SPRITE_LAYOUT                          :错误或未知的 sprite layout 格式（sprite {3:NUM}）
 STR_NEWGRF_ERROR_LIST_PROPERTY_TOO_LONG                         :属性数值列表中元素过多（sprite {3:NUM}，属性 {4:HEX}）
@@ -3638,13 +3640,13 @@ STR_NEWGRF_ERROR_INDPROD_CALLBACK                               :无效的生产
 STR_NEWGRF_POPUP_CAUTION_CAPTION                                :{WHITE}注意！
 STR_NEWGRF_CONFIRMATION_TEXT                                    :{YELLOW}此操作将改变一个进行中的游戏，可能导致游戏崩溃或破坏游戏资料。修改后遇到错误时请不要向开发者报告。{}真的确定继续吗？
 
-STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}不能添加文件：重复的 GRF ID
-STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}未找到匹配的文件（已载入兼容的 GRF）
+STR_NEWGRF_DUPLICATE_GRFID                                      :{WHITE}不能添加文件：重复的 NewGRF ID
+STR_NEWGRF_COMPATIBLE_LOADED                                    :{ORANGE}未找到匹配的文件（已载入兼容的 NewGRF）
 STR_NEWGRF_TOO_MANY_NEWGRFS                                     :{WHITE}加入的 NewGRF 文件达到上限，不能再新增
 
-STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}已为缺失的文件载入兼容的 GRF
-STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}已禁用缺失的 GRF 文件
-STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}无法找到 GRF 文件
+STR_NEWGRF_COMPATIBLE_LOAD_WARNING                              :{WHITE}已为缺失的文件载入兼容的 NewGRF
+STR_NEWGRF_DISABLED_WARNING                                     :{WHITE}已禁用缺失的 NewGRF 文件
+STR_NEWGRF_UNPAUSE_WARNING_TITLE                                :{YELLOW}无法找到 NewGRF 文件
 STR_NEWGRF_UNPAUSE_WARNING                                      :{WHITE}取消暂停可能造成 OpenTTD 游戏错误，请不要将向开发人员报告接下来可能出现的错误情形。{}真的确定取消暂停吗？
 
 # NewGRF status
@@ -3655,17 +3657,17 @@ STR_NEWGRF_LIST_COMPATIBLE                                      :{YELLOW}找到�
 STR_NEWGRF_LIST_MISSING                                         :{RED}缺失文件
 
 # NewGRF 'it's broken' warnings
-STR_NEWGRF_BROKEN                                               :{WHITE}NewGRF“{PUSH_COLOUR}{0:STRING}{POP_COLOUR}”的行为可能造成同步错误或崩溃
-STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}它于“{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}”不在车库内时改变了动力车厢状态
-STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}它于“{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}”不在车库内时改変了列车长度
-STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}它于“{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}”不在车库内或不在改装时改変了容量
+STR_NEWGRF_BROKEN                                               :{WHITE}NewGRF“{0:STRING}”的行为可能造成同步错误或崩溃
+STR_NEWGRF_BROKEN_POWERED_WAGON                                 :{WHITE}它于“{1:ENGINE}”不在车库内时改变了动力车厢状态
+STR_NEWGRF_BROKEN_VEHICLE_LENGTH                                :{WHITE}它于“{1:ENGINE}”不在车库内时改変了列车长度
+STR_NEWGRF_BROKEN_CAPACITY                                      :{WHITE}它于“{1:ENGINE}”不在车库内或不在改装时改変了容量
 STR_BROKEN_VEHICLE_LENGTH                                       :{WHITE}{1:COMPANY} 所拥有的列车 {0:VEHICLE} 长度无效。这个错误可能是由 NewGRF 导致的。游戏可能会无法同步或崩溃
 
-STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF“{PUSH_COLOUR}{STRING}{POP_COLOUR}”提供了错误的信息
-STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}购买列表中“{PUSH_COLOUR}{1:ENGINE}{POP_COLOUR}”的货物/改装信息与购买后的信息不同。这可能会导致自动更新或自动替换时无法正确改装此载具
-STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}“{PUSH_COLOUR}{1:STRING}{POP_COLOUR}”在生产回调函数中产生了一个死循环
+STR_NEWGRF_BUGGY                                                :{WHITE}NewGRF“{STRING}”提供了错误的信息
+STR_NEWGRF_BUGGY_ARTICULATED_CARGO                              :{WHITE}购买列表中“{1:ENGINE}”的货物/改装信息与购买后的信息不同。这可能会导致自动更新或自动替换时无法正确改装此载具
+STR_NEWGRF_BUGGY_ENDLESS_PRODUCTION_CALLBACK                    :{WHITE}“{1:STRING}”在生产回调函数中产生了一个死循环
 STR_NEWGRF_BUGGY_UNKNOWN_CALLBACK_RESULT                        :{WHITE}回调函数 {1:HEX} 返回了一个未知/错误的结果：{2:HEX}
-STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}“{PUSH_COLOUR}{1:STRING}{POP_COLOUR}”返回了错误的货物类型。位于生产回调函数 {2:HEX} 处
+STR_NEWGRF_BUGGY_INVALID_CARGO_PRODUCTION_CALLBACK              :{WHITE}“{1:STRING}”返回了错误的货物类型。位于生产回调函数 {2:HEX} 处
 
 # 'User removed essential NewGRFs'-placeholders for stuff without specs
 STR_NEWGRF_INVALID_CARGO                                        :<无效货物>
@@ -4039,12 +4041,12 @@ STR_COMPANY_INFRASTRUCTURE_VIEW_TOTAL_PERIOD                    :{WHITE}{CURRENC
 # Industry directory
 STR_INDUSTRY_DIRECTORY_CAPTION                                  :{WHITE}工业（{COMMA} 座，共 {COMMA} 座）
 STR_INDUSTRY_DIRECTORY_NONE                                     :{ORANGE}- 没有 -
-STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW}（已运输 {COMMA}%）{BLACK}
+STR_INDUSTRY_DIRECTORY_ITEM_INFO                                :{BLACK}{CARGO_LONG}{STRING}{YELLOW}（已运输 {COMMA}%）
 STR_INDUSTRY_DIRECTORY_ITEM_NOPROD                              :{ORANGE}{INDUSTRY}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {STRING}、{STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {STRING}、{STRING}、{STRING}
-STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {STRING}、{STRING}、{STRING}……（尚有 {NUM} 个未显示）
+STR_INDUSTRY_DIRECTORY_ITEM_PROD1                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD2                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}、{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PROD3                               :{ORANGE}{INDUSTRY} {BLACK}{STRING}、{STRING}、{STRING}
+STR_INDUSTRY_DIRECTORY_ITEM_PRODMORE                            :{ORANGE}{INDUSTRY} {BLACK}{STRING}、{STRING}、{STRING}……（尚有 {NUM} 个未显示）
 STR_INDUSTRY_DIRECTORY_LIST_TOOLTIP                             :{BLACK}工业名称 - 点选名称以将屏幕中心移动到当前工业的位置。按住 <Ctrl> 键点选会在新视点中显示工业位置
 STR_INDUSTRY_DIRECTORY_ACCEPTED_CARGO_FILTER                    :{BLACK}接受货物：{SILVER}{STRING}
 STR_INDUSTRY_DIRECTORY_PRODUCED_CARGO_FILTER                    :{BLACK}产出货物：{SILVER}{STRING}
@@ -4062,9 +4064,9 @@ STR_INDUSTRY_VIEW_CARGO_GRAPH_TOOLTIP                           :{BLACK}显示�
 STR_INDUSTRY_VIEW_PRODUCTION_LEVEL                              :{BLACK}生产等级：{YELLOW}{COMMA}%
 STR_INDUSTRY_VIEW_INDUSTRY_ANNOUNCED_CLOSURE                    :{YELLOW}此工业已经宣布即刻停业倒闭！
 
-STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}需要：{YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}产出：{YELLOW}{STRING}{STRING}
-STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :，{STRING}{STRING}
+STR_INDUSTRY_VIEW_REQUIRES_N_CARGO                              :{BLACK}需要：{YELLOW}{STRING}
+STR_INDUSTRY_VIEW_PRODUCES_N_CARGO                              :{BLACK}产出：{YELLOW}{STRING}
+STR_INDUSTRY_VIEW_CARGO_LIST_EXTENSION                          :{STRING}{STRING}
 
 STR_INDUSTRY_VIEW_REQUIRES                                      :{BLACK}需要：
 STR_INDUSTRY_VIEW_ACCEPT_CARGO_SUFFIX                           :{YELLOW}{0:STRING}{BLACK}{3:STRING}
@@ -4356,7 +4358,7 @@ STR_DEPOT_DRAG_WHOLE_TRAIN_TO_SELL_TOOLTIP                      :{BLACK}将车�
 STR_DEPOT_SELL_CONFIRMATION_TEXT                                :{YELLOW}将出售车库中的所有载具。是否确定？
 
 # Engine preview window
-STR_ENGINE_PREVIEW_CAPTION                                      :{WHITE}来自供货商的消息
+STR_ENGINE_PREVIEW_CAPTION                                      :{WHITE}来自载具厂家的消息
 STR_ENGINE_PREVIEW_MESSAGE                                      :{GOLD}我们新近设计了一款{STRING}{}您愿意在产品正式上市前独家试用一年，以便我们在正式上市前观察它的表现吗？
 
 STR_ENGINE_PREVIEW_RAILROAD_LOCOMOTIVE                          :铁路机车
@@ -4590,7 +4592,7 @@ STR_VEHICLE_DETAILS_TRAIN_CAPACITIES_TOOLTIP                    :{BLACK}显示�
 STR_VEHICLE_DETAIL_TAB_TOTAL_CARGO                              :{BLACK}全部货物
 STR_VEHICLE_DETAILS_TRAIN_TOTAL_CARGO_TOOLTIP                   :{BLACK}显示列车的总容量，依货物分类
 
-STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}容量：{LTBLUE}
+STR_VEHICLE_DETAILS_TRAIN_ARTICULATED_RV_CAPACITY               :{BLACK}容量：{LTBLUE}{STRING}
 
 # Vehicle refit
 STR_REFIT_CAPTION                                               :{WHITE}{VEHICLE}（改装）

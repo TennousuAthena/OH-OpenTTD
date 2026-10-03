@@ -29,6 +29,9 @@ static const std::string CHANGELOG_FILENAME = "changelog.md";
 static const std::string KNOWN_BUGS_FILENAME = "known-bugs.md";
 static const std::string LICENSE_FILENAME = "COPYING.md";
 static const std::string FONTS_FILENAME = "fonts.md";
+#ifdef HARMONYOS
+static const std::string HARMONYOS_PORT_STATEMENT_FILENAME = "harmonyos/port-statement.md";
+#endif
 
 static const std::string WEBSITE_LINK = "https://www.openttd.org/";
 static const std::string WIKI_LINK = "https://wiki.openttd.org/";
@@ -97,6 +100,16 @@ struct GameManualTextfileWindow : public TextfileWindow {
 		this->TextfileWindow::AfterLoadText();
 	}
 
+#ifdef HARMONYOS
+	FontSize ContentFontSize() const override
+	{
+		/* HarmonyOS's CJK system fonts are proportional. The port documents
+		 * need their glyph coverage rather than a fixed-width Latin font. */
+		if (this->filepath.find(PATHSEP "docs" PATHSEP "harmonyos" PATHSEP) != std::string::npos) return FS_NORMAL;
+		return this->TextfileWindow::ContentFontSize();
+	}
+#endif
+
 	/**
 	 * For changelog files, truncate the file after CHANGELOG_VERSIONS_LIMIT versions.
 	 *
@@ -133,6 +146,9 @@ struct HelpWindow : public Window {
 		this->EnableTextfileButton(KNOWN_BUGS_FILENAME, BASE_DIR, WID_HW_KNOWN_BUGS);
 		this->EnableTextfileButton(LICENSE_FILENAME, BASE_DIR, WID_HW_LICENSE);
 		this->EnableTextfileButton(FONTS_FILENAME, DOCS_DIR, WID_HW_FONTS);
+#ifdef HARMONYOS
+		this->EnableTextfileButton(HARMONYOS_PORT_STATEMENT_FILENAME, DOCS_DIR, WID_HW_HARMONYOS_PORT_STATEMENT);
+#endif
 	}
 
 	void OnClick([[maybe_unused]] Point pt, WidgetID widget, [[maybe_unused]] int click_count) override
@@ -153,6 +169,11 @@ struct HelpWindow : public Window {
 			case WID_HW_FONTS:
 				new GameManualTextfileWindow(FONTS_FILENAME, DOCS_DIR);
 				break;
+#ifdef HARMONYOS
+			case WID_HW_HARMONYOS_PORT_STATEMENT:
+				new GameManualTextfileWindow(HARMONYOS_PORT_STATEMENT_FILENAME, DOCS_DIR);
+				break;
+#endif
 			case WID_HW_WEBSITE:
 				OpenBrowser(WEBSITE_LINK);
 				break;
@@ -196,6 +217,9 @@ static constexpr std::initializer_list<NWidgetPart> _nested_helpwin_widgets = {
 				NWidget(WWT_PUSHTXTBTN, COLOUR_GREEN, WID_HW_KNOWN_BUGS),SetStringTip(STR_HELP_WINDOW_KNOWN_BUGS), SetMinimalSize(128, 12), SetFill(1, 0),
 				NWidget(WWT_PUSHTXTBTN, COLOUR_GREEN, WID_HW_LICENSE), SetStringTip(STR_HELP_WINDOW_LICENSE), SetMinimalSize(128, 12), SetFill(1, 0),
 				NWidget(WWT_PUSHTXTBTN, COLOUR_GREEN, WID_HW_FONTS), SetStringTip(STR_HELP_WINDOW_FONTS), SetMinimalSize(128, 12), SetFill(1, 0),
+#ifdef HARMONYOS
+				NWidget(WWT_PUSHTXTBTN, COLOUR_GREEN, WID_HW_HARMONYOS_PORT_STATEMENT), SetStringTip(STR_HELP_WINDOW_HARMONYOS_PORT_STATEMENT), SetMinimalSize(128, 12), SetFill(1, 0),
+#endif
 			EndContainer(),
 		EndContainer(),
 	EndContainer(),
